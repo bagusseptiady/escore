@@ -14,6 +14,15 @@ class Page extends CI_Controller{
   function index(){
       if($this->session->userdata('Level')==='Guru'){
           $data['title'] = 'E - Score | Dashboard Guru';
+          $data['nkss'] = $this->data_model->nksg();
+          $data['nkss2'] = $this->data_model->nksg2();
+          $data['nkss3'] = $this->data_model->nksg3();
+          $data['nkss4'] = $this->data_model->nksg4();
+          $data['nkss5'] = $this->data_model->nksg5();
+          $data['nkss6'] = $this->data_model->nksg6();
+          $data['nkss7'] = $this->data_model->nksg7();
+          $data['nkss8'] = $this->data_model->nksg8();
+          $data['nkss9'] = $this->data_model->nksg9();
           $data['nkss'] = $this->data_model->nkss();
           $data['nkss2'] = $this->data_model->nkss2();
           $data['nkss3'] = $this->data_model->nkss3();
@@ -41,7 +50,15 @@ class Page extends CI_Controller{
       }
       else if($this->session->userdata('Level')==='Adminguru'){
         $data['title'] = 'E - Score | Dashboard Guru';
-
+        $data['nkss'] = $this->data_model->nksg();
+        $data['nkss2'] = $this->data_model->nksg2();
+        $data['nkss3'] = $this->data_model->nksg3();
+        $data['nkss4'] = $this->data_model->nksg4();
+        $data['nkss5'] = $this->data_model->nksg5();
+        $data['nkss6'] = $this->data_model->nksg6();
+        $data['nkss7'] = $this->data_model->nksg7();
+        $data['nkss8'] = $this->data_model->nksg8();
+        $data['nkss9'] = $this->data_model->nksg9();
         $data['nkss'] = $this->data_model->nkss();
         $data['nkss2'] = $this->data_model->nkss2();
         $data['nkss3'] = $this->data_model->nkss3();

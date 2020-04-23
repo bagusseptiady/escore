@@ -189,15 +189,122 @@
       <!-- /.row -->
       <!-- Main row -->
       <div class="row">
-        <section class="col-lg-5 connectedSortable">
-
-          
-          <!-- /.card -->
-
-          <!-- Calendar -->
-  
-          <!-- /.card -->
-        </section>
+      <div class="col-6">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title"></h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-head-fixed text-nowrap">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <div class="col-6">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Nilai Belum Diisi</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-head-fixed text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>Semester</th>
+                      <th>Matpel</th>
+                      <th>Ket</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <?php foreach($nksg as $data){ ?>
+                    <tr>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>NH1</td>
+                    </tr>
+                    <?php }?>
+                    <?php foreach($nksg2 as $data){ ?>
+                    <tr>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>NH2</td>
+                    </tr>
+                    <?php }?>
+                    <?php foreach($nksg3 as $data){ ?>
+                    <tr>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>NH3</td>
+                    </tr>
+                    <?php }?>
+                    <?php foreach($nksg4 as $data){ ?>
+                    <tr>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>NH4</td>
+                    </tr>
+                    <?php }?>
+                    <?php foreach($nksg5 as $data){ ?>
+                    <tr>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>NH5</td>
+                    </tr>
+                    <?php }?>
+                    <?php foreach($nksg6 as $data){ ?>
+                    <tr>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>PTS</td>
+                    </tr>
+                    <?php }?>
+                    <?php foreach($nksg7 as $data){ ?>
+                    <tr>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>PAS</td>
+                    </tr>
+                    <?php }?>
+                    <?php foreach($nksg8 as $data){ ?>
+                    <tr>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>Nilai Pengetahuan</td>
+                    </tr>
+                    <?php }?>
+                    <?php foreach($nksg9 as $data){ ?>
+                    <tr>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>Nilai Keterampilan</td>
+                    </tr>
+                    <?php }?>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
         <!-- right col -->
       </div>
       <!-- /.row (main row) -->
