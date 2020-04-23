@@ -172,9 +172,11 @@ class Dash_model extends CI_Model{
     }
     public function nksg()
     {   
-        $this->db->select('NH1');
+        $this->db->select('*');
         $this->db->from('nilaiharian');
         $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= user_id','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
         $this->db->where('NH1','0');
         $this->db->order_by('Semester','ASC');
         $this->db->order_by('Matpel','ASC');
@@ -183,9 +185,11 @@ class Dash_model extends CI_Model{
     }
     public function nksg2()
     {   
-        $this->db->select('NH2');
+        $this->db->select('*');
         $this->db->from('nilaiharian');
         $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= user_id','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
         $this->db->where('NH2','0');
         $this->db->order_by('Semester','ASC');
         $this->db->order_by('Matpel','ASC');
@@ -194,9 +198,11 @@ class Dash_model extends CI_Model{
     }
     public function nksg3()
     {   
-        $this->db->select('NH3');
+        $this->db->select('*');
         $this->db->from('nilaiharian');
         $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= user_id','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
         $this->db->where('NH3','0');
         $this->db->order_by('Semester','ASC');
         $this->db->order_by('Matpel','ASC');
@@ -205,9 +211,11 @@ class Dash_model extends CI_Model{
     }
     public function nksg4()
     {   
-        $this->db->select('NH4');
+        $this->db->select('*');
         $this->db->from('nilaiharian');
         $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= user_id','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
         $this->db->where('NH4','0');
         $this->db->order_by('Semester','ASC');
         $this->db->order_by('Matpel','ASC');
@@ -216,9 +224,11 @@ class Dash_model extends CI_Model{
     }
     public function nksg5()
     {   
-        $this->db->select('NH5');
+        $this->db->select('*');
         $this->db->from('nilaiharian');
         $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= user_id','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
         $this->db->where('NH5','0');
         $this->db->order_by('Semester','ASC');
         $this->db->order_by('Matpel','ASC');
@@ -227,42 +237,54 @@ class Dash_model extends CI_Model{
     }
     public function nksg6()
     {   
-        $this->db->select('PTS');
+        $this->db->select('*');
         $this->db->from('nilairaport');
         $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= uid','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
         $this->db->where('PTS','0');
         $this->db->order_by('Semester','ASC');
         $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
         return $query;
     }
     public function nksg7()
     {   
-        $this->db->select('PAS');
+        $this->db->select('*');
         $this->db->from('nilairaport');
         $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= uid','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
         $this->db->where('PAS','0');
         $this->db->order_by('Semester','ASC');
         $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
         return $query;
     }
     public function nksg8()
     {   
-        $this->db->select('NP');
+        $this->db->select('*');
         $this->db->from('nilairaport');
         $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= uid','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
         $this->db->where('NP','0');
         $this->db->order_by('Semester','ASC');
         $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
         return $query;
     }
     public function nksg9()
     {   
-        $this->db->select('NK');
+        $this->db->select('*');
         $this->db->from('nilairaport');
         $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= uid','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
         $this->db->where('NK','0');
         $this->db->order_by('Semester','ASC');
         $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
         return $query;
     }
 }

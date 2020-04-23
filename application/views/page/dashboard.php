@@ -229,6 +229,8 @@
                 <table class="table table-head-fixed text-nowrap">
                   <thead>
                     <tr>
+                      <th>Nama Siswa</th>
+                      <th>Kelas</th>
                       <th>Semester</th>
                       <th>Matpel</th>
                       <th>Ket</th>
@@ -237,6 +239,8 @@
                   <tbody>
                   <?php foreach($nksg as $data){ ?>
                     <tr>
+                      <td><?= $data->Nama?></td>
+                      <td><?= $data->Nama_Kelas?></td>
                       <td><?= $data->Semester?></td>
                       <td><?= $data->Nama_Matpel?></td>
                       <td>NH1</td>
@@ -244,6 +248,8 @@
                     <?php }?>
                     <?php foreach($nksg2 as $data){ ?>
                     <tr>
+                    <td><?= $data->Nama?></td>
+                    <td><?= $data->Nama_Kelas?></td>
                       <td><?= $data->Semester?></td>
                       <td><?= $data->Nama_Matpel?></td>
                       <td>NH2</td>
@@ -251,6 +257,8 @@
                     <?php }?>
                     <?php foreach($nksg3 as $data){ ?>
                     <tr>
+                    <td><?= $data->Nama?></td>
+                    <td><?= $data->Nama_Kelas?></td>
                       <td><?= $data->Semester?></td>
                       <td><?= $data->Nama_Matpel?></td>
                       <td>NH3</td>
@@ -258,6 +266,8 @@
                     <?php }?>
                     <?php foreach($nksg4 as $data){ ?>
                     <tr>
+                    <td><?= $data->Nama?></td>
+                    <td><?= $data->Nama_Kelas?></td>
                       <td><?= $data->Semester?></td>
                       <td><?= $data->Nama_Matpel?></td>
                       <td>NH4</td>
@@ -265,6 +275,8 @@
                     <?php }?>
                     <?php foreach($nksg5 as $data){ ?>
                     <tr>
+                    <td><?= $data->Nama?></td>
+                    <td><?= $data->Nama_Kelas?></td>
                       <td><?= $data->Semester?></td>
                       <td><?= $data->Nama_Matpel?></td>
                       <td>NH5</td>
@@ -272,6 +284,8 @@
                     <?php }?>
                     <?php foreach($nksg6 as $data){ ?>
                     <tr>
+                    <td><?= $data->Nama?></td>
+                    <td><?= $data->Nama_Kelas?></td>
                       <td><?= $data->Semester?></td>
                       <td><?= $data->Nama_Matpel?></td>
                       <td>PTS</td>
@@ -279,6 +293,8 @@
                     <?php }?>
                     <?php foreach($nksg7 as $data){ ?>
                     <tr>
+                    <td><?= $data->Nama?></td>
+                    <td><?= $data->Nama_Kelas?></td>
                       <td><?= $data->Semester?></td>
                       <td><?= $data->Nama_Matpel?></td>
                       <td>PAS</td>
@@ -286,6 +302,8 @@
                     <?php }?>
                     <?php foreach($nksg8 as $data){ ?>
                     <tr>
+                    <td><?= $data->Nama?></td>
+                    <td><?= $data->Nama_Kelas?></td>
                       <td><?= $data->Semester?></td>
                       <td><?= $data->Nama_Matpel?></td>
                       <td>Nilai Pengetahuan</td>
@@ -293,6 +311,8 @@
                     <?php }?>
                     <?php foreach($nksg9 as $data){ ?>
                     <tr>
+                    <td><?= $data->Nama?></td>
+                    <td><?= $data->Nama_Kelas?></td>
                       <td><?= $data->Semester?></td>
                       <td><?= $data->Nama_Matpel?></td>
                       <td>Nilai Keterampilan</td>

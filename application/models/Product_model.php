@@ -67,7 +67,7 @@ class Product_model extends CI_Model{
             'Password' => $password,
             'Alamat' => $alamat,
             'Sekolah' => $sekolah,
-            'Matpel' => $matpel,
+            'Matpelguru' => $matpel,
             'Kelas2' => $kelas,
             'Foto' => $foto,
             'Level' => 'Guru'
@@ -83,10 +83,10 @@ class Product_model extends CI_Model{
         $this->db->query("UPDATE user SET Nama='$name',Notlp='$notlp',Email='$email', Username='$username', Password='$password' ,Alamat='$alamat',Sekolah='$sekolah',Jurusan='$jurusan',Kelas='$kelas' WHERE id_user='$id'");
     }
     function update3($id,$name,$notlp,$email,$username,$password,$alamat,$matpel,$kelas,$foto,$sekolah){
-        $this->db->query("UPDATE user SET Nama='$name',Notlp='$notlp',Email='$email', Username='$username', Password='$password' ,Alamat='$alamat',Foto='$foto',Sekolah='$sekolah',Matpel='$matpel',Kelas2='$kelas' WHERE id_user='$id'");
+        $this->db->query("UPDATE user SET Nama='$name',Notlp='$notlp',Email='$email', Username='$username', Password='$password' ,Alamat='$alamat',Foto='$foto',Sekolah='$sekolah',Matpelguru='$matpel',Kelas2='$kelas' WHERE id_user='$id'");
     }
     function update4($id,$name,$notlp,$email,$username,$password,$alamat,$matpel,$kelas,$sekolah){
-        $this->db->query("UPDATE user SET Nama='$name',Notlp='$notlp',Email='$email', Username='$username', Password='$password' ,Alamat='$alamat',Sekolah='$sekolah',Matpel='$matpel',Kelas2='$kelas' WHERE id_user='$id'");
+        $this->db->query("UPDATE user SET Nama='$name',Notlp='$notlp',Email='$email', Username='$username', Password='$password' ,Alamat='$alamat',Sekolah='$sekolah',Matpelguru='$matpel',Kelas2='$kelas' WHERE id_user='$id'");
     }
     function nilaih(){
         $this->db->select('*');

@@ -14,15 +14,15 @@ class Page extends CI_Controller{
   function index(){
       if($this->session->userdata('Level')==='Guru'){
           $data['title'] = 'E - Score | Dashboard Guru';
-          $data['nkss'] = $this->data_model->nksg();
-          $data['nkss2'] = $this->data_model->nksg2();
-          $data['nkss3'] = $this->data_model->nksg3();
-          $data['nkss4'] = $this->data_model->nksg4();
-          $data['nkss5'] = $this->data_model->nksg5();
-          $data['nkss6'] = $this->data_model->nksg6();
-          $data['nkss7'] = $this->data_model->nksg7();
-          $data['nkss8'] = $this->data_model->nksg8();
-          $data['nkss9'] = $this->data_model->nksg9();
+          $data['nksg'] = $this->dash_model->nksg()->result();
+          $data['nksg2'] = $this->dash_model->nksg2()->result();
+          $data['nksg3'] = $this->dash_model->nksg3()->result();
+          $data['nksg4'] = $this->dash_model->nksg4()->result();
+          $data['nksg5'] = $this->dash_model->nksg5()->result();
+          $data['nksg6'] = $this->dash_model->nksg6()->result();
+          $data['nksg7'] = $this->dash_model->nksg7()->result();
+          $data['nksg8'] = $this->dash_model->nksg8()->result();
+          $data['nksg9'] = $this->dash_model->nksg9()->result();
           $data['nkss'] = $this->data_model->nkss();
           $data['nkss2'] = $this->data_model->nkss2();
           $data['nkss3'] = $this->data_model->nkss3();
@@ -50,15 +50,15 @@ class Page extends CI_Controller{
       }
       else if($this->session->userdata('Level')==='Adminguru'){
         $data['title'] = 'E - Score | Dashboard Guru';
-        $data['nkss'] = $this->data_model->nksg();
-        $data['nkss2'] = $this->data_model->nksg2();
-        $data['nkss3'] = $this->data_model->nksg3();
-        $data['nkss4'] = $this->data_model->nksg4();
-        $data['nkss5'] = $this->data_model->nksg5();
-        $data['nkss6'] = $this->data_model->nksg6();
-        $data['nkss7'] = $this->data_model->nksg7();
-        $data['nkss8'] = $this->data_model->nksg8();
-        $data['nkss9'] = $this->data_model->nksg9();
+        $data['nksg'] = $this->dash_model->nksg()->result();
+        $data['nksg2'] = $this->dash_model->nksg2()->result();
+        $data['nksg3'] = $this->dash_model->nksg3()->result();
+        $data['nksg4'] = $this->dash_model->nksg4()->result();
+        $data['nksg5'] = $this->dash_model->nksg5()->result();
+        $data['nksg6'] = $this->dash_model->nksg6()->result();
+        $data['nksg7'] = $this->dash_model->nksg7()->result();
+        $data['nksg8'] = $this->dash_model->nksg8()->result();
+        $data['nksg9'] = $this->dash_model->nksg9()->result();
         $data['nkss'] = $this->data_model->nkss();
         $data['nkss2'] = $this->data_model->nkss2();
         $data['nkss3'] = $this->data_model->nkss3();
@@ -144,6 +144,20 @@ class Page extends CI_Controller{
     else if($this->session->userdata('Level')==='Adminsiswa'){
       $data['title'] = 'E - Score | Dashboard Siswa';
       $data['detail'] = $this->product_model->get()->result();
+      $data['nsmp'] = $this->dash_model->nsmp()->result();
+      $data['nsmp2'] = $this->dash_model->nsmp2()->result();
+      $data['nsmp3'] = $this->dash_model->nsmp3()->result();
+      $data['nsmp4'] = $this->dash_model->nsmp4()->result();
+      $data['nsmp5'] = $this->dash_model->nsmp5()->result();
+      $data['nsmp6'] = $this->dash_model->nsmp6()->result();
+      $data['nsmp7'] = $this->dash_model->nsmp7()->result();
+      $data['ndbk'] = $this->dash_model->ndbk()->result();
+      $data['ndbk2'] = $this->dash_model->ndbk2()->result();
+      $data['ndbk3'] = $this->dash_model->ndbk3()->result();
+      $data['ndbk4'] = $this->dash_model->ndbk4()->result();
+      $data['ndbk5'] = $this->dash_model->ndbk5()->result();
+      $data['ndbk6'] = $this->dash_model->ndbk6()->result();
+      $data['ndbk7'] = $this->dash_model->ndbk7()->result();
       $data['nsr'] = $this->data_model->nsr();
       $data['nsr2'] = $this->data_model->nsr2();
       $data['nsr3'] = $this->data_model->nsr3();

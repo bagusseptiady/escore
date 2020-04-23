@@ -143,7 +143,7 @@
                 <ul class="list-group list-group-unbordered mb-3">
                 <?php foreach($detail as $data){?>
                   <li class="list-group-item">
-                    <b>Mata Pelajaran</b> <a class="float-right"><?= $data->Matpel;?></a>
+                    <b>Mata Pelajaran</b> <a class="float-right"><?= $data->Matpelguru;?></a>
                   </li>
                   <li class="list-group-item">
                     <b>Kelas</b> <a class="float-right"><?= $data->Kelas2;?></a>
@@ -261,7 +261,7 @@
                       <div class="form-group row">
                         <label for="inputMatpel" class="col-sm-2 col-form-label">Mata Pelajaran</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputMatpel" name="matpel" placeholder="Mata Pelajaran" value="<?= $data->Matpel;?>"autocomplete="off">
+                          <input type="text" class="form-control" id="inputMatpel" name="matpel" placeholder="Mata Pelajaran" value="<?= $data->Matpelguru;?>"autocomplete="off">
                         </div>
                       </div>
                       <div class="form-group row">
