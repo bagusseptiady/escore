@@ -287,4 +287,121 @@ class Dash_model extends CI_Model{
         $query = $this->db->get();
         return $query;
     }
+    public function nspm()
+    {   
+        $this->db->select('*');
+        $this->db->from('nilaiharian');
+        $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= user_id','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
+        $this->db->where('NH1','100');
+        $this->db->order_by('Semester','ASC');
+        $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
+        return $query;
+    }
+    public function nspm2()
+    {   
+        $this->db->select('*');
+        $this->db->from('nilaiharian');
+        $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= user_id','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
+        $this->db->where('NH2','100');
+        $this->db->order_by('Semester','ASC');
+        $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
+        return $query;
+    }
+    public function nspm3()
+    {   
+        $this->db->select('*');
+        $this->db->from('nilaiharian');
+        $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= user_id','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
+        $this->db->where('NH3','100');
+        $this->db->order_by('Semester','ASC');
+        $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
+        return $query;
+    }
+    public function nspm4()
+    {   
+        $this->db->select('*');
+        $this->db->from('nilaiharian');
+        $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= user_id','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
+        $this->db->where('NH4','100');
+        $this->db->order_by('Semester','ASC');
+        $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
+        return $query;
+    }
+    public function nspm5()
+    {   
+        $this->db->select('*');
+        $this->db->from('nilaiharian');
+        $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= user_id','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
+        $this->db->where('NH5','100');
+        $this->db->order_by('Semester','ASC');
+        $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
+        return $query;
+    }
+    public function nspm6()
+    {   
+        $this->db->select('*');
+        $this->db->from('nilairaport');
+        $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= uid','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
+        $this->db->where('PTS','100');
+        $this->db->order_by('Semester','ASC');
+        $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
+        return $query;
+    }
+    public function nspm7()
+    {   
+        $this->db->select('*');
+        $this->db->from('nilairaport');
+        $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= uid','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
+        $this->db->where('PAS','100');
+        $this->db->order_by('Semester','ASC');
+        $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
+        return $query;
+    }
+    public function nspm8()
+    {   
+        $this->db->select('*');
+        $this->db->from('nilairaport');
+        $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= uid','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
+        $this->db->where('NP','100');
+        $this->db->order_by('Semester','ASC');
+        $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
+        return $query;
+    }
+    public function nspm9()
+    {   
+        $this->db->select('*');
+        $this->db->from('nilairaport');
+        $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->join('user','id_user= uid','left');
+        $this->db->join('subsekolah','id_sub= Kelas','left');
+        $this->db->where('NK','100');
+        $this->db->order_by('Semester','ASC');
+        $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
+        return $query;
+    }
 }

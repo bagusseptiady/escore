@@ -192,26 +192,102 @@
       <div class="col-6">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title"></h3>
+                <h3 class="card-title">Siswa Dengan Nilai Sempurna</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0" style="height: 300px;">
                 <table class="table table-head-fixed text-nowrap">
                   <thead>
                     <tr>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
+                      <th>Nama Siswa</th>
+                      <th>Kelas</th>
+                      <th>Semester</th>
+                      <th>Matpel</th>
+                      <th>Ket</th>
                     </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                  <?php foreach($nspm as $data){ ?>
+                    <tr>
+                      <td><?= $data->Nama?></td>
+                      <td><?= $data->Nama_Kelas?></td>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>NH1</td>
                     </tr>
+                    <?php }?>
+                    <?php foreach($nspm2 as $data){ ?>
+                    <tr>
+                      <td><?= $data->Nama?></td>
+                      <td><?= $data->Nama_Kelas?></td>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>NH2</td>
+                    </tr>
+                    <?php }?>
+                    <?php foreach($nspm3 as $data){ ?>
+                    <tr>
+                      <td><?= $data->Nama?></td>
+                      <td><?= $data->Nama_Kelas?></td>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>NH3</td>
+                    </tr>
+                    <?php }?>
+                    <?php foreach($nspm4 as $data){ ?>
+                    <tr>
+                      <td><?= $data->Nama?></td>
+                      <td><?= $data->Nama_Kelas?></td>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>NH4</td>
+                    </tr>
+                    <?php }?>
+                    <?php foreach($nspm5 as $data){ ?>
+                    <tr>
+                      <td><?= $data->Nama?></td>
+                      <td><?= $data->Nama_Kelas?></td>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>NH5</td>
+                    </tr>
+                    <?php }?>
+                    <?php foreach($nspm6 as $data){ ?>
+                    <tr>
+                      <td><?= $data->Nama?></td>
+                      <td><?= $data->Nama_Kelas?></td>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>PTS</td>
+                    </tr>
+                    <?php }?>
+                    <?php foreach($nspm7 as $data){ ?>
+                    <tr>
+                      <td><?= $data->Nama?></td>
+                      <td><?= $data->Nama_Kelas?></td>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>PAS</td>
+                    </tr>
+                    <?php }?>
+                    <?php foreach($nspm8 as $data){ ?>
+                    <tr>
+                      <td><?= $data->Nama?></td>
+                      <td><?= $data->Nama_Kelas?></td>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>Nilai Pengetahuan</td>
+                    </tr>
+                    <?php }?>
+                    <?php foreach($nspm9 as $data){ ?>
+                    <tr>
+                      <td><?= $data->Nama?></td>
+                      <td><?= $data->Nama_Kelas?></td>
+                      <td><?= $data->Semester?></td>
+                      <td><?= $data->Nama_Matpel?></td>
+                      <td>Nilai Keterampilan</td>
+                    </tr>
+                    <?php }?>
                   </tbody>
                 </table>
               </div>
@@ -222,7 +298,7 @@
           <div class="col-6">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Nilai Belum Diisi</h3>
+                <h3 class="card-title">Nilai Belum Diisi dan Nilai 0</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0" style="height: 300px;">
