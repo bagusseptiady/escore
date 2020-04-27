@@ -359,12 +359,6 @@
                 <!-- tools card -->
                 <div class="card-tools">
                   <!-- button with a dropdown -->
-                  <button type="button"
-                          class="btn btn-success btn-sm daterange"
-                          data-toggle="tooltip"
-                          title="Date range">
-                    <i class="far fa-calendar-alt"></i>
-                  </button>
                   <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
                   </button>
@@ -426,7 +420,7 @@
                 <!-- /.row -->
               </div>
             </div>
-          </div>          
+          </div>
         <!-- right col -->
       </div>
       <!-- /.row (main row) -->
