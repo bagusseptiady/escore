@@ -1,6 +1,6 @@
 <script src="<?= base_url('assets/')?>plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src=<?= base_url('assets/')?>"plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- jQuery UI 1.12.1 -->
+<script src="<?= base_url('assets/')?>plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
@@ -32,5 +32,10 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url('assets/')?>dist/js/demo.js"></script>
 
+<script src="<?= base_url('assets/')?>plugins/fullcalendar/main.min.js"></script>
+<script src="<?= base_url('assets/')?>plugins/fullcalendar-daygrid/main.min.js"></script>
+<script src="<?= base_url('assets/')?>plugins/fullcalendar-timegrid/main.min.js"></script>
+<script src="<?= base_url('assets/')?>plugins/fullcalendar-interaction/main.min.js"></script>
+<script src="<?= base_url('assets/')?>plugins/fullcalendar-bootstrap/main.min.js"></script>
 </body>
 </html>
