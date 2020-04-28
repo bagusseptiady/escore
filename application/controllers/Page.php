@@ -213,20 +213,6 @@ class Page extends CI_Controller{
       redirect('page/dashboard2');
     }
   }
-  function kalender2(){
-    $data['title'] = 'E Score | Kalender';
-    $data['detail'] = $this->product_model->get()->result();
-    $this->load->view('templates/kal_header',$data);
-    $this->load->view('page/kalender2');
-    $this->load->view('templates/kal_footer');
-  }
-  function kalender(){
-    $data['title'] = 'E Score | Kalender';
-    $data['detail'] = $this->product_model->get()->result();
-    $this->load->view('templates/kal_header',$data);
-    $this->load->view('page/kalender');
-    $this->load->view('templates/kal_footer');
-  }
   function daftar(){
     $data['title'] = 'E Score | Daftar Siswa';
     $data['detail'] = $this->product_model->get()->result();

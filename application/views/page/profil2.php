@@ -83,16 +83,6 @@
             </p>
           </a>
         </li>
-        
-        <li class="nav-item">
-          <a href="<?= base_url('page/kalender2')?>" class="nav-link">
-            <i class="nav-icon far fa-calendar-alt"></i>
-            <p>
-              Kalender
-             
-            </p>
-          </a>
-        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

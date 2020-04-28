@@ -83,16 +83,6 @@
             </p>
           </a>
         </li>
-        
-        <li class="nav-item">
-          <a href="<?= base_url('page/kalender')?>" class="nav-link">
-            <i class="nav-icon far fa-calendar-alt"></i>
-            <p>
-              Kalender
-             
-            </p>
-          </a>
-        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
@@ -408,7 +398,7 @@
 
                 <h3 class="card-title">
                   <i class="far fa-calendar-alt"> </i>
-                   Calendar
+                   Kalender
                 </h3>
                 <!-- tools card -->
                 <div class="card-tools">
@@ -429,34 +419,11 @@
               </div>
               <!-- /.card-body -->
             </div>
-                    </div>
+            </div>
             <!-- Map card -->
-          <div class="col-6">
-            <div class="card bg-gradient-primary">
-              <div class="card-header border-0">
-                <h3 class="card-title">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                </h3>
-                <!-- card tools -->
-                <div class="card-tools">
-                  <button type="button"
-                          class="btn btn-primary btn-sm daterange"
-                          data-toggle="tooltip"
-                          title="Date range">
-                    <i class="far fa-calendar-alt"></i>
-                  </button>
-                  <button type="button"
-                          class="btn btn-primary btn-sm"
-                          data-card-widget="collapse"
-                          data-toggle="tooltip"
-                          title="Collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-body-->
-              <div class="card-footer bg-transparent">
+          <div class="col-6" hidden>
+            <div class="card bg-gradient-primary" >
+              <div class="card-footer bg-transparent" >
                 <div class="row">
                   <div class="col-4 text-center">
                     <div id="sparkline-1"></div>
