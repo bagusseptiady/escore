@@ -269,6 +269,12 @@ class Product_model extends CI_Model{
     function awall($id){
         $this->db->query("UPDATE nilairaport SET uid='$id'");
     }
+    function get_data(){
+        $this->db->select('Semester,NH1,NH2,NH3,NH4,NH5');
+        $this->db->from('nilaiharian');
+        $query = $this->db->get();
+        return $query;
+    }
     
 }
 ?>

@@ -9,6 +9,8 @@
 <script src="<?= base_url('assets/')?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
 <script src="<?= base_url('assets/')?>plugins/chart.js/Chart.min.js"></script>
+<script src="<?= base_url('assets/')?>plugins/morris/morris.min.js"></script>
+<script src="<?= base_url('assets/')?>plugins/raphael/raphael-min.js"></script>
 <!-- Sparkline -->
 <script src="<?= base_url('assets/')?>plugins/sparklines/sparkline.js"></script>
 <!-- JQVMap -->
@@ -31,11 +33,14 @@
 <script src="<?= base_url('assets/')?>dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url('assets/')?>dist/js/demo.js"></script>
-
-<script src="<?= base_url('assets/')?>plugins/fullcalendar/main.min.js"></script>
-<script src="<?= base_url('assets/')?>plugins/fullcalendar-daygrid/main.min.js"></script>
-<script src="<?= base_url('assets/')?>plugins/fullcalendar-timegrid/main.min.js"></script>
-<script src="<?= base_url('assets/')?>plugins/fullcalendar-interaction/main.min.js"></script>
-<script src="<?= base_url('assets/')?>plugins/fullcalendar-bootstrap/main.min.js"></script>
+<script>
+        Morris.Bar({
+          element: 'graph',
+          data: <?php echo $data;?>,
+          xkey: 'Semester',
+          ykeys: ['NH1', 'NH2', 'NH3', 'NH4', 'MH5'],
+          labels: ['NH1', 'NH2', 'NH3', 'NH4', 'MH5']
+        });
+    </script>
 </body>
 </html>
