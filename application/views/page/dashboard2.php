@@ -338,6 +338,29 @@
             </div>
             <!-- /.card -->
           </div>
+
+          <div class="col-12">
+          <div class="card ">
+              <div class="card-header border-0">
+                <h3 class="card-title">
+                  <i class="fas fa-th mr-1"></i>
+                  Grafik Nilai Harian
+                </h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn bg-primary btn-sm" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn bg-primary btn-sm" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <canvas id="myChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+              </div>
+            </div>
+          </div>
           <div class="col-6">
             <!-- Calendar -->
             <div class="card bg-gradient-success">
@@ -369,7 +392,7 @@
                     </div>
             <!-- Map card -->
           <div class="col-6" hidden>
-            <div class="card bg-gradient-primary">
+            <div class="card">
               <div class="card-footer bg-transparent" hidden>
                 <div class="row">
                   <div class="col-4 text-center">
@@ -389,28 +412,6 @@
               </div>
             </div>
           </div>
-          <div class="col-6">
-          <div class="card bg-gradient-info">
-              <div class="card-header border-0">
-                <h3 class="card-title">
-                  <i class="fas fa-th mr-1"></i>
-                  Grafik Nilai Harian
-                </h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="card-body">
-                <div id="graph" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></div>
-              </div>
-            </div>
-            </div>
         <!-- right col -->
       </div>
       <!-- /.row (main row) -->

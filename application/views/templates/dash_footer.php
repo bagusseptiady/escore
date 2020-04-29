@@ -9,8 +9,6 @@
 <script src="<?= base_url('assets/')?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
 <script src="<?= base_url('assets/')?>plugins/chart.js/Chart.min.js"></script>
-<script src="<?= base_url('assets/')?>plugins/morris/morris.min.js"></script>
-<script src="<?= base_url('assets/')?>plugins/raphael/raphael-min.js"></script>
 <!-- Sparkline -->
 <script src="<?= base_url('assets/')?>plugins/sparklines/sparkline.js"></script>
 <!-- JQVMap -->
@@ -34,13 +32,36 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url('assets/')?>dist/js/demo.js"></script>
 <script>
-        Morris.Bar({
-          element: 'graph',
-          data: <?php echo $data;?>,
-          xkey: 'Semester',
-          ykeys: ['NH1', 'NH2', 'NH3', 'NH4', 'MH5'],
-          labels: ['NH1', 'NH2', 'NH3', 'NH4', 'MH5']
-        });
+var ctx = document.getElementById('myChart');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange','Orange','Orange',],
+        datasets: [{
+            label: '# of Votes',
+            data: [100, 90, 80, 90, 98, 78,90,100],
+            backgroundColor: [
+                'rgba(255, 99, 132)',
+                'rgba(54, 162, 235)',
+                'rgba(255, 206, 86)',
+                'rgba(75, 192, 192)',
+                'rgba(153, 102, 255)',
+                'rgba(255, 159, 64)',
+                'rgba(255, 159, 64)',
+                'rgba(255, 159, 64)'
+            ],
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
     </script>
 </body>
 </html>

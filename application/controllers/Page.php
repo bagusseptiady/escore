@@ -54,7 +54,6 @@ class Page extends CI_Controller{
           $data['jssw'] = $this->data_model->jssw();
           $data['detail'] = $this->product_model->get()->result();
           $data = $this->product_model->get_data()->result();
-          $x['data'] = json_encode($data);
           $this->load->view('templates/dash_header',$data,$x);
           $this->load->view('page/dashboard');
           $this->load->view('templates/dash_footer');
