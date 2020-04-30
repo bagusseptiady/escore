@@ -1,4 +1,6 @@
 <script src="<?= base_url('assets/')?>plugins/jquery/jquery.min.js"></script>
+<script src="<?= base_url('assets/')?>dist/js/raphael-min.js"></script>
+  <script src="<?= base_url('assets/')?>dist/js/morris.min.js"></script>
 <!-- jQuery UI 1.12.1 -->
 <script src="<?= base_url('assets/')?>plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -32,36 +34,13 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url('assets/')?>dist/js/demo.js"></script>
 <script>
-var ctx = document.getElementById('myChart');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange','Orange','Orange',],
-        datasets: [{
-            label: '# of Votes',
-            data: [100, 90, 80, 90, 98, 78,90,100],
-            backgroundColor: [
-                'rgba(255, 99, 132)',
-                'rgba(54, 162, 235)',
-                'rgba(255, 206, 86)',
-                'rgba(75, 192, 192)',
-                'rgba(153, 102, 255)',
-                'rgba(255, 159, 64)',
-                'rgba(255, 159, 64)',
-                'rgba(255, 159, 64)'
-            ],
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-    </script>
+    Morris.Bar({
+    element: 'graph',
+    data: <?php echo $dat;?>,
+    xkey: 'Semester',
+    ykeys: ['NH1', 'NH2', 'NH3', 'NH4', 'NH5'],
+    labels: ['Nilai Harian 1', 'Nilai Harian 2', 'Nilai Harian 3', 'Nilai Harian 4', 'Nilai Harian 5']
+    });
+</script>
 </body>
 </html>

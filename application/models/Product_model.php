@@ -270,8 +270,11 @@ class Product_model extends CI_Model{
         $this->db->query("UPDATE nilairaport SET uid='$id'");
     }
     function get_data(){
-        $this->db->select('Semester,NH1,NH2,NH3,NH4,NH5');
+        $this->db->select('*');
         $this->db->from('nilaiharian');
+        $this->db->where('user_id',$this->session->userdata('id_user'));
+        $this->db->where('Matpel','8');
+        $this->db->join('matapel','id_mt= Matpel','left');
         $query = $this->db->get();
         return $query;
     }

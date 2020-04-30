@@ -53,8 +53,8 @@ class Page extends CI_Controller{
           $data['jkls'] = $this->data_model->jkls();
           $data['jssw'] = $this->data_model->jssw();
           $data['detail'] = $this->product_model->get()->result();
-          $data = $this->product_model->get_data()->result();
-          $this->load->view('templates/dash_header',$data,$x);
+
+          $this->load->view('templates/dash_header',$data);
           $this->load->view('page/dashboard');
           $this->load->view('templates/dash_footer');
       }
@@ -156,6 +156,8 @@ class Page extends CI_Controller{
       $data['nks5'] = $this->data_model->nks5();
       $data['nks6'] = $this->data_model->nks6();
       $data['nks7'] = $this->data_model->nks7();
+      $dat = $this->product_model->get_data()->result();
+      $data['dat'] = json_encode($dat);
       $this->load->view('templates/dash_header',$data);
       $this->load->view('page/dashboard2');
       $this->load->view('templates/dash_footer');

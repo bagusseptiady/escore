@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="<?= base_url('assets/')?>plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('assets/')?>dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?= base_url('assets/')?>dist/css/morris.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?= base_url('assets/')?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->

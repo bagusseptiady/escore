@@ -339,7 +339,7 @@
             <!-- /.card -->
           </div>
 
-          <div class="col-12">
+          <div class="col-6">
           <div class="card ">
               <div class="card-header border-0">
                 <h3 class="card-title">
@@ -348,16 +348,16 @@
                 </h3>
 
                 <div class="card-tools">
-                  <button type="button" class="btn bg-primary btn-sm" data-card-widget="collapse">
+                  <button type="button" class="btn btn-sm" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
                   </button>
-                  <button type="button" class="btn bg-primary btn-sm" data-card-widget="remove">
+                  <button type="button" class="btn btn-sm" data-card-widget="remove">
                     <i class="fas fa-times"></i>
                   </button>
                 </div>
               </div>
               <div class="card-body">
-                <canvas id="myChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                <div id="graph"></div>
               </div>
             </div>
           </div>
