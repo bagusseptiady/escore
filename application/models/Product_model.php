@@ -270,13 +270,42 @@ class Product_model extends CI_Model{
         $this->db->query("UPDATE nilairaport SET uid='$id'");
     }
     function get_data(){
+        $mt = $this->input->post('mtpl',TRUE);
+        if($mt == NULL){
         $this->db->select('*');
         $this->db->from('nilaiharian');
         $this->db->where('user_id',$this->session->userdata('id_user'));
-        $this->db->where('Matpel','8');
-        $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->where('Matpel','6');
         $query = $this->db->get();
         return $query;
+        }
+        else{
+        $this->db->select('*');
+        $this->db->from('nilaiharian');
+        $this->db->where('user_id',$this->session->userdata('id_user'));
+        $this->db->where('Matpel',$mt);
+        $query = $this->db->get();
+        return $query;
+        }
+    }
+    function nampel(){
+        $mt = $this->input->post('mtpl',TRUE);
+        if($mt == NULL){
+        $this->db->select('*');
+        $this->db->from('nilaiharian');
+        $this->db->where('Matpel','6');
+        $this->db->join('matapel','id_mt= Matpel','left'); 
+        $query = $this->db->get();
+        return $query;
+        }
+        else{
+        $this->db->select('*');
+        $this->db->from('nilaiharian');
+        $this->db->where('Matpel',$mt);
+        $this->db->join('matapel','id_mt= Matpel','left'); 
+        $query = $this->db->get();
+        return $query;
+        }
     }
     
 }

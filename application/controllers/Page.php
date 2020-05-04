@@ -156,6 +156,8 @@ class Page extends CI_Controller{
       $data['nks5'] = $this->data_model->nks5();
       $data['nks6'] = $this->data_model->nks6();
       $data['nks7'] = $this->data_model->nks7();
+      $data['mt'] = $this->product_model->get_mt()->result();
+      $data['nampel'] = $this->product_model->nampel()->result();
       $dat = $this->product_model->get_data()->result();
       $data['dat'] = json_encode($dat);
       $this->load->view('templates/dash_header',$data);
@@ -207,6 +209,10 @@ class Page extends CI_Controller{
       $data['nks5'] = $this->data_model->nks5();
       $data['nks6'] = $this->data_model->nks6();
       $data['nks7'] = $this->data_model->nks7();
+      $data['mt'] = $this->product_model->get_mt()->result();
+      $data['nampel'] = $this->product_model->nampel()->result();
+      $dat = $this->product_model->get_data()->result();
+      $data['dat'] = json_encode($dat);
       $this->load->view('templates/dash_header',$data);
       $this->load->view('page/dashboard2');
       $this->load->view('templates/dash_footer');

@@ -346,7 +346,6 @@
                   <i class="fas fa-th mr-1"></i>
                   Grafik Nilai Harian
                 </h3>
-
                 <div class="card-tools">
                   <button type="button" class="btn btn-sm" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
@@ -355,6 +354,23 @@
                     <i class="fas fa-times"></i>
                   </button>
                 </div>
+                <form class="form-mat" role="form" method="post" action="<?= base_url('page/siswa')?>">
+                <div class="row">
+                  <div class="form-group col-8">
+                    <select class="custom-select" name="mtpl" id="mtpl" required>
+                    <?php foreach($nampel as $data){?>
+                      <option><?= $data->Nama_Matpel;?></option>
+                      <?php }?>
+                      <?php foreach($mt as $row):?>
+                      <option value="<?php echo $row->id_mt;?>"><?php echo $row->Nama_Matpel;?></option>
+                      <?php endforeach;?>
+                    </select>
+                  </div>
+                  <div class="col-2">
+                    <button type="submit" class="btn btn-primary submit">Cek</button>
+                  </div>
+                </div>
+                </form>
               </div>
               <div class="card-body">
                 <div id="graph"></div>
