@@ -112,7 +112,7 @@ class Data extends CI_Controller {
         $kkm2 = $this->input->post('kkm2',TRUE);
         $matpel  = $this->input->post('matpel',TRUE);
         $semester = $this->input->post('semester',TRUE);
-        $this->product_model->tambahh2($id,$nh,$pts,$pas,$np,$nk,$kkmt,$kkma,$kkm,$kkm2,$matpel,$semester);
+        $this->product_model->tambahh2($id,$nh,$pts,$kkmt,$pas,$kkma,$np,$kkm,$nk,$kkm2,$matpel,$semester);
         redirect('page/lihat');
     }
     function ed(){

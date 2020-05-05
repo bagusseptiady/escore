@@ -246,7 +246,7 @@ class Product_model extends CI_Model{
     }
     function edd2($id,$idr,$nh,$pts,$pas,$np,$nk,$kkmt,$kkma,$kkm,$kkm2,$matpel,$semester){
         
-        $this->db->query("UPDATE nilairaport SET NH = '$nh',PTS = '$pts',PAS = $pas,NP = '$np',KKM = '$kkm',KKMT => '$kkmt',KKMA => '$kkma',NK = '$nk',KKM2 = '$kkm2', uid = '$id' WHERE id_raport='$idr'");
+        $this->db->query("UPDATE nilairaport SET NH = '$nh',PTS = '$pts',PAS = $pas,NP = '$np',KKM = '$kkm',KKMT = '$kkmt',KKMA = '$kkma',NK = '$nk',KKM2 = '$kkm2', uid = '$id' WHERE id_raport='$idr'");
         
     }
     function awal1($username){
@@ -288,6 +288,25 @@ class Product_model extends CI_Model{
         return $query;
         }
     }
+    function get_data2(){
+        $mt2 = $this->input->post('mtpl2',TRUE);
+        if($mt2 == NULL){
+        $this->db->select('*');
+        $this->db->from('nilairaport');
+        $this->db->where('uid',$this->session->userdata('id_user'));
+        $this->db->where('Matpel','6');
+        $query = $this->db->get();
+        return $query;
+        }
+        else{
+        $this->db->select('*');
+        $this->db->from('nilairaport');
+        $this->db->where('uid',$this->session->userdata('id_user'));
+        $this->db->where('Matpel',$mt2);
+        $query = $this->db->get();
+        return $query;
+        }
+    }
     function nampel(){
         $mt = $this->input->post('mtpl',TRUE);
         if($mt == NULL){
@@ -302,6 +321,25 @@ class Product_model extends CI_Model{
         $this->db->select('*');
         $this->db->from('nilaiharian');
         $this->db->where('Matpel',$mt);
+        $this->db->join('matapel','id_mt= Matpel','left'); 
+        $query = $this->db->get();
+        return $query;
+        }
+    }
+    function nampel2(){
+        $mt2 = $this->input->post('mtpl2',TRUE);
+        if($mt2 == NULL){
+        $this->db->select('*');
+        $this->db->from('nilairaport');
+        $this->db->where('Matpel','6');
+        $this->db->join('matapel','id_mt= Matpel','left'); 
+        $query = $this->db->get();
+        return $query;
+        }
+        else{
+        $this->db->select('*');
+        $this->db->from('nilairaport');
+        $this->db->where('Matpel',$mt2);
         $this->db->join('matapel','id_mt= Matpel','left'); 
         $query = $this->db->get();
         return $query;

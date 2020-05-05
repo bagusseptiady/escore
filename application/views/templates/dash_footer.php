@@ -42,5 +42,14 @@
     labels: ['Nilai Harian 1', 'Nilai Harian 2', 'Nilai Harian 3', 'Nilai Harian 4', 'Nilai Harian 5']
     });
 </script>
+<script>
+    Morris.Bar({
+    element: 'graph2',
+    data: <?php echo $dat2;?>,
+    xkey: 'Semester',
+    ykeys: ['NH', 'PTS', 'PAS', 'NP', 'NK'],
+    labels: ['Rata-Rata Nilai Harian', 'Penilaian Tengah Semester', 'Penilaian Akhir Semester', 'Nilai Pengetahuan', 'Nilai Keterampilan']
+    });
+</script>
 </body>
 </html>
