@@ -242,15 +242,10 @@ class Page extends CI_Controller{
     $data['detail'] = $this->product_model->get()->result();
     $this->load->view('templates/daf_header',$data);
     $data['sekolah'] = $this->product_model->get_category()->result();
-    $data['data'] = $this->product_model->daftar()->result();
     $this->load->view('page/daftar', $data);
     $this->load->view('templates/daf_footer');
   }
-  function dafsis(){
-    $kelas = $this->input->post('subsekolah',TRUE);
-    $this->product_model->daftar($kelas);
-    redirect('page/daftar2');
-  }
+
   function lihat(){
     $data['title'] = 'E Score | Nilai Siswa';
     $data['detail'] = $this->product_model->get()->result();
@@ -270,7 +265,6 @@ class Page extends CI_Controller{
     $this->load->view('templates/har_header',$data);
     $data['dt'] = $this->product_model->nilaih()->result();
     $data['dta'] = $this->product_model->nilaiha()->result();
-    
     $data['sekolah'] = $this->product_model->get_category()->result();
     $this->load->view('page/harian', $data);
     $this->load->view('templates/har_footer');

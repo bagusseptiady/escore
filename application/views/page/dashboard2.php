@@ -354,7 +354,7 @@
                     <i class="fas fa-times"></i>
                   </button>
                 </div>
-                <form class="form-mat" role="form" method="post" action="<?= base_url('page/siswa')?>">
+                <form id="form" role="form" method="post" action="<?= base_url('page/siswa')?>">
                 <div class="row">
                   <div class="form-group col-8">
                     <select class="custom-select" name="mtpl" id="mtpl" >
@@ -367,7 +367,7 @@
                     </select>
                   </div>
                   <div class="col-2">
-                    <button type="submit" class="btn btn-primary submit">Cek</button>
+                    <button id="Submit" type="submit" class="btn btn-primary submit">Cek</button>
                   </div>
                 </div>
                 </form>
@@ -392,7 +392,7 @@
                     <i class="fas fa-times"></i>
                   </button>
                 </div>
-                <form class="form-mat2" role="form" method="post" action="<?= base_url('page/siswa')?>">
+                <form id="form" role="form" method="post" action="<?= base_url('page/siswa')?>">
                 <div class="row">
                   <div class="form-group col-8">
                     <select class="custom-select" name="mtpl2" id="mtpl2" >
@@ -405,7 +405,7 @@
                     </select>
                   </div>
                   <div class="col-2">
-                    <button type="submit" class="btn btn-primary submit">Cek</button>
+                    <button id="Submit" type="submit" class="btn btn-primary submit">Cek</button>
                   </div>
                 </div>
                 </form>

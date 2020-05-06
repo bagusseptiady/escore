@@ -51,5 +51,45 @@
     labels: ['Rata-Rata Nilai Harian', 'Penilaian Tengah Semester', 'Penilaian Akhir Semester', 'Nilai Pengetahuan', 'Nilai Keterampilan']
     });
 </script>
+<script type="text/javascript">
+        $(document).ready(function(){
+
+         $('#graph').load("<?= base_url();?> page/siswa");
+
+            $("#Submit").click(function(){
+                var data = $('#form').serialize();
+                $.ajax({
+                    type	: 'POST',
+                    url	        : "<?= base_url();?> page/siswa",
+                    data        : data,
+
+                    cache	: false,
+                    success	: function(data){
+                        $('#graph').load("<?= base_url();?> page/siswa");
+                    }
+                });
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+         $('#graph2').load("<?= base_url();?> page/siswa");
+
+            $("#Submit2").click(function(){
+                var data = $('#form').serialize();
+                $.ajax({
+                    type	: 'POST',
+                    url	        : "<?= base_url();?> page/siswa",
+                    data        : data,
+
+                    cache	: false,
+                    success	: function(data){
+                        $('#graph2').load("<?= base_url();?> page/siswa");
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
