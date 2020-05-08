@@ -354,10 +354,6 @@
       <button type="button" class="btn btn-secondary col-5" data-dismiss="modal">Tidak</button>
       </div>
       </div>
-      <div class="modal-footer">
-        <input type="hidden" name="id_nh" value="<?= $data->id_nh;?>">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-      </div>
       </form>
     </div>
   </div>
@@ -381,10 +377,7 @@
       <button type="button" class="btn btn-secondary col-5" data-dismiss="modal">Tidak</button>
       </div>
       </div>
-      <div class="modal-footer">
-        <input type="hidden" name="id_raport" value="<?= $data->id_raport;?>">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-      </div>
+      
       </form>
     </div>
   </div>

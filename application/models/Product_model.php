@@ -193,9 +193,10 @@ class Product_model extends CI_Model{
     }
     function cri(){
         $kel = $this->input->post('subsekolah',TRUE);
-        $this->db->select('id_user,Nama,Notlp,Email,Username,Password,Alamat,Foto,Sekolah,id_sub,Nama_Kelas');
+        $this->db->select('id_user,Nama,Notlp,Email,Username,Password,Alamat,Foto,Sekolah,id_sub,Nama_Kelas,Nama_Jurusan');
         $this->db->from('user');
         $this->db->where('Kelas',$kel);
+        $this->db->join('sekolah','id_sek= Jurusan','left');
         $this->db->join('subsekolah','id_sub = Kelas','left');
         $this->db->order_by('Nama','ASC');
         $query = $this->db->get();

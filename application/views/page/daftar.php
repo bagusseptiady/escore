@@ -152,11 +152,10 @@
                 <tr>
                   <th>No</th>
                   <th>Nama</th>
+                  <th>Kelas</th>
                   <th>Nomor Telepon</th>
                   <th>Email</th>
-                  <th>Alamat</th>
-                  <th>Kelas</th>
-                  <th>Foto</th>
+                  <th>Detail</th>
                   
                 </tr>
                 </thead>
@@ -166,11 +165,12 @@
                 <tr>
                   <td><?=  $no++ ?></td>
                   <td><?= $data->Nama;?></td>
+                  <td><?= $data->Nama_Kelas;?></td>
                   <td>0<?= $data->Notlp;?></td>
                   <td><?= $data->Email;?></td>
-                  <td><?= $data->Alamat;?></td>
-                  <td><?= $data->Nama_Kelas;?></td>
-                  <td><img src="<?= base_url();?>assets/foto/<?= $data->Foto;?>" width="50" height="50"></td>
+                  <td><div class="btn-group btn-group-sm">
+                        <a class="btn btn-info" href="#"  data-toggle="modal" data-target="#modal-default<?= $data->id_user;?>"><i class="fas fa-eye"></i></a>
+                      </div></td>
                   </tr>
                 <?php }?>
                 </tbody>
@@ -182,6 +182,52 @@
   </section>
   <!-- /.content -->
 </div>
+<?php foreach($de as $data){?>
+<div class="modal fade" id="modal-default<?= $data->id_user;?>">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Detail Profile</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <div class="card card-widget widget-user">
+              <div class="widget-user-header bg-info">
+                <h3 class="widget-user-username"><?= $data->Nama;?></h3>
+                <h5 class="widget-user-desc"><?= $data->Nama_Jurusan;?></h5>
+              </div>
+              <div class="widget-user-image">
+                <img class="img-circle elevation-2" src="<?= base_url();?>assets/foto/<?= $data->Foto;?>" alt="User Avatar" style="height: 100px">
+              </div>
+              <div class="card-footer box-profile">
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <b>Kelas</b> <a class="float-right"><?= $data->Nama_Kelas;?></a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Nomor Telpon</b> <a class="float-right">0<?= $data->Notlp;?></a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Email</b> <a class="float-right"><?= $data->Email;?></a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Alamat</b> <a class="float-right"><?= $data->Alamat;?></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+<?php }?>
 <!-- /.content-wrapper -->
 <footer class="main-footer">
   <strong>Copyright &copy; 2020 <a href="<?= base_url('page')?>">E - Score | Xyron</a>.</strong>
