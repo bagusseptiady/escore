@@ -21,7 +21,7 @@ class Product_model extends CI_Model{
     }
     
     function got(){
-        $this->db->select('id_user,Nama,Notlp,Email,Username,Password,Alamat,Foto,Sekolah,id_sek,id_sub,Nama_Jurusan,Nama_Kelas');
+        $this->db->select('id_user,Nama,Notlp,Email,Username,Password,Alamat,Foto,TTL,TL,id_sek,id_sub,Nama_Jurusan,Nama_Kelas');
         $this->db->from('user');
         $this->db->where('id_user',$this->session->userdata('id_user') );
         $this->db->join('sekolah','id_sek= Jurusan','left');
@@ -41,7 +41,7 @@ class Product_model extends CI_Model{
         $query = $this->db->get();
         return $query;
     }
-    function regis($name,$notlp,$email,$username,$password,$alamat,$jurusan,$kelas,$foto,$sekolah){
+    function regis($name,$notlp,$email,$username,$password,$alamat,$jurusan,$kelas,$foto,$ttl,$tl){
         $data = array(
             'Nama' => $name,
             'Notlp' => $notlp,
@@ -49,7 +49,8 @@ class Product_model extends CI_Model{
             'Username' => $username,
             'Password' => $password,
             'Alamat' => $alamat,
-            'Sekolah' => $sekolah,
+            'TL' => $tl,
+            'TTL' => $ttl,
             'Jurusan' => $jurusan,
             'Kelas' => $kelas,
             'Foto' => $foto,
@@ -58,7 +59,7 @@ class Product_model extends CI_Model{
         );
         $this->db->insert('user',$data);
     }
-    function regis2($name,$notlp,$email,$username,$password,$alamat,$matpel,$kelas,$foto,$sekolah){
+    function regis2($name,$notlp,$email,$username,$password,$alamat,$matpel,$kelas,$foto,$ttl,$tl){
         $data = array(
             'Nama' => $name,
             'Notlp' => $notlp,
@@ -66,7 +67,8 @@ class Product_model extends CI_Model{
             'Username' => $username,
             'Password' => $password,
             'Alamat' => $alamat,
-            'Sekolah' => $sekolah,
+            'TL' => $tl,
+            'TTL' => $ttl,
             'Matpelguru' => $matpel,
             'Kelas2' => $kelas,
             'Foto' => $foto,
@@ -76,17 +78,17 @@ class Product_model extends CI_Model{
         $this->db->insert('user',$data);
     }
     
-    function update($id,$name,$notlp,$email,$username,$password,$alamat,$jurusan,$kelas,$foto,$sekolah){
-        $this->db->query("UPDATE user SET Nama='$name',Notlp='$notlp',Email='$email', Username='$username', Password='$password' ,Alamat='$alamat',Foto='$foto',Sekolah='$sekolah',Jurusan='$jurusan',Kelas='$kelas' WHERE id_user='$id'");
+    function update($id,$name,$notlp,$email,$username,$password,$alamat,$jurusan,$kelas,$foto,$ttl,$tl){
+        $this->db->query("UPDATE user SET Nama='$name',Notlp='$notlp',Email='$email', Username='$username', Password='$password' ,Alamat='$alamat',Foto='$foto',TL='$tl',TTL='$ttl',Jurusan='$jurusan',Kelas='$kelas' WHERE id_user='$id'");
     }
-    function update2($id,$name,$notlp,$email,$username,$password,$alamat,$jurusan,$kelas,$sekolah){
-        $this->db->query("UPDATE user SET Nama='$name',Notlp='$notlp',Email='$email', Username='$username', Password='$password' ,Alamat='$alamat',Sekolah='$sekolah',Jurusan='$jurusan',Kelas='$kelas' WHERE id_user='$id'");
+    function update2($id,$name,$notlp,$email,$username,$password,$alamat,$jurusan,$kelas,$ttl,$tl){
+        $this->db->query("UPDATE user SET Nama='$name',Notlp='$notlp',Email='$email', Username='$username', Password='$password' ,Alamat='$alamat',TL='$tl',TTL='$ttl',Jurusan='$jurusan',Kelas='$kelas' WHERE id_user='$id'");
     }
-    function update3($id,$name,$notlp,$email,$username,$password,$alamat,$matpel,$kelas,$foto,$sekolah){
-        $this->db->query("UPDATE user SET Nama='$name',Notlp='$notlp',Email='$email', Username='$username', Password='$password' ,Alamat='$alamat',Foto='$foto',Sekolah='$sekolah',Matpelguru='$matpel',Kelas2='$kelas' WHERE id_user='$id'");
+    function update3($id,$name,$notlp,$email,$username,$password,$alamat,$matpel,$kelas,$foto,$ttl,$tl){
+        $this->db->query("UPDATE user SET Nama='$name',Notlp='$notlp',Email='$email', Username='$username', Password='$password' ,Alamat='$alamat',Foto='$foto',TL='$tl',TTL='$ttl',Matpelguru='$matpel',Kelas2='$kelas' WHERE id_user='$id'");
     }
-    function update4($id,$name,$notlp,$email,$username,$password,$alamat,$matpel,$kelas,$sekolah){
-        $this->db->query("UPDATE user SET Nama='$name',Notlp='$notlp',Email='$email', Username='$username', Password='$password' ,Alamat='$alamat',Sekolah='$sekolah',Matpelguru='$matpel',Kelas2='$kelas' WHERE id_user='$id'");
+    function update4($id,$name,$notlp,$email,$username,$password,$alamat,$matpel,$kelas,$ttl,$tl){
+        $this->db->query("UPDATE user SET Nama='$name',Notlp='$notlp',Email='$email', Username='$username', Password='$password' ,Alamat='$alamat',TL='$tl',TTL='$ttl',Matpelguru='$matpel',Kelas2='$kelas' WHERE id_user='$id'");
     }
     function nilaih(){
         $this->db->select('*');
@@ -193,7 +195,7 @@ class Product_model extends CI_Model{
     }
     function cri(){
         $kel = $this->input->post('subsekolah',TRUE);
-        $this->db->select('id_user,Nama,Notlp,Email,Username,Password,Alamat,Foto,Sekolah,id_sub,Nama_Kelas,Nama_Jurusan');
+        $this->db->select('id_user,Nama,Notlp,Email,Username,Password,Alamat,Foto,TL,TTL,id_sub,Nama_Kelas,Nama_Jurusan');
         $this->db->from('user');
         $this->db->where('Kelas',$kel);
         $this->db->join('sekolah','id_sek= Jurusan','left');

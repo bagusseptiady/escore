@@ -13,7 +13,8 @@ class Data extends CI_Controller {
         $username = $this->input->post('username',TRUE);
         $password  = $this->input->post('password',TRUE);
         $alamat  = $this->input->post('alamat',TRUE);
-        $sekolah = $this->input->post('sekul',TRUE);
+        $tl = $this->input->post('tl',TRUE);
+        $ttl = $this->input->post('ttl',TRUE);
         $jurusan  = $this->input->post('sekolah',TRUE);
         $kelas = $this->input->post('subsekolah',TRUE);
         $foto = $_FILES['foto2'];
@@ -25,7 +26,7 @@ class Data extends CI_Controller {
             $config['allowed_types']='jpg|jpeg|png|gif';
             $this->load->library('upload',$config);
             if(!$this->upload->do_upload('foto2')){
-                $this->product_model->update2($id,$name,$notlp,$email,$username,$password,$alamat,$jurusan,$kelas,$sekolah);
+                $this->product_model->update2($id,$name,$notlp,$email,$username,$password,$alamat,$jurusan,$kelas,$ttl,$tl);
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Di Edit</div>');
                 redirect('page/profil2');
                   
@@ -33,7 +34,7 @@ class Data extends CI_Controller {
             else{
                 $foto=$this->upload->data('file_name');
             }
-            $this->product_model->update($id,$name,$notlp,$email,$username,$password,$alamat,$jurusan,$kelas,$foto,$sekolah);
+            $this->product_model->update($id,$name,$notlp,$email,$username,$password,$alamat,$jurusan,$kelas,$foto,$ttl,$tl);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Di Edit</div>');
             redirect('page/profil2');
         
@@ -48,7 +49,8 @@ class Data extends CI_Controller {
         $username = $this->input->post('username',TRUE);
         $password  = $this->input->post('password',TRUE);
         $alamat  = $this->input->post('alamat',TRUE);
-        $sekolah = $this->input->post('sekul',TRUE);
+        $tl = $this->input->post('tl',TRUE);
+        $ttl = $this->input->post('ttl',TRUE);
         $matpel  = $this->input->post('matpel',TRUE);
         $kelas = $this->input->post('kelas',TRUE);
         $foto = $_FILES['foto2'];
@@ -60,7 +62,7 @@ class Data extends CI_Controller {
             $config['allowed_types']='jpg|jpeg|png|gif';
             $this->load->library('upload',$config);
             if(!$this->upload->do_upload('foto2')){
-                $this->product_model->update4($id,$name,$notlp,$email,$username,$password,$alamat,$matpel,$kelas,$sekolah);
+                $this->product_model->update4($id,$name,$notlp,$email,$username,$password,$alamat,$matpel,$kelas,$ttl,$tl);
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Di Edit</div>');
                 redirect('page/profil');
                   
@@ -68,7 +70,7 @@ class Data extends CI_Controller {
             else{
                 $foto=$this->upload->data('file_name');
             }
-            $this->product_model->update3($id,$name,$notlp,$email,$username,$password,$alamat,$matpel,$kelas,$foto,$sekolah);
+            $this->product_model->update3($id,$name,$notlp,$email,$username,$password,$alamat,$matpel,$kelas,$foto,$ttl,$tl);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Di Edit</div>');
             redirect('page/profil');
         

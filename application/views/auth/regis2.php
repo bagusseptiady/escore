@@ -63,6 +63,22 @@
           </div>
         </div>
         <div class="input-group mb-3">
+          <input type="text" class="form-control" id="tl" name="tl" placeholder="Tempat Lahir" autocomplete="off">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-map-marker"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+        <input type="date" class="form-control" id="ttl" name="ttl" autocomplete="off">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-calendar-alt"></span>
+            </div>
+          </div>
+			</div>	
+        <div class="input-group mb-3">
           <input type="file" class="form-control" id="foto" name="foto" >
           <div class="input-group-append">
             <div class="input-group-text">
@@ -70,16 +86,7 @@
             </div>
           </div>
         </div>
-        <div class="row">
-			<div class="col-12">
-          <div class="form-group">
-            <select class="custom-select" name="sekul" id="sekul" required>
-              <option>Sekolah</option>
-              <option value = "SMKN 24 Jakarta">SMKN 24 Jakarta</option>
-            </select>
-          </div>
-			</div>
-		</div>	
+       
         <?= form_error('matpel','<small class="text-danger">','</small>');?>
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="matpel" name="matpel" placeholder="Mata Pelajaran"autocomplete="off">

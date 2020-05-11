@@ -207,6 +207,12 @@
                     <b>Kelas</b> <a class="float-right"><?= $data->Nama_Kelas;?></a>
                   </li>
                   <li class="list-group-item">
+                    <b>Tempat Lahir</b> <a class="float-right"><?= $data->TL;?></a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Tanggal Lahir</b> <a class="float-right"><?= $data->TTL;?></a>
+                  </li>
+                  <li class="list-group-item">
                     <b>Nomor Telpon</b> <a class="float-right">0<?= $data->Notlp;?></a>
                   </li>
                   <li class="list-group-item">

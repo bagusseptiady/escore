@@ -160,12 +160,13 @@
                   <div class="active tab-pane" id="tentang">
                     <!-- Post -->
                       <div class="card card-primary">
-                        <div class="card-body"
-                          <?php foreach($detail as $data){?>>
-                          <strong><i class="fas fa-book mr-1"></i> Sekolah</strong>
-                          <p class="text-muted">
-                          <?= $data->Sekolah;?>
-                          </p>
+                        <div class="card-body">
+                          <?php foreach($detail as $data){?>
+                          <strong><i class="fas fa-map-pin mr-1"> Tempat Lahir</i></strong>
+                          <p class="text-muted"><?= $data->TL;?></p>
+                          <hr>
+                          <strong><i class="fas fa-calendar-alt mr-1"> Tanggal Lahir</i></strong>
+                          <p class="text-muted"><?= $data->TTL;?></p>
                           <hr>
                           <strong><i class="fas fa-map-marker-alt mr-1"> Alamat</i></strong>
                           <p class="text-muted"><?= $data->Alamat;?></p>
@@ -230,11 +231,15 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputSekul" class="col-sm-2 col-form-label">Sekolah</label>
+                        <label for="inputTL" class="col-sm-2 col-form-label">Tempat Lahir</label>
                         <div class="col-sm-10">
-                        <select class="custom-select" name="sekul" id="inputSekul" >
-                            <option value="<?= $data->Sekolah;?>" selected><?= $data->Sekolah;?></option>
-                            </select>
+                          <input type="text" class="form-control" id="inputTL" name="tl" placeholder="Tempat Lahir" value="<?= $data->TL;?>"autocomplete="off">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputTTL" class="col-sm-2 col-form-label">Tanggal Lahir</label>
+                        <div class="col-sm-10">
+                          <input type="date" class="form-control" id="inputTTL" name="ttl" placeholder="TTL" value="<?= $data->TTL;?>"autocomplete="off">
                         </div>
                       </div>
                       <div class="form-group row">

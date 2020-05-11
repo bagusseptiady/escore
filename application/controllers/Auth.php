@@ -79,7 +79,8 @@ class Auth extends CI_Controller {
             $username = $this->input->post('username',TRUE);
             $password  = $this->input->post('password',TRUE);
             $alamat  = $this->input->post('alamat',TRUE);
-            $sekolah = $this->input->post('sekul',TRUE);
+            $tl = $this->input->post('tl',TRUE);
+            $ttl = $this->input->post('ttl',TRUE);
             $jurusan  = $this->input->post('sekolah',TRUE);
             $kelas = $this->input->post('subsekolah',TRUE);
             $foto = $_FILES['foto'];
@@ -98,7 +99,7 @@ class Auth extends CI_Controller {
             }
             $this->product_model->awal1($username);
             $this->product_model->awal2($username);
-            $this->product_model->regis($name,$notlp,$email,$username,$password,$alamat,$jurusan,$kelas,$foto,$sekolah);
+            $this->product_model->regis($name,$notlp,$email,$username,$password,$alamat,$jurusan,$kelas,$foto,$ttl,$tl);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Daftar Berhasil!. Silahkan Login</div>');
             redirect('auth');
         }
@@ -142,7 +143,8 @@ class Auth extends CI_Controller {
             $username = $this->input->post('username',TRUE);
             $password  = $this->input->post('password',TRUE);
             $alamat = $this->input->post('alamat',TRUE);
-            $sekolah = $this->input->post('sekul',TRUE);
+            $tl = $this->input->post('tl',TRUE);
+            $ttl = $this->input->post('ttl',TRUE);
             $matpel  = $this->input->post('matpel',TRUE);
             $kelas = $this->input->post('kelas',TRUE);
             $foto = $_FILES['foto'];
@@ -159,7 +161,7 @@ class Auth extends CI_Controller {
                     $foto=$this->upload->data('file_name');
                 }
             }
-            $this->product_model->regis2($name,$notlp,$email,$username,$password,$alamat,$matpel,$kelas,$foto,$sekolah);
+            $this->product_model->regis2($name,$notlp,$email,$username,$password,$alamat,$matpel,$kelas,$foto,$ttl,$tl);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Daftar Berhasil!. Silahkan Login</div>');
             redirect('auth');
         }
