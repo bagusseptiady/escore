@@ -237,6 +237,15 @@ class Page extends CI_Controller{
     $this->load->view('page/daftar', $data);
     $this->load->view('templates/daf_footer');
   }
+  function absen(){
+    $data['title'] = 'E Score | Rekap Absen Siswa';
+    $data['detail'] = $this->product_model->get()->result();
+    $this->load->view('templates/daf_header',$data);
+    $data['de'] = $this->product_model->cri2()->result();
+    $data['sekolah'] = $this->product_model->get_category()->result();
+    $this->load->view('page/absen', $data);
+    $this->load->view('templates/daf_footer');
+  }
   function daftar2(){
     $data['title'] = 'E Score | Daftar Siswa';
     $data['detail'] = $this->product_model->get()->result();

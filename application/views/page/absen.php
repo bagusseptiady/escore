@@ -65,7 +65,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?= base_url('page/daftar')?>" class="nav-link active">
+          <a href="<?= base_url('page/daftar')?>" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
             <p>
               Daftar Siswa
@@ -82,7 +82,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?= base_url('page/absen')?>" class="nav-link">
+          <a href="<?= base_url('page/absen')?>" class="nav-link active">
             <i class="nav-icon fas fa-address-book"></i>
             <p>
               Rekap Absen
@@ -103,12 +103,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Daftar Siswa</h1>
+            <h1>Rekap Absen Siswa</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?= base_url('page')?>">Home</a></li>
-              <li class="breadcrumb-item active">Daftar Siswa</li>
+              <li class="breadcrumb-item active">Rekap Absen Siswa</li>
             </ol>
           </div>
         </div>
@@ -119,14 +119,14 @@
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
-            <div class="card card-success">
+            <div class="card card-warning">
               <div class="card-header">
                 <h3 class="card-title">Cari Kelas</h3>
               </div>
               <!-- /.card-header -->
               <!--base_url('page/dafsis') -->
              
-              <form role="form" method="post" action="<?=base_url('page/daftar') ?> ">
+              <form role="form" method="post" action="<?=base_url('page/absen') ?> ">
                 <div class="card-body">
                 <div class="row">
                   <div class="form-group col-5">
@@ -143,7 +143,7 @@
                      </select>
                   </div>
                   <div class="col-2">
-                    <button type="submit" class="btn btn-success">Cari</button>
+                    <button type="submit" class="btn btn-warning">Cari</button>
                   </div>
                 </div>
                 </div>
@@ -161,9 +161,10 @@
                   <th>No</th>
                   <th>Nama</th>
                   <th>Kelas</th>
-                  <th>Nomor Telepon</th>
-                  <th>Email</th>
-                  <th>Detail</th>
+                  <th>Alpa</th>
+                  <th>Sakit</th>
+                  <th>Izin</th>
+                  <th style="width: 20%"></th>
                   
                 </tr>
                 </thead>
@@ -174,11 +175,21 @@
                   <td><?=  $no++ ?></td>
                   <td><?= $data->Nama;?></td>
                   <td><?= $data->Nama_Kelas;?></td>
-                  <td>0<?= $data->Notlp;?></td>
-                  <td><?= $data->Email;?></td>
-                  <td><div class="btn-group btn-group-sm">
-                        <a class="btn btn-info" href="#"  data-toggle="modal" data-target="#modal-default<?= $data->id_user;?>"><i class="fas fa-eye"></i></a>
-                      </div></td>
+                  <td><?= $data->Alpa+$data->Alpa2;?></td>
+                  <td><?= $data->Sakit+$data->Sakit2;?></td>
+                  <td><?= $data->Izin+$data->Izin2;?></td>
+                  <td class="project-actions text-right">
+                            <a class="btn btn-info btn-sm" href="#"data-toggle="modal" data-target="#<?= $data->id_user;?>">
+                              <i class="fas fa-eye">
+                              </i>
+                              Detail
+                          </a>
+                          <a class="btn btn-success btn-sm" href="#"data-toggle="modal" data-target="#<?= $data->id_user;?>">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Edit
+                          </a>
+                      </td>
                   </tr>
                 <?php }?>
                 </tbody>
