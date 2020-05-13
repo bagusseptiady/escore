@@ -49,6 +49,7 @@ class Auth extends CI_Controller {
                 }elseif($level === 'Siswa'){
                     $this->product_model->awal($id);
                     $this->product_model->awall($id);
+                    $this->product_model->awalll($id);
                     redirect('page/siswa');
                 }
             }
@@ -99,6 +100,7 @@ class Auth extends CI_Controller {
             }
             $this->product_model->awal1($username);
             $this->product_model->awal2($username);
+            $this->product_model->awal3($username);
             $this->product_model->regis($name,$notlp,$email,$username,$password,$alamat,$jurusan,$kelas,$foto,$ttl,$tl);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Daftar Berhasil!. Silahkan Login</div>');
             redirect('auth');

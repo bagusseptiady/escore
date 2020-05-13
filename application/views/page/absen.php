@@ -161,10 +161,15 @@
                   <th>No</th>
                   <th>Nama</th>
                   <th>Kelas</th>
+                  <th>Semester</th>
                   <th>Alpa</th>
                   <th>Sakit</th>
                   <th>Izin</th>
-                  <th style="width: 20%"></th>
+                  <th>Semester</th>
+                  <th>Alpa</th>
+                  <th>Sakit</th>
+                  <th>Izin</th>
+                  <th style="width: 20%">Alat</th>
                   
                 </tr>
                 </thead>
@@ -175,19 +180,24 @@
                   <td><?=  $no++ ?></td>
                   <td><?= $data->Nama;?></td>
                   <td><?= $data->Nama_Kelas;?></td>
-                  <td><?= $data->Alpa+$data->Alpa2;?></td>
-                  <td><?= $data->Sakit+$data->Sakit2;?></td>
-                  <td><?= $data->Izin+$data->Izin2;?></td>
+                  <td><?= $data->Semester1;?></td>
+                  <td><?= $data->Alpa;?></td>
+                  <td><?= $data->Sakit;?></td>
+                  <td><?= $data->Izin;?></td>
+                  <td><?= $data->Semester2;?></td>
+                  <td><?= $data->Alpa2;?></td>
+                  <td><?= $data->Sakit2;?></td>
+                  <td><?= $data->Izin2;?></td>
                   <td class="project-actions text-right">
-                            <a class="btn btn-info btn-sm" href="#"data-toggle="modal" data-target="#<?= $data->id_user;?>">
-                              <i class="fas fa-eye">
-                              </i>
-                              Detail
-                          </a>
-                          <a class="btn btn-success btn-sm" href="#"data-toggle="modal" data-target="#<?= $data->id_user;?>">
+                          <a class="btn btn-primary btn-sm" href="#"data-toggle="modal" data-target="#modaledit<?= $data->usr_id;?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="#"data-toggle="modal" data-target="#modalhapus<?= $data->usr_id;?>">
+                              <i class="fas fa-trash">
+                              </i>
+                              Hapus
                           </a>
                       </td>
                   </tr>
@@ -201,58 +211,6 @@
   </section>
   <!-- /.content -->
 </div>
-<?php foreach($de as $data){?>
-<div class="modal fade" id="modal-default<?= $data->id_user;?>">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Detail Profile</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-            <div class="card card-widget widget-user">
-              <div class="widget-user-header bg-info">
-                <h3 class="widget-user-username"><?= $data->Nama;?></h3>
-                <h5 class="widget-user-desc"><?= $data->Nama_Jurusan;?></h5>
-              </div>
-              <div class="widget-user-image">
-                <img class="img-circle elevation-2" src="<?= base_url();?>assets/foto/<?= $data->Foto;?>" alt="User Avatar" style="height: 100px">
-              </div>
-              <div class="card-footer box-profile">
-                <ul class="list-group list-group-unbordered mb-3">
-                  <li class="list-group-item">
-                    <b>Kelas</b> <a class="float-right"><?= $data->Nama_Kelas;?></a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Tempat Lahir</b> <a class="float-right"><?= $data->TL;?></a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Tanggal Lahir</b> <a class="float-right"><?= $data->TTL;?></a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Nomor Telpon</b> <a class="float-right">0<?= $data->Notlp;?></a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Email</b> <a class="float-right"><?= $data->Email;?></a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Alamat</b> <a class="float-right"><?= $data->Alamat;?></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-<?php }?>
 <!-- /.content-wrapper -->
 <footer class="main-footer">
   <strong>Copyright &copy; 2020 <a href="<?= base_url('page')?>">E - Score | Xyron</a>.</strong>
@@ -266,8 +224,104 @@
 <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
-<!-- jQuery -->
+<?php foreach($de as $data){?>
+<div class="modal fade" id="modalhapus<?= $data->usr_id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle" >Hapus Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <h5 class="text-center"> Apakah Anda Yakin?<h5>
+      <div class="text-center">
+      <form role="form" method="post" action="<?= base_url('data/hapus3')?>">
+      <a href=<?= base_url('data/hapus3')?>><button type="submit" class="btn btn-danger col-5" >Ya</button></a>
+      <button type="button" class="btn btn-secondary col-5" data-dismiss="modal">Tidak</button>
+      </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<?php }?>
+<?php foreach($de as $data){?>
+<div class="modal fade" id="modaledit<?= $data->usr_id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle" >Edit Rekap Absen</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <?= form_open_multipart('data/ed');?>
+          <div class="form-group row">
+            <label for="semester1" class="col-sm-4 col-form-label">Semester 1</label>
+            <div class="col-sm-8">
+            <input type="text" class="form-control" id="semester1" name="semester1" placeholder="Semester 1" value="<?= $data->Semester1;?>" autocomplete="off" disabled>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="alpa" class="col-sm-4 col-form-label">Alpa</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="alpa" name="alpa" placeholder="Absen Alpa" value="<?= $data->Alpa;?>" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="sakit" class="col-sm-4 col-form-label">Sakit</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="sakit" name="sakit" placeholder="Absen Sakit" value="<?= $data->Sakit;?>" autocomplete="off">
+              </div>
+          </div>
+          <div class="form-group row">
+            <label for="izin" class="col-sm-4 col-form-label">Izin</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="izin" name="izin" placeholder="Absen Izin" value="<?= $data->Izin;?>" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="semester2" class="col-sm-4 col-form-label">Semester 2</label>
+            <div class="col-sm-8">
+            <input type="text" class="form-control" id="semester2" name="semester2" placeholder="Semester 2" value="<?= $data->Semester2;?>" autocomplete="off" disabled>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="alpa2" class="col-sm-4 col-form-label">Alpa</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="alpa2" name="alpa2" placeholder="Absen Alpa" value="<?= $data->Alpa2;?>" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="sakit2" class="col-sm-4 col-form-label">Sakit</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="sakit2" name="sakit2" placeholder="Absen Sakit" value="<?= $data->Sakit2;?>" autocomplete="off">
+              </div>
+          </div>
+          <div class="form-group row">
+            <label for="izin2" class="col-sm-4 col-form-label">Izin</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="izin2" name="izin2" placeholder="Absen Izin2" value="<?= $data->Izin2;?>" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-sm-0 col-sm-10">
+              <button type="submit" class="btn btn-danger">Simpan</button>
+            </div>
+          </div>
+          <input type="hidden" name="usr_id" value="<?= $data->usr_id;?>">
+      <?= form_close();?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php }?>
 
             
            

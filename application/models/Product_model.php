@@ -284,6 +284,16 @@ class Product_model extends CI_Model{
     function awall($id){
         $this->db->query("UPDATE nilairaport SET uid='$id'");
     }
+    function awal3($username){
+        $data = array(
+            'usr_id'=> '1',
+            'usrnm' => $username
+        );
+        $this->db->insert('absen',$data);
+    }
+    function awalll($id){
+        $this->db->query("UPDATE absen SET usr_id='$id'");
+    }
     function get_data(){
         $mt = $this->input->post('mtpl',TRUE);
         if($mt == NULL){
