@@ -189,12 +189,12 @@
                   <td><?= $data->Sakit2;?></td>
                   <td><?= $data->Izin2;?></td>
                   <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#"data-toggle="modal" data-target="#modaledit<?= $data->usr_id;?>">
+                          <a class="btn btn-primary btn-sm" href="#"data-toggle="modal" data-target="#modaledit<?= $data->id_absen;?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="#"data-toggle="modal" data-target="#modalhapus<?= $data->usr_id;?>">
+                          <a class="btn btn-danger btn-sm" href="#"data-toggle="modal" data-target="#modalhapus<?= $data->id_absen;?>">
                               <i class="fas fa-trash">
                               </i>
                               Hapus
@@ -225,7 +225,7 @@
 </div>
 <!-- ./wrapper -->
 <?php foreach($de as $data){?>
-<div class="modal fade" id="modalhapus<?= $data->usr_id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modalhapus<?= $data->id_absen;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -238,6 +238,7 @@
       <h5 class="text-center"> Apakah Anda Yakin?<h5>
       <div class="text-center">
       <form role="form" method="post" action="<?= base_url('data/hapus3')?>">
+      <input type="hidden" name="id_absen" value="<?= $data->id_absen;?>">
       <a href=<?= base_url('data/hapus3')?>><button type="submit" class="btn btn-danger col-5" >Ya</button></a>
       <button type="button" class="btn btn-secondary col-5" data-dismiss="modal">Tidak</button>
       </div>
@@ -248,7 +249,7 @@
 </div>
 <?php }?>
 <?php foreach($de as $data){?>
-<div class="modal fade" id="modaledit<?= $data->usr_id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modaledit<?= $data->id_absen;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered " role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -258,7 +259,7 @@
         </button>
       </div>
       <div class="modal-body">
-      <?= form_open_multipart('data/ed');?>
+      <?= form_open_multipart('data/ed3');?>
           <div class="form-group row">
             <label for="semester1" class="col-sm-4 col-form-label">Semester 1</label>
             <div class="col-sm-8">
@@ -313,6 +314,7 @@
             </div>
           </div>
           <input type="hidden" name="usr_id" value="<?= $data->usr_id;?>">
+          <input type="hidden" name="id_absen" value="<?= $data->id_absen;?>">
       <?= form_close();?>
       </div>
       <div class="modal-footer">

@@ -222,6 +222,9 @@ class Product_model extends CI_Model{
     function hapusnr($idr){
         $this->db->query("DELETE FROM nilairaport WHERE id_raport='$idr'");
     }
+    function hapusab($idab){
+        $this->db->query("DELETE FROM absen WHERE id_absen='$idab'");
+    }
     function tambahh($id,$nh1,$nh2,$nh3,$nh4,$nh5,$kkmnh,$rata,$matpel,$semester){
         $data = array(
             'Semester' => $semester,
@@ -261,7 +264,12 @@ class Product_model extends CI_Model{
     }
     function edd2($id,$idr,$nh,$pts,$pas,$np,$nk,$kkmt,$kkma,$kkm,$kkm2,$matpel,$semester){
         
-        $this->db->query("UPDATE nilairaport SET NH = '$nh',PTS = '$pts',PAS = $pas,NP = '$np',KKM = '$kkm',KKMT = '$kkmt',KKMA = '$kkma',NK = '$nk',KKM2 = '$kkm2', uid = '$id' WHERE id_raport='$idr'");
+        $this->db->query("UPDATE nilairaport SET NH = '$nh',PTS = '$pts',PAS = '$pas',NP = '$np',KKM = '$kkm',KKMT = '$kkmt',KKMA = '$kkma',NK = '$nk',KKM2 = '$kkm2', uid = '$id' WHERE id_raport='$idr'");
+        
+    }
+    function edd3($id,$idab,$alpa,$sakit,$izin,$alpa2,$sakit2,$izin2){
+        
+        $this->db->query("UPDATE absen SET Alpa = '$alpa',Sakit = '$sakit',Izin = '$izin' ,Alpa2 = '$alpa2',Sakit2 = '$sakit2',Izin2 = '$izin2', usr_id = '$id' WHERE id_absen='$idab'");
         
     }
     function awal1($username){
@@ -287,6 +295,8 @@ class Product_model extends CI_Model{
     function awal3($username){
         $data = array(
             'usr_id'=> '1',
+            'Semester1'=> 'Semester 1',
+            'Semester2'=> 'Semester 2',
             'usrnm' => $username
         );
         $this->db->insert('absen',$data);

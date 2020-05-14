@@ -358,6 +358,7 @@
       <h5 class="text-center"> Apakah Anda Yakin?<h5>
       <div class="text-center">
       <form role="form" method="post" action="<?= base_url('data/hapus')?>">
+      <input type="hidden" name="id_nh" value="<?= $data->id_nh;?>">
       <a href=<?= base_url('data/hapus')?>><button type="submit" class="btn btn-danger col-5" >Ya</button></a>
       <button type="button" class="btn btn-secondary col-5" data-dismiss="modal">Tidak</button>
       </div>
@@ -381,6 +382,7 @@
       <h5 class="text-center"> Apakah Anda Yakin?<h5>
       <div class="text-center">
       <form role="form" method="post" action="<?= base_url('data/hapus2')?>">
+      <input type="hidden" name="id_raport" value="<?= $data->id_raport;?>">
       <a href=<?= base_url('data/hapus2')?>><button type="submit" class="btn btn-danger col-5" >Ya</button></a>
       <button type="button" class="btn btn-secondary col-5" data-dismiss="modal">Tidak</button>
       </div>

@@ -87,6 +87,11 @@ class Data extends CI_Controller {
         $this->product_model->hapusnr($idr);
         redirect('page/lihat');
     }
+    function hapus3(){
+        $idab=$this->input->post('id_absen');
+        $this->product_model->hapusab($idab);
+        redirect('page/absen');
+    }
     function tambah(){
         $id  = $this->input->post('user_id',TRUE);
         $nh1 = $this->input->post('nh1',TRUE);
@@ -149,6 +154,17 @@ class Data extends CI_Controller {
         $this->product_model->edd2($id,$idr,$nh,$pts,$pas,$np,$nk,$kkmt,$kkma,$kkm,$kkm2,$matpel,$semester);
         redirect('page/lihat');
     }
-    
+    function ed3(){
+        $id  = $this->input->post('usr_id',TRUE);
+        $alpa = $this->input->post('alpa',TRUE);
+        $sakit = $this->input->post('sakit',TRUE);
+        $izin = $this->input->post('izin',TRUE);
+        $alpa2 = $this->input->post('alpa2',TRUE);
+        $sakit2 = $this->input->post('sakit',TRUE);
+        $izin2 = $this->input->post('izin2',TRUE);
+        $idab=$this->input->post('id_absen');
+        $this->product_model->edd3($id,$idab,$alpa,$sakit,$izin,$alpa2,$sakit2,$izin2);
+        redirect('page/absen');
+    }
 }
 ?>
