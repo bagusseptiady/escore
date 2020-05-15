@@ -157,6 +157,7 @@ class Page extends CI_Controller{
       $data['nks6'] = $this->data_model->nks6();
       $data['nks7'] = $this->data_model->nks7();
       $data['mt'] = $this->product_model->get_mt()->result();
+      $data['de'] = $this->product_model->cri3()->result();
       $data['nampel'] = $this->product_model->nampel()->result();
       $dat = $this->product_model->get_data()->result();
       $data['dat'] = json_encode($dat);
@@ -213,6 +214,7 @@ class Page extends CI_Controller{
       $data['nks6'] = $this->data_model->nks6();
       $data['nks7'] = $this->data_model->nks7();
       $data['mt'] = $this->product_model->get_mt()->result();
+      $data['de'] = $this->product_model->cri3()->result();
       $data['nampel2'] = $this->product_model->nampel2()->result();
       $data['nampel'] = $this->product_model->nampel()->result();
       $dat = $this->product_model->get_data()->result();

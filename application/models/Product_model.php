@@ -216,6 +216,13 @@ class Product_model extends CI_Model{
         $query = $this->db->get();
         return $query;
     }
+    function cri3(){
+        $this->db->select('*');
+        $this->db->from('absen');
+        $this->db->where('usr_id',$this->session->userdata('id_user'));
+        $query = $this->db->get();
+        return $query;
+    }
     function hapusnh($idnh){
         $this->db->query("DELETE FROM nilaiharian WHERE id_nh='$idnh'");
     }

@@ -415,6 +415,43 @@
               </div>
             </div>
           </div>
+          
+          <div class="col-6">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Rekap Absen</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>                  
+                    <tr>
+                      <th>Semester</th>
+                      <th>Alpa</th>
+                      <th>Sakit</th>
+                      <th>Izin</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <?php foreach($de as $data){?>
+                    <tr>
+                    <td><?= $data->Semester1;?></td>
+                    <td><?= $data->Alpa;?></td>
+                    <td><?= $data->Sakit;?></td>
+                    <td><?= $data->Izin;?></td>
+                    </tr>
+                    <tr>
+                    <td><?= $data->Semester2;?></td>
+                    <td><?= $data->Alpa2;?></td>
+                    <td><?= $data->Sakit2;?></td>
+                    <td><?= $data->Izin2;?></td>
+                    </tr>
+                  <?php }?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
           <div class="col-6">
             <!-- Calendar -->
             <div class="card bg-gradient-success">
