@@ -281,13 +281,23 @@ class Page extends CI_Controller{
     $this->load->view('templates/har_footer');
   }
   function raport(){
-    $data['title'] = 'E Score | Nilai Raport';
+    $data['title'] = 'E Score | Nilai Raport PAS';
     $data['detail'] = $this->product_model->get()->result();
     $this->load->view('templates/har_header',$data);
     $data['dd'] = $this->product_model->nilair()->result();
     $data['dq'] = $this->product_model->nilaira()->result();
     $data['sekolah'] = $this->product_model->get_category()->result();
     $this->load->view('page/raport', $data);
+    $this->load->view('templates/har_footer');
+  }
+  function raport2(){
+    $data['title'] = 'E Score | Nilai Raport PTS';
+    $data['detail'] = $this->product_model->get()->result();
+    $this->load->view('templates/har_header',$data);
+    $data['dd'] = $this->product_model->nilair()->result();
+    $data['dq'] = $this->product_model->nilaira()->result();
+    $data['sekolah'] = $this->product_model->get_category()->result();
+    $this->load->view('page/raport2', $data);
     $this->load->view('templates/har_footer');
   }
   function profil(){

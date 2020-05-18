@@ -13,10 +13,8 @@
     </li>
     <li class="nav-item d-none d-sm-inline-block">
         <a href="<?= base_url('page/profil')?>" class="nav-link">Profil</a>
-        
       </li>
     <?php echo $this->session->flashdata('message');?>
-    
   </ul>
     <ul class="navbar-nav ml-auto">
     <li class="nav-item">
@@ -66,20 +64,19 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?= base_url('page/harian')?>" class="nav-link active">
+          <a href="<?= base_url('page/harian')?>" class="nav-link">
             <i class="nav-icon fas fa-file"></i>
             <p>
-                Nilai Harian
+              Nilai Harian
               
             </p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?= base_url('page/raport2')?>" class="nav-link">
+          <a href="<?= base_url('page/raport2')?>" class="nav-link active">
             <i class="nav-icon fas fa-book"></i>
             <p>
               Nilai Raport PTS
-              
             </p>
           </a>
         </li>
@@ -105,12 +102,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Nilai Harian</h1>
+            <h1>Nilai Raport PAS</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?= base_url('page/siswa')?>">Home</a></li>
-              <li class="breadcrumb-item active">Nilai Harian</li>
+              <li class="breadcrumb-item active">Nilai Raport PAS</li>
             </ol>
           </div>
         </div>
@@ -121,7 +118,7 @@
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
-            
+    
             <div class="card">
             <div class="card-header">
               <h3 class="card-title">Nilai Semester 1</h3>
@@ -134,32 +131,24 @@
                   <th>No</th>
                   <th>Semester</th>
                   <th>Mata Pelajaran</th>
-                  <th>NH 1</th>
-                  <th>NH 2</th>
-                  <th>NH 3</th>
-                  <th>NH 4</th>
-                  <th>NH 5</th>
+                  <th>NH</th>
+                  <th>PTS</th>
                   <th>KKM</th>
-                  <th>Rata - Rata</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php $no=1; 
-                foreach($dt as $data){
+                foreach($dd as $data){
                 if($data->Semester&&$data->Matpel!=NULL){?>
                 <tr>
                   <td><?=  $no++ ?></td>
                   <td><?= $data->Semester;?></td>
                   <td><?= $data->Nama_Matpel;?></td>
-                  <td><?= $data->NH1;?></td>
-                  <td><?= $data->NH2;?></td>
-                  <td><?= $data->NH3;?></td>
-                  <td><?= $data->NH4;?></td>
-                  <td><?= $data->NH5;?></td>
-                  <td><?= $data->KKMNH;?></td>
-                  <td><?= $data->Rata;?></td>
-                  </tr>
-                  <?php } else{?>
+                  <td><?= $data->NH;?></td>
+                  <td><?= $data->PTS;?></td>
+                  <td><?= $data->KKMT;?></td>
+                </tr>
+                <?php } else{?>
                 <?php }?>
                 <?php }?>
                 </tbody>
@@ -178,32 +167,24 @@
                   <th>No</th>
                   <th>Semester</th>
                   <th>Mata Pelajaran</th>
-                  <th>NH 1</th>
-                  <th>NH 2</th>
-                  <th>NH 3</th>
-                  <th>NH 4</th>
-                  <th>NH 5</th>
+                  <th>NH</th>
+                  <th>PTS</th>
                   <th>KKM</th>
-                  <th>Rata - Rata</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php $no=1; 
-                foreach($dta as $data){
+                foreach($dq as $data){
                 if($data->Semester&&$data->Matpel!=NULL){?>
                 <tr>
                   <td><?=  $no++ ?></td>
                   <td><?= $data->Semester;?></td>
                   <td><?= $data->Nama_Matpel;?></td>
-                  <td><?= $data->NH1;?></td>
-                  <td><?= $data->NH2;?></td>
-                  <td><?= $data->NH3;?></td>
-                  <td><?= $data->NH4;?></td>
-                  <td><?= $data->NH5;?></td>
-                  <td><?= $data->KKMNH;?></td>
-                  <td><?= $data->Rata;?></td>
-                  </tr>
-                  <?php } else{?>
+                  <td><?= $data->NH;?></td>
+                  <td><?= $data->PTS;?></td>
+                  <td><?= $data->KKMT;?></td>
+                </tr>
+                <?php } else{?>
                 <?php }?>
                 <?php }?>
                 </tbody>

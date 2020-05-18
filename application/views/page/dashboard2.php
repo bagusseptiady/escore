@@ -74,10 +74,19 @@
           </a>
         </li>
         <li class="nav-item">
+          <a href="<?= base_url('page/raport2')?>" class="nav-link">
+            <i class="nav-icon fas fa-book"></i>
+            <p>
+              Nilai Raport PTS
+              
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
           <a href="<?= base_url('page/raport')?>" class="nav-link">
             <i class="nav-icon fas fa-book"></i>
             <p>
-              Nilai Raport
+              Nilai Raport PAS
               
             </p>
           </a>
