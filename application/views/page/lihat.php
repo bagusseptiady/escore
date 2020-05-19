@@ -467,13 +467,6 @@
               <input type="text" class="form-control" id="kkmnh" name="kkmnh" placeholder="KKM Nilai Harian" autocomplete="off">
             </div>
           </div>
-          <?= form_error('nilai','<small class="text-danger">','</small>');?>
-          <div class="form-group row">
-            <label for="rata" class="col-sm-4 col-form-label">Rata-Rata</label>
-            <div class="col-sm-8">
-            <input type="text" class="form-control" id="rata" name="rata" placeholder="Rata-Rata Nilai Harian" autocomplete="off">
-            </div>
-          </div>
           <input type="hidden" name="user_id" value="<?= $data->user_id;?>">
           <div class="form-group row">
             <div class="offset-sm-0 col-sm-10">
@@ -666,13 +659,6 @@
               <div class="col-sm-8">
                 <input type="text" class="form-control" id="kkmnh" name="kkmnh" placeholder="KKM Nilai Harian" value="<?= $data->KKMNH;?>" autocomplete="off">
               </div>
-          </div>
-          <?= form_error('nilai','<small class="text-danger">','</small>');?>
-          <div class="form-group row">
-            <label for="rata" class="col-sm-4 col-form-label">Rata-Rata</label>
-            <div class="col-sm-8">
-            <input type="text" class="form-control" id="rata" name="rata" placeholder="Rata-Rata Nilai Harian" value="<?= $data->Rata;?>" autocomplete="off">
-            </div>
           </div>
           <div class="form-group row">
             <div class="offset-sm-0 col-sm-10">

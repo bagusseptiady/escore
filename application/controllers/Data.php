@@ -100,10 +100,9 @@ class Data extends CI_Controller {
         $nh4 = $this->input->post('nh4',TRUE);
         $nh5  = $this->input->post('nh5',TRUE);
         $kkmnh = $this->input->post('kkmnh',TRUE);
-        $rata = $this->input->post('rata',TRUE);
         $matpel  = $this->input->post('matpel',TRUE);
         $semester = $this->input->post('semester',TRUE);
-        $this->product_model->tambahh($id,$nh1,$nh2,$nh3,$nh4,$nh5,$kkmnh,$rata,$matpel,$semester);
+        $this->product_model->tambahh($id,$nh1,$nh2,$nh3,$nh4,$nh5,$kkmnh,$matpel,$semester);
         redirect('page/lihat');
     }
     function tambah2(){
@@ -129,12 +128,11 @@ class Data extends CI_Controller {
         $nh3 = $this->input->post('nh3',TRUE);
         $nh4 = $this->input->post('nh4',TRUE);
         $nh5  = $this->input->post('nh5',TRUE);
-        $rata = $this->input->post('rata',TRUE);
         $kkmnh = $this->input->post('kkmnh',TRUE);
         $matpel  = $this->input->post('matpel',TRUE);
         $semester = $this->input->post('semester',TRUE);
         $idnh=$this->input->post('idnh');
-        $this->product_model->edd($id,$idnh,$nh1,$nh2,$nh3,$nh4,$nh5,$kkmnh,$rata,$matpel,$semester);
+        $this->product_model->edd($id,$idnh,$nh1,$nh2,$nh3,$nh4,$nh5,$kkmnh,$matpel,$semester);
         redirect('page/lihat');
     }
     function ed2(){

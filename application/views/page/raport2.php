@@ -131,7 +131,7 @@
                   <th>No</th>
                   <th>Semester</th>
                   <th>Mata Pelajaran</th>
-                  <th>NH</th>
+                  <th>Nilai Harian</th>
                   <th>PTS</th>
                   <th>KKM</th>
                 </tr>
@@ -167,7 +167,7 @@
                   <th>No</th>
                   <th>Semester</th>
                   <th>Mata Pelajaran</th>
-                  <th>NH</th>
+                  <th>Nilai Harian</th>
                   <th>PTS</th>
                   <th>KKM</th>
                 </tr>

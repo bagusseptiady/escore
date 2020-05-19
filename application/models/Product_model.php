@@ -232,7 +232,8 @@ class Product_model extends CI_Model{
     function hapusab($idab){
         $this->db->query("DELETE FROM absen WHERE id_absen='$idab'");
     }
-    function tambahh($id,$nh1,$nh2,$nh3,$nh4,$nh5,$kkmnh,$rata,$matpel,$semester){
+    function tambahh($id,$nh1,$nh2,$nh3,$nh4,$nh5,$kkmnh,$matpel,$semester){
+        $rata = ($nh1+$nh2+$nh3+$nh4+$nh5)/5;
         $data = array(
             'Semester' => $semester,
             'Matpel' => $matpel,
@@ -266,7 +267,8 @@ class Product_model extends CI_Model{
         );
         $this->db->insert('nilairaport',$data);
     }
-    function edd($id,$idnh,$nh1,$nh2,$nh3,$nh4,$nh5,$kkmnh,$rata,$matpel,$semester){
+    function edd($id,$idnh,$nh1,$nh2,$nh3,$nh4,$nh5,$kkmnh,$matpel,$semester){
+        $rata = ($nh1+$nh2+$nh3+$nh4+$nh5)/5;
         $this->db->query("UPDATE nilaiharian SET Semester='$semester',Matpel='$matpel',NH1 = '$nh1',NH2 = '$nh2',NH3 = $nh3,NH4 = '$nh4',NH5 = '$nh5',KKMNH => '$kkmnh' ,Rata = '$rata', user_id = '$id' WHERE id_nh='$idnh'");
     }
     function edd2($id,$idr,$nh,$pts,$pas,$np,$nk,$kkmt,$kkma,$kkm,$kkm2,$matpel,$semester){

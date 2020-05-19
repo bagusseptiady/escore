@@ -132,9 +132,6 @@
                   
                   <th>Semester</th>
                   <th>Mata Pelajaran</th>
-                  <th>NH</th>
-                  <th>PTS</th>
-                  <th>KKM</th>
                   <th>PAS</th>
                   <th>KKM</th>
                   <th>Nilai Pengetahuan</th>
@@ -151,9 +148,6 @@
                   <td><?=  $no++ ?></td>
                   <td><?= $data->Semester;?></td>
                   <td><?= $data->Nama_Matpel;?></td>
-                  <td><?= $data->NH;?></td>
-                  <td><?= $data->PTS;?></td>
-                  <td><?= $data->KKMT;?></td>
                   <td><?= $data->PAS;?></td>
                   <td><?= $data->KKMA;?></td>
                   <td><?= $data->NP;?></td>
@@ -180,9 +174,6 @@
                   <th>No</th>
                   <th>Semester</th>
                   <th>Mata Pelajaran</th>
-                  <th>NH</th>
-                  <th>PTS</th>
-                  <th>KKM</th>
                   <th>PAS</th>
                   <th>KKM</th>
                   <th>Nilai Pengetahuan</th>
@@ -199,9 +190,6 @@
                   <td><?=  $no++ ?></td>
                   <td><?= $data->Semester;?></td>
                   <td><?= $data->Nama_Matpel;?></td>
-                  <td><?= $data->NH;?></td>
-                  <td><?= $data->PTS;?></td>
-                  <td><?= $data->KKMT;?></td>
                   <td><?= $data->PAS;?></td>
                   <td><?= $data->KKMA;?></td>
                   <td><?= $data->NP;?></td>
