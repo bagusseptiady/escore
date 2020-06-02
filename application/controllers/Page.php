@@ -318,4 +318,5 @@ class Page extends CI_Controller{
     $this->load->view('page/profil2');
     $this->load->view('templates/prof_footer');
   }
+  
 }

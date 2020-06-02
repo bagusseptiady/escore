@@ -59,6 +59,41 @@ class Auth extends CI_Controller {
             }
         }
     }
+    public function change(){
+        $this->form_validation->set_rules('email','Email','required|trim|valid_email',['valid_email' => 'Email Tidak Valid. Contoh : qwerty@asd.com']);
+        $this->form_validation->set_rules('pass','Password','required|trim|min_length[5]',['min_length' => 'Password Teralalu Singkat!']);
+        $this->form_validation->set_rules('pass1','Password','required|trim|min_length[5]',['min_length' => 'Password Teralalu Singkat!']);
+        if($this->form_validation->run() == false){
+        $data['title'] = 'E - Score | Lupa Password';
+        $this->load->view('templates/auth_header', $data);
+        $this->load->view('auth/change');
+        $this->load->view('templates/auth_footer');
+        }
+        else {
+            $email = $this->input->post('email');
+            $cek = $this->db->get_where('user', ['email' => $email])->row_array();
+            if($cek){
+                $this->form_validation->set_rules('pass','Password','matches[pass1]',['matches' => 'Password Tidak Sama']);
+                $this->form_validation->set_rules('pass1','Password','matches[pass]',['matches' => 'Password Tidak Sama']);
+                if($this->form_validation->run() == false){
+                $data['title'] = 'E - Score | Lupa Password';
+                $this->load->view('templates/auth_header', $data);
+                $this->load->view('auth/change');
+                $this->load->view('templates/auth_footer');
+                } else{
+                $pass = $this->input->post('pass');
+                $this->db->set('password', $pass);
+                $this->db->where('email', $email);
+                $this->db->update('user');
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password Berhasil Diganti!</div>');
+                redirect('auth');
+                }
+            }else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email Tidak Terdaftar!</div>');
+                redirect('auth/change');
+            }
+        }
+    }
     public function regis(){
         $this->form_validation->set_rules('name','Nama','required|trim');
         $this->form_validation->set_rules('notlp','Nomor Telepon','required|trim');

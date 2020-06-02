@@ -37,6 +37,9 @@
       </form>
       <!-- /.social-auth-links -->
       <p class="mb-0">
+        <a href="<?= base_url('auth/')?>change" class="text-center">Lupa Password? Ganti</a>
+      </p>
+      <p class="mb-0">
         <a href="<?= base_url('auth/')?>regis" class="text-center">Belum Punya Akun? Daftar</a>
       </p>
     </div>
