@@ -122,6 +122,7 @@
             <div class="card">
             <div class="card-header">
               <h3 class="card-title">Nilai Semester 1</h3>
+              <a class="btn btn-primary ml-3" href="<?= base_url('data/cetakpas')?>">Cetak PDF <i class="fa fa-file"></i></a>
             </div>
             <div class="card-body table-responsive p-0">
                 <table class="table table-hover table-bordered table-striped text-nowrap">
@@ -165,6 +166,7 @@
             <div class="card">
             <div class="card-header">
               <h3 class="card-title">Nilai Semester 2</h3>
+              <a class="btn btn-primary ml-3" href="<?= base_url('data/cetakpas2')?>">Cetak PDF <i class="fa fa-file"></i></a>
             </div>
             <div class="card-body table-responsive p-0">
                 <table class="table table-hover table-bordered table-striped text-nowrap">

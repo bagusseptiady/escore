@@ -164,5 +164,21 @@ class Data extends CI_Controller {
         $this->product_model->edd3($id,$idab,$alpa,$sakit,$izin,$alpa2,$sakit2,$izin2);
         redirect('page/absen');
     }
+    public function cetakpts(){
+        $this->load->library('dompdf_gen');
+
+        $data['pts'] = $this->product_model->nilair()->result();
+
+        $this->load->view('page/cetakpts',$data);
+
+        $paper_size = 'A4';
+        $orientation = 'potrait';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Nilai_PTS_S1.pdf", array('Attachment' => 0));
+    }
 }
 ?>
