@@ -180,5 +180,53 @@ class Data extends CI_Controller {
         $this->dompdf->render();
         $this->dompdf->stream("Nilai_PTS_S1.pdf", array('Attachment' => 0));
     }
+    public function cetakpts2(){
+        $this->load->library('dompdf_gen');
+
+        $data['pts'] = $this->product_model->nilaira()->result();
+
+        $this->load->view('page/cetakpts2',$data);
+
+        $paper_size = 'A4';
+        $orientation = 'potrait';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Nilai_PTS_S2.pdf", array('Attachment' => 0));
+    }
+    public function cetakpas(){
+        $this->load->library('dompdf_gen');
+
+        $data['pas'] = $this->product_model->nilair()->result();
+
+        $this->load->view('page/cetakpas',$data);
+
+        $paper_size = 'A4';
+        $orientation = 'potrait';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Nilai_PAS_S1.pdf", array('Attachment' => 0));
+    }
+    public function cetakpas2(){
+        $this->load->library('dompdf_gen');
+
+        $data['pas'] = $this->product_model->nilaira()->result();
+
+        $this->load->view('page/cetakpas2',$data);
+
+        $paper_size = 'A4';
+        $orientation = 'potrait';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Nilai_PAS_S2.pdf", array('Attachment' => 0));
+    }
 }
 ?>

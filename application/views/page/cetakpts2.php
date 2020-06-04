@@ -2,7 +2,7 @@
 <html><head>
 	<title></title>
 </head><body>
-	<h3 style="text-align: center"> Hasil Penilaian Tengah Semester 1</h3>
+	<h3 style="text-align: center"> Hasil Penilaian Tengah Semester 2</h3>
 	<table class="table table-hover table-bordered table-striped text-nowrap mt-2">
             <tr>
 				<th>No</th>
