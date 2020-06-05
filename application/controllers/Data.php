@@ -168,7 +168,7 @@ class Data extends CI_Controller {
         $this->load->library('dompdf_gen');
 
         $data['pts'] = $this->product_model->nilair()->result();
-
+        $data['siswa'] = $this->product_model->got()->result();
         $this->load->view('page/cetakpts',$data);
 
         $paper_size = 'A4';
@@ -216,7 +216,7 @@ class Data extends CI_Controller {
         $this->load->library('dompdf_gen');
 
         $data['pas'] = $this->product_model->nilaira()->result();
-
+        $data['siswa'] = $this->product_model->got()->result();
         $this->load->view('page/cetakpas2',$data);
 
         $paper_size = 'A4';

@@ -1,9 +1,34 @@
 <!DOCTYPE html>
 <html><head>
-	<title></title>
+	<title>Cetak PDF</title>
+    <style>
+        table, td, th {  
+        border: 1px solid black;
+        text-align: left;
+    }
+
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+        th, td {
+        padding: 15px;
+    }
+        h3 {
+            text-align: center;
+        }
+</style>
 </head><body>
-	<h3 style="text-align: center"> Hasil Penilaian Akhir Semester 2</h3>
-	    <table class="table table-hover table-bordered table-striped text-nowrap">
+	<h3> Hasil Penilaian Akhir Semester 2</h3>
+    <?php foreach ($siswa as $data) {?>
+    <p> Nama Siswa : <?= $data->Nama; ?> <br>
+        Jurusan : <?= $data->Nama_Jurusan;?><br>
+        Kelas : <?= $data->Nama_Kelas;?>
+    </p>
+    <?php }?>
+	    <table>
             <tr>
                 <th>No</th>
                 <th>Mata Pelajaran</th>
