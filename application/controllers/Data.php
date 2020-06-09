@@ -198,7 +198,7 @@ class Data extends CI_Controller {
     }
     public function cetakpas(){
         $this->load->library('dompdf_gen');
-
+        $data['de'] = $this->product_model->cri3()->result();
         $data['pas'] = $this->product_model->nilair()->result();
         $data['siswa'] = $this->product_model->got()->result();
         $this->load->view('page/cetakpas',$data);
@@ -214,7 +214,7 @@ class Data extends CI_Controller {
     }
     public function cetakpas2(){
         $this->load->library('dompdf_gen');
-
+        $data['de'] = $this->product_model->cri3()->result();
         $data['pas'] = $this->product_model->nilaira()->result();
         $data['siswa'] = $this->product_model->got()->result();
         $this->load->view('page/cetakpas2',$data);

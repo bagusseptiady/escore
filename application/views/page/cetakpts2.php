@@ -52,5 +52,22 @@
             <?php } else{?>
             <?php }?>
             <?php }?>
+        </table><br><br>
+        <table style="border: 0px;">
+            <tr >
+                <td style="text-align:left; border:0px; padding-left: 35px;">Orang Tua</td>
+                <td style="text-align:center; border:0px;">Kepala Sekolah</td>
+                <td style="text-align:right; border:0px; padding-right: 55px;">Guru</td>
+            </tr>
+            <tr>
+                <td style="border:0px; height: 50px;"></td>
+                <td style="border:0px; height: 50px;"></td>
+                <td style="border:0px; height: 50px;"></td>
+            </tr>
+            <tr>
+				<td style="text-align:left; border:0px;">_______________</td>
+                <td style="text-align:center; border:0px;">_______________</td>
+                <td style="text-align:right; border:0px;">_______________</td>
+        	</tr>
         </table>			
 </body></html>

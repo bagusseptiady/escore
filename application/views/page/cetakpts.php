@@ -5,25 +5,21 @@
     body {
         font-family: sans-serif;
     }
-        table, td, th {  
+    table, td, th {  
         border: 1px solid black;
         text-align: left;
     }
-
-        table {
+    table {
         border-collapse: collapse;
         width: 100%;
         margin-top: 5px;
     }
-
-        th, td {
+    th, td {
         padding: 5px;
     }
-
-        h3 {
+    h3 {
         text-align: center;
     }
-        
 </style>
 </head><body>
     <h3> Hasil Penilaian Tengah Semester 1</h3>
@@ -54,5 +50,22 @@
             <?php } else{?>
             <?php }?>
             <?php }?>
-        </table>			
+        </table><br><br>
+        <table style="border: 0px;">
+            <tr >
+                <td style="text-align:left; border:0px; padding-left: 35px;">Orang Tua</td>
+                <td style="text-align:center; border:0px;">Kepala Sekolah</td>
+                <td style="text-align:right; border:0px; padding-right: 55px;">Guru</td>
+            </tr>
+            <tr>
+                <td style="border:0px; height: 50px;"></td>
+                <td style="border:0px; height: 50px;"></td>
+                <td style="border:0px; height: 50px;"></td>
+            </tr>
+            <tr>
+				<td style="text-align:left; border:0px;">_______________</td>
+                <td style="text-align:center; border:0px;">_______________</td>
+                <td style="text-align:right; border:0px;">_______________</td>
+        	</tr>
+        </table>
 </body></html>

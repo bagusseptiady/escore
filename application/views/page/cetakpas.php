@@ -53,5 +53,41 @@
             <?php } else{?>
             <?php }?>
             <?php }?>
-         </table>			
+         </table><br><br>
+         <table style="width: 30%;">
+            <tr>
+                <th colspan="2" style="text-align: center;">Absen Siswa</th>
+            </tr> 
+            <?php foreach($de as $data){?>
+            <tr>
+                <td>Alfa</td>
+                <td><?= $data->Alpa;?></td>
+            </tr>
+            <tr>
+                <td>Sakit</td>
+                <td><?= $data->Sakit;?></td>
+            </tr>
+            <tr>
+                <td>Izin</td>
+                <td><?= $data->Izin;?></td>
+            </tr>
+            <?php }?>
+         </table><br><br>
+         <table style="border: 0px;">
+            <tr >
+                <td style="text-align:left; border:0px; padding-left: 35px;">Orang Tua</td>
+                <td style="text-align:center; border:0px;">Kepala Sekolah</td>
+                <td style="text-align:right; border:0px; padding-right: 55px;">Guru</td>
+            </tr>
+            <tr>
+                <td style="border:0px; height: 50px;"></td>
+                <td style="border:0px; height: 50px;"></td>
+                <td style="border:0px; height: 50px;"></td>
+            </tr>
+            <tr>
+				<td style="text-align:left; border:0px;">_______________</td>
+                <td style="text-align:center; border:0px;">_______________</td>
+                <td style="text-align:right; border:0px;">_______________</td>
+        	</tr>
+        </table>			
 </body></html>
