@@ -44,11 +44,20 @@
 </script>
 <script>
     Morris.Bar({
+    element: 'graph3',
+    data: <?php echo $dat3;?>,
+    xkey: 'Semester',
+    ykeys: ['NH', 'PTS'],
+    labels: ['Rata-Rata Nilai Harian', 'Penilaian Akhir Semester']
+    });
+</script>
+<script>
+    Morris.Bar({
     element: 'graph2',
     data: <?php echo $dat2;?>,
     xkey: 'Semester',
-    ykeys: ['NH', 'PTS', 'PAS', 'NP', 'NK'],
-    labels: ['Rata-Rata Nilai Harian', 'Penilaian Tengah Semester', 'Penilaian Akhir Semester', 'Nilai Pengetahuan', 'Nilai Keterampilan']
+    ykeys: ['PAS', 'NP', 'NK'],
+    labels: ['Penilaian Akhir Semester', 'Nilai Pengetahuan', 'Nilai Keterampilan']
     });
 </script>
 <script type="text/javascript">
@@ -66,6 +75,26 @@
                     cache	: false,
                     success	: function(data){
                         $('#graph').load("<?= base_url();?> page/siswa");
+                    }
+                });
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+         $('#graph3').load("<?= base_url();?> page/siswa");
+
+            $("#Submit3").click(function(){
+                var data = $('#form').serialize();
+                $.ajax({
+                    type	: 'POST',
+                    url	        : "<?= base_url();?> page/siswa",
+                    data        : data,
+
+                    cache	: false,
+                    success	: function(data){
+                        $('#graph3').load("<?= base_url();?> page/siswa");
                     }
                 });
             });

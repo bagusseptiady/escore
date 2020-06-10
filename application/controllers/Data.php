@@ -92,6 +92,11 @@ class Data extends CI_Controller {
         $this->product_model->hapusab($idab);
         redirect('page/absen');
     }
+    function hapus4(){
+        $idpt=$this->input->post('id_pts');
+        $this->product_model->hapusnp($idpt);
+        redirect('page/lihat');
+    }
     function tambah(){
         $id  = $this->input->post('user_id',TRUE);
         $nh1 = $this->input->post('nh1',TRUE);
@@ -107,9 +112,6 @@ class Data extends CI_Controller {
     }
     function tambah2(){
         $id  = $this->input->post('uid',TRUE);
-        $nh = $this->input->post('nh',TRUE);
-        $pts = $this->input->post('pts',TRUE);
-        $kkmt = $this->input->post('kkmt',TRUE);
         $pas = $this->input->post('pas',TRUE);
         $kkma = $this->input->post('kkma',TRUE);
         $np = $this->input->post('np',TRUE);
@@ -119,6 +121,16 @@ class Data extends CI_Controller {
         $matpel  = $this->input->post('matpel',TRUE);
         $semester = $this->input->post('semester',TRUE);
         $this->product_model->tambahh2($id,$nh,$pts,$kkmt,$pas,$kkma,$np,$kkm,$nk,$kkm2,$matpel,$semester);
+        redirect('page/lihat');
+    }
+    function tambah3(){
+        $id  = $this->input->post('id_us',TRUE);
+        $np = $this->input->post('np',TRUE);
+        $pts = $this->input->post('pts',TRUE);
+        $kkmt = $this->input->post('kkmt',TRUE);
+        $matpel  = $this->input->post('matpel',TRUE);
+        $semester = $this->input->post('semester',TRUE);
+        $this->product_model->tambahh3($id,$np,$pts,$matpel,$semester);
         redirect('page/lihat');
     }
     function ed(){
@@ -164,10 +176,21 @@ class Data extends CI_Controller {
         $this->product_model->edd3($id,$idab,$alpa,$sakit,$izin,$alpa2,$sakit2,$izin2);
         redirect('page/absen');
     }
+    function ed4(){
+        $id  = $this->input->post('id_us',TRUE);
+        $nh = $this->input->post('nh',TRUE);
+        $pts = $this->input->post('pts',TRUE);
+        $kkmt = $this->input->post('kkmt',TRUE);
+        $matpel  = $this->input->post('matpel',TRUE);
+        $semester = $this->input->post('semester',TRUE);
+        $idp=$this->input->post('idp');
+        $this->product_model->edd4($id,$idp,$nh,$pts,$matpel,$semester);
+        redirect('page/lihat');
+    }
     public function cetakpts(){
         $this->load->library('dompdf_gen');
 
-        $data['pts'] = $this->product_model->nilair()->result();
+        $data['pts'] = $this->product_model->nilaipt()->result();
         $data['siswa'] = $this->product_model->got()->result();
         $this->load->view('page/cetakpts',$data);
 
@@ -183,7 +206,7 @@ class Data extends CI_Controller {
     public function cetakpts2(){
         $this->load->library('dompdf_gen');
 
-        $data['pts'] = $this->product_model->nilaira()->result();
+        $data['pts'] = $this->product_model->nilaipts()->result();
         $data['siswa'] = $this->product_model->got()->result();
         $this->load->view('page/cetakpts2',$data);
 

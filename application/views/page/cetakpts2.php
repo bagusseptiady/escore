@@ -28,8 +28,8 @@
     <h3 style="margin-top: 0px;"> SMKN 24 Jakarta </h3>
     <?php foreach ($siswa as $data) {?>
     Nama Siswa : <?= $data->Nama; ?> <br>
-    Jurusan &emsp : <?= $data->Nama_Jurusan;?><br>
-    Kelas &emsp : <?= $data->Nama_Kelas;?>
+    Jurusan : <?= $data->Nama_Jurusan;?><br>
+    Kelas : <?= $data->Nama_Kelas;?>
     <?php }?>
 	<table>
             <tr>

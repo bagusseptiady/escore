@@ -85,8 +85,8 @@ class Data_model extends CI_Model{
     public function nsr6()
     {   
         $this->db->select('PTS');
-        $this->db->from('nilairaport');
-        $this->db->where('uid',$this->session->userdata('id_user'));
+        $this->db->from('nilaipts');
+        $this->db->where('id_us',$this->session->userdata('id_user'));
         $this->db->where('PTS','100');
         $query = $this->db->get();
         if($query->num_rows()>0)
@@ -198,8 +198,8 @@ class Data_model extends CI_Model{
     public function nkkm6()
     {   
         $this->db->select('PTS');
-        $this->db->from('nilairaport');
-        $this->db->where('uid',$this->session->userdata('id_user'));
+        $this->db->from('nilaipts');
+        $this->db->where('id_us',$this->session->userdata('id_user'));
         $this->db->where('PTS>=KKMT');
         $query = $this->db->get();
         if($query->num_rows()>0)
@@ -216,7 +216,7 @@ class Data_model extends CI_Model{
         $this->db->select('PAS');
         $this->db->from('nilairaport');
         $this->db->where('uid',$this->session->userdata('id_user'));
-        $this->db->where('PAS>=KKMT');
+        $this->db->where('PAS>=KKMA');
         $query = $this->db->get();
         if($query->num_rows()>0)
         {
@@ -330,8 +330,8 @@ class Data_model extends CI_Model{
     public function nbkkm6()
     {   
         $this->db->select('PTS');
-        $this->db->from('nilairaport');
-        $this->db->where('uid',$this->session->userdata('id_user'));
+        $this->db->from('nilaipts');
+        $this->db->where('id_us',$this->session->userdata('id_user'));
         $this->db->where('PTS<KKMT');
         $query = $this->db->get();
         if($query->num_rows()>0)
@@ -349,7 +349,7 @@ class Data_model extends CI_Model{
         $this->db->select('PAS');
         $this->db->from('nilairaport');
         $this->db->where('uid',$this->session->userdata('id_user'));
-        $this->db->where('PAS<KKMT');
+        $this->db->where('PAS<KKMA');
         $query = $this->db->get();
         if($query->num_rows()>0)
         {
@@ -444,8 +444,8 @@ class Data_model extends CI_Model{
     public function nks6()
     {   
         $this->db->select('PTS');
-        $this->db->from('nilairaport');
-        $this->db->where('uid',$this->session->userdata('id_user'));
+        $this->db->from('nilaipts');
+        $this->db->where('id_us',$this->session->userdata('id_user'));
         $this->db->where('PTS','0');
         $query = $this->db->get();
         if($query->num_rows()>0)
@@ -551,7 +551,7 @@ class Data_model extends CI_Model{
     public function nkss6()
     {   
         $this->db->select('PTS');
-        $this->db->from('nilairaport');
+        $this->db->from('nilaipts');
         $this->db->where('PTS','0');
         $query = $this->db->get();
         if($query->num_rows()>0)
@@ -686,7 +686,7 @@ class Data_model extends CI_Model{
     public function nkss6a()
     {   
         $this->db->select('PTS');
-        $this->db->from('nilairaport');
+        $this->db->from('nilaipts');
         $this->db->where('PTS>0');
         $query = $this->db->get();
         if($query->num_rows()>0)

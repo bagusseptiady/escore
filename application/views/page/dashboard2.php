@@ -391,7 +391,45 @@
               <div class="card-header border-0">
                 <h3 class="card-title">
                   <i class="fas fa-th mr-1"></i>
-                  Grafik Nilai Raport
+                  Grafik Nilai Raport PTS
+                </h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-sm" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <form id="form" role="form" method="post" action="<?= base_url('page/siswa')?>">
+                <div class="row">
+                  <div class="form-group col-8">
+                    <select class="custom-select" name="mtpl3" id="mtpl3" >
+                    <?php foreach($nampel3 as $data){?>
+                      <option><?= $data->Nama_Matpel;?></option>
+                      <?php }?>
+                      <?php foreach($mt as $row):?>
+                      <option value="<?php echo $row->id_mt;?>"><?php echo $row->Nama_Matpel;?></option>
+                      <?php endforeach;?>
+                    </select>
+                  </div>
+                  <div class="col-2">
+                    <button id="Submit" type="submit" class="btn btn-primary submit">Cek</button>
+                  </div>
+                </div>
+                </form>
+              </div>
+              <div class="card-body">
+                <div id="graph3"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+          <div class="card ">
+              <div class="card-header border-0">
+                <h3 class="card-title">
+                  <i class="fas fa-th mr-1"></i>
+                  Grafik Nilai Raport PAS
                 </h3>
                 <div class="card-tools">
                   <button type="button" class="btn btn-sm" data-card-widget="collapse">
@@ -421,43 +459,6 @@
               </div>
               <div class="card-body">
                 <div id="graph2"></div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-6">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Rekap Absen</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table class="table table-bordered">
-                  <thead>                  
-                    <tr>
-                      <th>Semester</th>
-                      <th>Alpa</th>
-                      <th>Sakit</th>
-                      <th>Izin</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  <?php foreach($de as $data){?>
-                    <tr>
-                    <td><?= $data->Semester1;?></td>
-                    <td><?= $data->Alpa;?></td>
-                    <td><?= $data->Sakit;?></td>
-                    <td><?= $data->Izin;?></td>
-                    </tr>
-                    <tr>
-                    <td><?= $data->Semester2;?></td>
-                    <td><?= $data->Alpa2;?></td>
-                    <td><?= $data->Sakit2;?></td>
-                    <td><?= $data->Izin2;?></td>
-                    </tr>
-                  <?php }?>
-                  </tbody>
-                </table>
               </div>
             </div>
           </div>
@@ -509,6 +510,43 @@
                   <!-- ./col -->
                 </div>
                 <!-- /.row -->
+              </div>
+            </div>
+          </div>
+                    
+          <div class="col-6">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Rekap Absen</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>                  
+                    <tr>
+                      <th>Semester</th>
+                      <th>Alpa</th>
+                      <th>Sakit</th>
+                      <th>Izin</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <?php foreach($de as $data){?>
+                    <tr>
+                    <td><?= $data->Semester1;?></td>
+                    <td><?= $data->Alpa;?></td>
+                    <td><?= $data->Sakit;?></td>
+                    <td><?= $data->Izin;?></td>
+                    </tr>
+                    <tr>
+                    <td><?= $data->Semester2;?></td>
+                    <td><?= $data->Alpa2;?></td>
+                    <td><?= $data->Sakit2;?></td>
+                    <td><?= $data->Izin2;?></td>
+                    </tr>
+                  <?php }?>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>

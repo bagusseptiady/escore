@@ -166,7 +166,7 @@
             </div>
             <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Nilai Harian &nbsp</h3>
+              <h3 class="card-title">Nilai Harian &nbsp;</h3>
               <form role="form" method="post">
               
                 <div class="row">
@@ -243,7 +243,76 @@
             </div>
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Nilai Raport &nbsp</h3>
+                <h3 class="card-title">Nilai Raport PTS &nbsp;</h3>
+                <form role="form" method="post">
+                <div class="row">
+                <div class="form-group col-2">
+                <a class="btn btn-primary btn-sm" href="#"data-toggle="modal" data-target="#exampleModalCenter6">
+                <i class="fas fa-plus"></i>
+                Tambah
+                </a>
+                </div>
+                <?php foreach($namkls as $data){?>
+                  <div class="form-group col-3">
+                    <input type="text" name="id_nh" value="<?= $data->Nama;?>" disabled>
+                  </div>
+                  <div class="form-group col-3">
+                    <input type="text" name="id_nh" value="<?= $data->Nama_Kelas;?>" disabled>
+                  </div>
+                <?php }?>
+                  </div>
+                </form>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-head-fixed table-bordered table-striped text-nowrap">
+                
+                <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Semester</th>
+                  <th>Mata Pelajaran</th>
+                  <th>NH</th>
+                  <th>PTS</th>
+                  <th>KKM</th>
+                  <th style="width: 20%">Atur</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php $no=1; 
+                foreach($pt as $data){
+                  if($data->Semester&&$data->Matpel!=NULL){?>
+                <tr>
+                  <td><?=  $no++ ?></td>
+                  <td><?= $data->Semester;?></td>
+                  <td><?= $data->Nama_Matpel;?></td>
+                  <td><?= $data->NH;?></td>
+                  <td><?= $data->PTS;?></td>
+                  <td><?= $data->KKMT;?></td>
+                  <td class="project-actions text-right">
+                    <a class="btn btn-info btn-sm" href="#"data-toggle="modal" data-target="#exampleModalCenter7<?= $data->id_pts;?>">
+                      <i class="fas fa-pencil-alt">
+                      </i>
+                      
+                      Edit
+                    </a>
+                    <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#exampleModalCenterrr<?= $data->id_pts;?>">
+                      <i class="fas fa-trash">
+                      </i>
+                      Delete
+                    </a>
+                  </td>
+                  </tr>
+                  <?php } else{?>
+                <?php }?>
+                <?php }?>
+                </tbody>
+                </table>
+                </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Nilai Raport PAS &nbsp;</h3>
                 <form role="form" method="post">
                 <div class="row">
                 <div class="form-group col-2">
@@ -263,19 +332,14 @@
                   </div>
                 </form>
               </div>
-            </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0" style="height: 300px;">
                 <table class="table table-head-fixed table-bordered table-striped text-nowrap">
-                
                 <thead>
                 <tr>
                   <th>No</th>
                   <th>Semester</th>
                   <th>Mata Pelajaran</th>
-                  <th>NH</th>
-                  <th>PTS</th>
-                  <th>KKM</th>
                   <th>PAS</th>
                   <th>KKM</th>
                   <th>Nilai Pengetahuan</th>
@@ -293,9 +357,6 @@
                   <td><?=  $no++ ?></td>
                   <td><?= $data->Semester;?></td>
                   <td><?= $data->Nama_Matpel;?></td>
-                  <td><?= $data->NH;?></td>
-                  <td><?= $data->PTS;?></td>
-                  <td><?= $data->KKMT;?></td>
                   <td><?= $data->PAS;?></td>
                   <td><?= $data->KKMA;?></td>
                   <td><?= $data->NP;?></td>
@@ -384,6 +445,31 @@
       <form role="form" method="post" action="<?= base_url('data/hapus2')?>">
       <input type="hidden" name="id_raport" value="<?= $data->id_raport;?>">
       <a href=<?= base_url('data/hapus2')?>><button type="submit" class="btn btn-danger col-5" >Ya</button></a>
+      <button type="button" class="btn btn-secondary col-5" data-dismiss="modal">Tidak</button>
+      </div>
+      </div>
+      
+      </form>
+    </div>
+  </div>
+</div>
+<?php }?>
+<?php foreach($pt as $data){?>
+<div class="modal fade" id="exampleModalCenterrr<?= $data->id_pts;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle" >Hapus Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <h5 class="text-center"> Apakah Anda Yakin?<h5>
+      <div class="text-center">
+      <form role="form" method="post" action="<?= base_url('data/hapus2')?>">
+      <input type="hidden" name="id_pts" value="<?= $data->id_pts;?>">
+      <a href=<?= base_url('data/hapus4')?>><button type="submit" class="btn btn-danger col-5" >Ya</button></a>
       <button type="button" class="btn btn-secondary col-5" data-dismiss="modal">Tidak</button>
       </div>
       </div>
@@ -482,18 +568,18 @@
   </div>
 </div>
 <?php }?>
-<?php foreach($dl as $data){?>
-<div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<?php foreach($pt as $data){?>
+<div class="modal fade" id="exampleModalCenter6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered " role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle" >Tambah Nilai Raport</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle" >Tambah Nilai Raport PTS</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-      <?= form_open_multipart('data/tambah2');?>
+      <?= form_open_multipart('data/tambah3');?>
           <div class="form-group row">
             <label for="semester" class="col-sm-4 col-form-label">Semester</label>
             <div class="col-sm-8">
@@ -535,6 +621,55 @@
             <label for="pas" class="col-sm-4 col-form-label">KKM</label>
             <div class="col-sm-8">
               <input type="text" class="form-control" id="kkmt" name="kkmt" placeholder="KKM Nilai PTS"  autocomplete="off">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-sm-0 col-sm-10">
+              <button type="submit" class="btn btn-danger">Simpan</button>
+            </div>
+          </div>
+          <input type="hidden" name="id_us" value="<?= $data->id_us;?>">
+      <?= form_close();?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php }?>
+<?php foreach($dl as $data){?>
+<div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle" >Tambah Nilai Raport PAS</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <?= form_open_multipart('data/tambah2');?>
+          <div class="form-group row">
+            <label for="semester" class="col-sm-4 col-form-label">Semester</label>
+            <div class="col-sm-8">
+              <select class="custom-select" name="semester" id="semester" required>
+                <option>Semester</option>
+                <option value="Semester 1">Semester 1</option>
+                <option value="Semester 2">Semester 2</option>
+              </select>
+            </div>
+          </div>
+          <?= form_error('matpel','<small class="text-danger">','</small>');?>
+          <div class="form-group row">
+            <label for="matpel" class="col-sm-4 col-form-label">Mata Pelajaran</label>
+            <div class="col-sm-8">
+              <select class="custom-select" name="matpel" id="matpel" required>
+                <option>Mata Pelajaran</option>
+                <?php foreach($mt as $row):?>
+                <option value="<?php echo $row->id_mt;?>"><?php echo $row->Nama_Matpel;?></option>
+                <?php endforeach;?>
+              </select>
             </div>
           </div>
           <?= form_error('nilai','<small class="text-danger">','</small>');?>
@@ -676,18 +811,18 @@
   </div>
 </div>
 <?php }?>
-<?php foreach($dl as $data){?>
-<div class="modal fade" id="exampleModalCenter5<?= $data->id_raport;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<?php foreach($pt as $data){?>
+<div class="modal fade" id="exampleModalCenter5<?= $data->id_pts;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered " role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle" >Edit Nilai Raport</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle" >Edit Nilai Raport PTS</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-      <?= form_open_multipart('data/ed2');?>
+      <?= form_open_multipart('data/ed4');?>
           <div class="form-group row">
             <label for="semester" class="col-sm-4 col-form-label">Semester</label>
             <div class="col-sm-8">
@@ -726,6 +861,52 @@
               <div class="col-sm-8">
                 <input type="text" class="form-control" id="kkmt" name="kkmt" placeholder="KKM Nilai PTS" value="<?= $data->KKMT;?>" autocomplete="off">
               </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-sm-0 col-sm-10">
+              <button type="submit" class="btn btn-danger">Simpan</button>
+            </div>
+          </div>
+          <input type="hidden" name="id_us" value="<?= $data->id_us;?>">
+          <input type="hidden" name="idp" value="<?= $data->id_pts;?>">
+      <?= form_close();?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php }?>
+<?php foreach($dl as $data){?>
+<div class="modal fade" id="exampleModalCenter5<?= $data->id_raport;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle" >Edit Nilai Raport PAS</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <?= form_open_multipart('data/ed2');?>
+          <div class="form-group row">
+            <label for="semester" class="col-sm-4 col-form-label">Semester</label>
+            <div class="col-sm-8">
+            <input type="text" class="form-control" id="semester" name="semester" placeholder="Semester" value="<?= $data->Semester;?>" autocomplete="off" disabled>
+            </div>
+          </div>
+          <?= form_error('matpel','<small class="text-danger">','</small>');?>
+          <div class="form-group row">
+            <label for="matpel" class="col-sm-4 col-form-label">Mata Pelajaran</label>
+            <div class="col-sm-8">
+              <select class="custom-select" name="matpel" id="matpel" required>
+                <option value="<?= $data->Nama_Matpel;?>"><?= $data->Nama_Matpel;?></option>
+                <?php foreach($mt as $row):?>
+                <option value="<?php echo $row->id_mt;?>"><?php echo $row->Nama_Matpel;?></option>
+                <?php endforeach;?>
+              </select>
+            </div>
           </div>
           <?= form_error('nilai','<small class="text-danger">','</small>');?>
           <div class="form-group row">

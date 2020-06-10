@@ -164,6 +164,9 @@ class Page extends CI_Controller{
       $data['nampel2'] = $this->product_model->nampel2()->result();
       $dat2 = $this->product_model->get_data2()->result();
       $data['dat2'] = json_encode($dat2);
+      $data['nampel3'] = $this->product_model->nampel3()->result();
+      $dat3 = $this->product_model->get_data3()->result();
+      $data['dat3'] = json_encode($dat3);
       $this->load->view('templates/dash_header',$data);
       $this->load->view('page/dashboard2');
       $this->load->view('templates/dash_footer');
@@ -265,6 +268,7 @@ class Page extends CI_Controller{
     $data['deta'] = $this->product_model->got()->result();
     $data['namkls'] = $this->product_model->namkel()->result();
     $data['dl'] = $this->product_model->nilairap()->result();
+    $data['pt'] = $this->product_model->nilaip()->result();
     $data['sekolah'] = $this->product_model->get_category()->result();
     $data['mt'] = $this->product_model->get_mt()->result();
     $this->load->view('page/lihat', $data);
@@ -294,8 +298,8 @@ class Page extends CI_Controller{
     $data['title'] = 'E Score | Nilai Raport PTS';
     $data['detail'] = $this->product_model->get()->result();
     $this->load->view('templates/har_header',$data);
-    $data['dd'] = $this->product_model->nilair()->result();
-    $data['dq'] = $this->product_model->nilaira()->result();
+    $data['dd'] = $this->product_model->nilaipt()->result();
+    $data['dq'] = $this->product_model->nilaipts()->result();
     $data['sekolah'] = $this->product_model->get_category()->result();
     $this->load->view('page/raport2', $data);
     $this->load->view('templates/har_footer');

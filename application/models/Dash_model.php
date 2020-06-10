@@ -65,8 +65,8 @@ class Dash_model extends CI_Model{
     public function nsmp6()
     {   
         $this->db->select('*');
-        $this->db->from('nilairaport');
-        $this->db->where('uid',$this->session->userdata('id_user'));
+        $this->db->from('nilaipts');
+        $this->db->where('id_us',$this->session->userdata('id_user'));
         $this->db->join('matapel','id_mt= Matpel','left');
         $this->db->where('PTS','100');
         $this->db->order_by('Semester','ASC');
@@ -149,8 +149,8 @@ class Dash_model extends CI_Model{
     public function ndbk6()
     {   
         $this->db->select('*');
-        $this->db->from('nilairaport');
-        $this->db->where('uid',$this->session->userdata('id_user'));
+        $this->db->from('nilaipts');
+        $this->db->where('id_us',$this->session->userdata('id_user'));
         $this->db->join('matapel','id_mt= Matpel','left');
         $this->db->where('PTS<KKMT');
         $this->db->order_by('Semester','ASC');
@@ -238,9 +238,9 @@ class Dash_model extends CI_Model{
     public function nksg6()
     {   
         $this->db->select('*');
-        $this->db->from('nilairaport');
+        $this->db->from('nilaipts');
         $this->db->join('matapel','id_mt= Matpel','left');
-        $this->db->join('user','id_user= uid','left');
+        $this->db->join('user','id_user= id_us','left');
         $this->db->join('subsekolah','id_sub= Kelas','left');
         $this->db->where('PTS','0');
         $this->db->order_by('Semester','ASC');
@@ -355,9 +355,9 @@ class Dash_model extends CI_Model{
     public function nspm6()
     {   
         $this->db->select('*');
-        $this->db->from('nilairaport');
+        $this->db->from('nilaipts');
         $this->db->join('matapel','id_mt= Matpel','left');
-        $this->db->join('user','id_user= uid','left');
+        $this->db->join('user','id_user= id_us','left');
         $this->db->join('subsekolah','id_sub= Kelas','left');
         $this->db->where('PTS','100');
         $this->db->order_by('Semester','ASC');

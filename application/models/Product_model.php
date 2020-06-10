@@ -168,6 +168,51 @@ class Product_model extends CI_Model{
         $query = $this->db->get();
         return $query;
     }
+    function nilaipt(){
+        $this->db->select('*');
+        $this->db->from('nilaipts');
+        $this->db->where('id_us',$this->session->userdata('id_user'));
+        $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->where('Semester','Semester 1');
+        $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
+        return $query;
+    }
+    function nilaipts(){
+        $this->db->select('*');
+        $this->db->from('nilaipts');
+        $this->db->where('id_us',$this->session->userdata('id_user'));
+        $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->where('Semester','Semester 2');
+        $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
+        return $query;
+    }
+    function nilaip(){
+        $nm = $this->input->post('nam',TRUE);
+        $sm = $this->input->post('sm',TRUE);
+        $kls = $this->input->post('subsekolah',TRUE);
+        if($sm =='Semua'){
+        $this->db->select('*');
+        $this->db->from('nilaipts');
+        $this->db->where('id_us',$nm);
+        $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->order_by('Semester','ASC');
+        $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
+        return $query;
+        }
+        else{
+        $this->db->select('*');
+        $this->db->from('nilaipts');
+        $this->db->where('id_us',$nm);
+        $this->db->where('Semester',$sm);
+        $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
+        return $query;
+        }
+    }
     function nilairap(){
         $nm = $this->input->post('nam',TRUE);
         $sm = $this->input->post('sm',TRUE);
@@ -232,6 +277,9 @@ class Product_model extends CI_Model{
     function hapusab($idab){
         $this->db->query("DELETE FROM absen WHERE id_absen='$idab'");
     }
+    function hapusnp($idab){
+        $this->db->query("DELETE FROM nilaipts WHERE id_pts='$idpt'");
+    }
     function tambahh($id,$nh1,$nh2,$nh3,$nh4,$nh5,$kkmnh,$matpel,$semester){
         $rata = ($nh1+$nh2+$nh3+$nh4+$nh5)/5;
         $data = array(
@@ -267,13 +315,30 @@ class Product_model extends CI_Model{
         );
         $this->db->insert('nilairaport',$data);
     }
+    function tambahh3($id,$nh,$pts,$kkmt,$matpel,$semester){
+        $data = array(
+            'Semester' => $semester,
+            'Matpel' => $matpel,
+            'NH' => $nh,
+            'PTS' => $pts,
+            'KKMT' => $kkmt,
+            'id_us' => $id
+
+        );
+        $this->db->insert('nilaipts',$data);
+    }
     function edd($id,$idnh,$nh1,$nh2,$nh3,$nh4,$nh5,$kkmnh,$matpel,$semester){
         $rata = ($nh1+$nh2+$nh3+$nh4+$nh5)/5;
         $this->db->query("UPDATE nilaiharian SET Semester='$semester',Matpel='$matpel',NH1 = '$nh1',NH2 = '$nh2',NH3 = $nh3,NH4 = '$nh4',NH5 = '$nh5',KKMNH => '$kkmnh' ,Rata = '$rata', user_id = '$id' WHERE id_nh='$idnh'");
     }
-    function edd2($id,$idr,$nh,$pts,$pas,$np,$nk,$kkmt,$kkma,$kkm,$kkm2,$matpel,$semester){
+    function edd2($id,$idr,$pas,$np,$nk,$kkmt,$kkma,$kkm,$kkm2,$matpel,$semester){
         
-        $this->db->query("UPDATE nilairaport SET NH = '$nh',PTS = '$pts',PAS = '$pas',NP = '$np',KKM = '$kkm',KKMT = '$kkmt',KKMA = '$kkma',NK = '$nk',KKM2 = '$kkm2', uid = '$id' WHERE id_raport='$idr'");
+        $this->db->query("UPDATE nilairaport SET PAS = '$pas',NP = '$np',KKM = '$kkm',KKMT = '$kkmt',KKMA = '$kkma',NK = '$nk',KKM2 = '$kkm2', uid = '$id' WHERE id_raport='$idr'");
+        
+    }
+    function edd4($id,$idp,$nh,$pts,$matpel,$semester){
+        
+        $this->db->query("UPDATE nilaipts SET NH = '$nh', PTS = '$pts',KKMT = '$kkmt', id_us = '$id' WHERE id_ptst='$idp'");
         
     }
     function edd3($id,$idab,$alpa,$sakit,$izin,$alpa2,$sakit2,$izin2){
@@ -288,8 +353,8 @@ class Product_model extends CI_Model{
         );
         $this->db->insert('nilaiharian',$data);
     }
-    function awal($id){
-        $this->db->query("UPDATE nilaiharian SET user_id='$id'");
+    function awal($id,$username){
+        $this->db->query("UPDATE nilaiharian SET user_id='$id'WHERE Username='$username");
     }
     function awal2($username){
         $data = array(
@@ -298,8 +363,8 @@ class Product_model extends CI_Model{
         );
         $this->db->insert('nilairaport',$data);
     }
-    function awall($id){
-        $this->db->query("UPDATE nilairaport SET uid='$id'");
+    function awall($id,$username){
+        $this->db->query("UPDATE nilairaport SET uid='$id'WHERE Username='$username");
     }
     function awal3($username){
         $data = array(
@@ -310,8 +375,18 @@ class Product_model extends CI_Model{
         );
         $this->db->insert('absen',$data);
     }
-    function awalll($id){
-        $this->db->query("UPDATE absen SET usr_id='$id'");
+    function awalll($id,$username){
+        $this->db->query("UPDATE absen SET usr_id='$id' WHERE Username='$username");
+    }
+    function awal4($username){
+        $data = array(
+            'id_us'=> '1',
+            'Namaaaa' => $username
+        );
+        $this->db->insert('nilaipts',$data);
+    }
+    function awallll($id,$username){
+        $this->db->query("UPDATE nilaipts SET id_us='$id' WHERE Username='$username");
     }
     function get_data(){
         $mt = $this->input->post('mtpl',TRUE);
@@ -351,6 +426,25 @@ class Product_model extends CI_Model{
         return $query;
         }
     }
+    function get_data3(){
+        $mt3 = $this->input->post('mtpl3',TRUE);
+        if($mt3 == NULL){
+        $this->db->select('*');
+        $this->db->from('nilaipts');
+        $this->db->where('id_us',$this->session->userdata('id_user'));
+        $this->db->where('Matpel','6');
+        $query = $this->db->get();
+        return $query;
+        }
+        else{
+        $this->db->select('*');
+        $this->db->from('nilaipts');
+        $this->db->where('id_us',$this->session->userdata('id_user'));
+        $this->db->where('Matpel',$mt2);
+        $query = $this->db->get();
+        return $query;
+        }
+    }
     function nampel(){
         $mt = $this->input->post('mtpl',TRUE);
         if($mt == NULL){
@@ -383,6 +477,25 @@ class Product_model extends CI_Model{
         else{
         $this->db->select('*');
         $this->db->from('nilairaport');
+        $this->db->where('Matpel',$mt2);
+        $this->db->join('matapel','id_mt= Matpel','left'); 
+        $query = $this->db->get();
+        return $query;
+        }
+    }
+    function nampel3(){
+        $mt3 = $this->input->post('mtpl3',TRUE);
+        if($mt3 == NULL){
+        $this->db->select('*');
+        $this->db->from('nilaipts');
+        $this->db->where('Matpel','6');
+        $this->db->join('matapel','id_mt= Matpel','left'); 
+        $query = $this->db->get();
+        return $query;
+        }
+        else{
+        $this->db->select('*');
+        $this->db->from('nilaipts');
         $this->db->where('Matpel',$mt2);
         $this->db->join('matapel','id_mt= Matpel','left'); 
         $query = $this->db->get();
