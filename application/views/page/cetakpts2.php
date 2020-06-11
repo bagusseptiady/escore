@@ -38,6 +38,7 @@
                 <th>Nilai Harian</th>
                 <th>PTS</th>
                 <th>KKM</th>
+                <th>Predikat</th>
         	</tr>
         	<?php $no=1; 
             foreach($pts as $data){
@@ -48,6 +49,7 @@
                 <td><?= $data->NH;?></td>
                 <td><?= $data->PTS;?></td>
                 <td><?= $data->KKMT;?></td>
+                <td><?= $data->Predikat;?></td>
             </tr>
             <?php } else{?>
             <?php }?>

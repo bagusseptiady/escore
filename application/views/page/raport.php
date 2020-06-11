@@ -139,6 +139,8 @@
                   <th>KKM</th>
                   <th>Nilai Keterampilan</th>
                   <th>KKM</th>
+                  
+                  <th>Predikat</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -155,6 +157,7 @@
                   <td><?= $data->KKM;?></td>
                   <td><?= $data->NK;?></td>
                   <td><?= $data->KKM2;?></td>
+                  <td><?= $data->Predikat;?></td>
                 </tr>
                 <?php } else{?>
                 <?php }?>
@@ -182,6 +185,7 @@
                   <th>KKM</th>
                   <th>Nilai Keterampilan</th>
                   <th>KKM</th>
+                  <th>Predikat</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -198,6 +202,7 @@
                   <td><?= $data->KKM;?></td>
                   <td><?= $data->NK;?></td>
                   <td><?= $data->KKM2;?></td>
+                  <td><?= $data->Predikat;?></td>
                 </tr>
                 <?php } else{?>
                 <?php }?>

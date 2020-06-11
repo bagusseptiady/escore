@@ -135,6 +135,7 @@
                   <th>Nilai Harian</th>
                   <th>PTS</th>
                   <th>KKM</th>
+                  <th>Predikat</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -148,6 +149,7 @@
                   <td><?= $data->NH;?></td>
                   <td><?= $data->PTS;?></td>
                   <td><?= $data->KKMT;?></td>
+                  <td><?= $data->Predikat;?></td>
                 </tr>
                 <?php } else{?>
                 <?php }?>
@@ -172,6 +174,7 @@
                   <th>Nilai Harian</th>
                   <th>PTS</th>
                   <th>KKM</th>
+                  <th>Predikat</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -185,6 +188,7 @@
                   <td><?= $data->NH;?></td>
                   <td><?= $data->PTS;?></td>
                   <td><?= $data->KKMT;?></td>
+                  <td><?= $data->Predikat;?></td>
                 </tr>
                 <?php } else{?>
                 <?php }?>

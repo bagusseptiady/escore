@@ -118,9 +118,10 @@ class Data extends CI_Controller {
         $nk  = $this->input->post('nk',TRUE);
         $kkm = $this->input->post('kkm',TRUE);
         $kkm2 = $this->input->post('kkm2',TRUE);
+        $predikat  = $this->input->post('predikat',TRUE);
         $matpel  = $this->input->post('matpel',TRUE);
         $semester = $this->input->post('semester',TRUE);
-        $this->product_model->tambahh2($id,$nh,$pts,$kkmt,$pas,$kkma,$np,$kkm,$nk,$kkm2,$matpel,$semester);
+        $this->product_model->tambahh2($id,$nh,$pts,$kkmt,$pas,$kkma,$np,$kkm,$nk,$kkm2,$predikat,$matpel,$semester);
         redirect('page/lihat');
     }
     function tambah3(){
@@ -128,9 +129,10 @@ class Data extends CI_Controller {
         $np = $this->input->post('np',TRUE);
         $pts = $this->input->post('pts',TRUE);
         $kkmt = $this->input->post('kkmt',TRUE);
+        $predikat  = $this->input->post('predikat',TRUE);
         $matpel  = $this->input->post('matpel',TRUE);
         $semester = $this->input->post('semester',TRUE);
-        $this->product_model->tambahh3($id,$np,$pts,$matpel,$semester);
+        $this->product_model->tambahh3($id,$np,$pts,$predikat,$matpel,$semester);
         redirect('page/lihat');
     }
     function ed(){
@@ -158,10 +160,11 @@ class Data extends CI_Controller {
         $nk  = $this->input->post('nk',TRUE);
         $kkm = $this->input->post('kkm',TRUE);
         $kkm2 = $this->input->post('kkm2',TRUE);
+        $predikat  = $this->input->post('predikat',TRUE);
         $matpel  = $this->input->post('matpel',TRUE);
         $semester = $this->input->post('semester',TRUE);
         $idr=$this->input->post('idr');
-        $this->product_model->edd2($id,$idr,$nh,$pts,$pas,$np,$nk,$kkmt,$kkma,$kkm,$kkm2,$matpel,$semester);
+        $this->product_model->edd2($id,$idr,$nh,$pts,$pas,$np,$nk,$kkmt,$kkma,$kkm,$kkm2,$predikat,$matpel,$semester);
         redirect('page/lihat');
     }
     function ed3(){
@@ -181,10 +184,11 @@ class Data extends CI_Controller {
         $nh = $this->input->post('nh',TRUE);
         $pts = $this->input->post('pts',TRUE);
         $kkmt = $this->input->post('kkmt',TRUE);
+        $predikat  = $this->input->post('predikat',TRUE);
         $matpel  = $this->input->post('matpel',TRUE);
         $semester = $this->input->post('semester',TRUE);
         $idp=$this->input->post('idp');
-        $this->product_model->edd4($id,$idp,$nh,$pts,$matpel,$semester);
+        $this->product_model->edd4($id,$idp,$nh,$pts,$predikat,$matpel,$semester);
         redirect('page/lihat');
     }
     public function cetakpts(){

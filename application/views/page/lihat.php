@@ -203,7 +203,7 @@
                   <th>NH 5</th>
                   <th>KKM</th>
                   <th>Rata - Rata</th>
-                  <th style="width: 20%">Atur</th>
+                  <th style="width: 10%">Atur</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -275,7 +275,8 @@
                   <th>NH</th>
                   <th>PTS</th>
                   <th>KKM</th>
-                  <th style="width: 20%">Atur</th>
+                  <th>Predikat</th>
+                  <th style="width: 10%">Atur</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -289,6 +290,7 @@
                   <td><?= $data->NH;?></td>
                   <td><?= $data->PTS;?></td>
                   <td><?= $data->KKMT;?></td>
+                  <td><?= $data->Predikat;?></td>
                   <td class="project-actions text-right">
                     <a class="btn btn-info btn-sm" href="#"data-toggle="modal" data-target="#exampleModalCenter7<?= $data->id_pts;?>">
                       <i class="fas fa-pencil-alt">
@@ -346,7 +348,8 @@
                   <th>KKM</th>
                   <th>Nilai Keterampilan</th>
                   <th>KKM</th>
-                  <th style="width: 20%">Atur</th>
+                  <th>Predikat</th>
+                  <th style="width: 10%">Atur</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -363,6 +366,7 @@
                   <td><?= $data->KKM;?></td>
                   <td><?= $data->NK;?></td>
                   <td><?= $data->KKM2;?></td>
+                  <td><?= $data->Predikat;?></td>
                   <td class="project-actions text-right">
                     <a class="btn btn-info btn-sm" href="#"data-toggle="modal" data-target="#exampleModalCenter5<?= $data->id_raport;?>">
                       <i class="fas fa-pencil-alt">
@@ -623,6 +627,13 @@
               <input type="text" class="form-control" id="kkmt" name="kkmt" placeholder="KKM Nilai PTS"  autocomplete="off">
             </div>
           </div>
+          <?= form_error('nilai','<small class="text-danger">','</small>');?>
+          <div class="form-group row">
+            <label for="predikat" class="col-sm-4 col-form-label">Predikat</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="predikat" name="predikat" placeholder="Predikat Nilai"  autocomplete="off">
+            </div>
+          </div>
           <div class="form-group row">
             <div class="offset-sm-0 col-sm-10">
               <button type="submit" class="btn btn-danger">Simpan</button>
@@ -714,6 +725,13 @@
               <input type="text" class="form-control" id="kkm2" name="kkm2" placeholder="Nilai KKM" autocomplete="off">
             </div>
           </div>
+          <?= form_error('nilai','<small class="text-danger">','</small>');?>
+          <div class="form-group row">
+            <label for="predikat" class="col-sm-4 col-form-label">Predikat</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="predikat" name="predikat" placeholder="Predikat Nilai"  autocomplete="off">
+            </div>
+          </div>
           <div class="form-group row">
             <div class="offset-sm-0 col-sm-10">
               <button type="submit" class="btn btn-danger">Simpan</button>
@@ -790,7 +808,7 @@
           </div>
           <?= form_error('nilai','<small class="text-danger">','</small>');?>
           <div class="form-group row">
-            <label for="pts" class="col-sm-4 col-form-label">KKM</label>
+            <label for="kkmnh" class="col-sm-4 col-form-label">KKM</label>
               <div class="col-sm-8">
                 <input type="text" class="form-control" id="kkmnh" name="kkmnh" placeholder="KKM Nilai Harian" value="<?= $data->KKMNH;?>" autocomplete="off">
               </div>
@@ -812,7 +830,7 @@
 </div>
 <?php }?>
 <?php foreach($pt as $data){?>
-<div class="modal fade" id="exampleModalCenter5<?= $data->id_pts;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModalCenter7<?= $data->id_pts;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered " role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -857,9 +875,16 @@
           </div>
           <?= form_error('nilai','<small class="text-danger">','</small>');?>
           <div class="form-group row">
-            <label for="pts" class="col-sm-4 col-form-label">KKM</label>
+            <label for="kkmt" class="col-sm-4 col-form-label">KKM</label>
               <div class="col-sm-8">
                 <input type="text" class="form-control" id="kkmt" name="kkmt" placeholder="KKM Nilai PTS" value="<?= $data->KKMT;?>" autocomplete="off">
+              </div>
+          </div>
+          <?= form_error('nilai','<small class="text-danger">','</small>');?>
+          <div class="form-group row">
+            <label for="predikat" class="col-sm-4 col-form-label">Predikat</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="predikat" name="predikat" placeholder="Predikat Nilai" value="<?= $data->Predikat;?>" autocomplete="off">
               </div>
           </div>
           <div class="form-group row">
@@ -949,6 +974,13 @@
             <div class="col-sm-8">
               <input type="text" class="form-control" id="kkm2" name="kkm2" placeholder="Nilai KKM" value="<?= $data->KKM2;?>" autocomplete="off">
             </div>
+          </div>
+          <?= form_error('nilai','<small class="text-danger">','</small>');?>
+          <div class="form-group row">
+            <label for="predikat" class="col-sm-4 col-form-label">Predikat</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="predikat" name="predikat" placeholder="Predikat Nilai" value="<?= $data->Predikat;?>" autocomplete="off">
+              </div>
           </div>
           <div class="form-group row">
             <div class="offset-sm-0 col-sm-10">

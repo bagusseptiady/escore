@@ -297,7 +297,7 @@ class Product_model extends CI_Model{
         );
         $this->db->insert('nilaiharian',$data);
     }
-    function tambahh2($id,$nh,$pts,$kkmt,$pas,$kkma,$np,$kkm,$nk,$kkm2,$matpel,$semester){
+    function tambahh2($id,$nh,$pts,$kkmt,$pas,$kkma,$np,$kkm,$nk,$kkm2,$predikat,$matpel,$semester){
         $data = array(
             'Semester' => $semester,
             'Matpel' => $matpel,
@@ -310,18 +310,20 @@ class Product_model extends CI_Model{
             'KKM' => $kkm,
             'NK' => $nk,
             'KKM2' => $kkm2,
+            'Predikat' => $predikat,
             'uid' => $id
 
         );
         $this->db->insert('nilairaport',$data);
     }
-    function tambahh3($id,$nh,$pts,$kkmt,$matpel,$semester){
+    function tambahh3($id,$nh,$pts,$kkmt,$predikat,$matpel,$semester){
         $data = array(
             'Semester' => $semester,
             'Matpel' => $matpel,
             'NH' => $nh,
             'PTS' => $pts,
             'KKMT' => $kkmt,
+            'Predikat' => $predikat,
             'id_us' => $id
 
         );
@@ -331,14 +333,14 @@ class Product_model extends CI_Model{
         $rata = ($nh1+$nh2+$nh3+$nh4+$nh5)/5;
         $this->db->query("UPDATE nilaiharian SET Semester='$semester',Matpel='$matpel',NH1 = '$nh1',NH2 = '$nh2',NH3 = $nh3,NH4 = '$nh4',NH5 = '$nh5',KKMNH => '$kkmnh' ,Rata = '$rata', user_id = '$id' WHERE id_nh='$idnh'");
     }
-    function edd2($id,$idr,$pas,$np,$nk,$kkmt,$kkma,$kkm,$kkm2,$matpel,$semester){
+    function edd2($id,$idr,$pas,$np,$nk,$kkmt,$kkma,$kkm,$kkm2,$predikat,$matpel,$semester){
         
-        $this->db->query("UPDATE nilairaport SET PAS = '$pas',NP = '$np',KKM = '$kkm',KKMT = '$kkmt',KKMA = '$kkma',NK = '$nk',KKM2 = '$kkm2', uid = '$id' WHERE id_raport='$idr'");
+        $this->db->query("UPDATE nilairaport SET PAS = '$pas',KKMA = '$kkma',NP = '$np',KKM = '$kkm',NK = '$nk',KKM2 = '$kkm2', Predikat= '$predikat', uid = '$id' WHERE id_raport='$idr'");
         
     }
-    function edd4($id,$idp,$nh,$pts,$matpel,$semester){
+    function edd4($id,$idp,$nh,$pts,$predikat,$matpel,$semester){
         
-        $this->db->query("UPDATE nilaipts SET NH = '$nh', PTS = '$pts',KKMT = '$kkmt', id_us = '$id' WHERE id_ptst='$idp'");
+        $this->db->query("UPDATE nilaipts SET NH = '$nh', PTS = '$pts',KKMT = '$kkmt', Predikat ='$predikat', id_us = '$id' WHERE id_ptst='$idp'");
         
     }
     function edd3($id,$idab,$alpa,$sakit,$izin,$alpa2,$sakit2,$izin2){
@@ -354,7 +356,7 @@ class Product_model extends CI_Model{
         $this->db->insert('nilaiharian',$data);
     }
     function awal($id,$username){
-        $this->db->query("UPDATE nilaiharian SET user_id='$id'WHERE Username='$username");
+        $this->db->query("UPDATE nilaiharian SET user_id='$id'WHERE Namaa='$username'");
     }
     function awal2($username){
         $data = array(
@@ -364,7 +366,7 @@ class Product_model extends CI_Model{
         $this->db->insert('nilairaport',$data);
     }
     function awall($id,$username){
-        $this->db->query("UPDATE nilairaport SET uid='$id'WHERE Username='$username");
+        $this->db->query("UPDATE nilairaport SET uid='$id'WHERE Namaaa='$username'");
     }
     function awal3($username){
         $data = array(
@@ -376,7 +378,7 @@ class Product_model extends CI_Model{
         $this->db->insert('absen',$data);
     }
     function awalll($id,$username){
-        $this->db->query("UPDATE absen SET usr_id='$id' WHERE Username='$username");
+        $this->db->query("UPDATE absen SET usr_id='$id' WHERE usrnm='$username'");
     }
     function awal4($username){
         $data = array(
@@ -386,7 +388,7 @@ class Product_model extends CI_Model{
         $this->db->insert('nilaipts',$data);
     }
     function awallll($id,$username){
-        $this->db->query("UPDATE nilaipts SET id_us='$id' WHERE Username='$username");
+        $this->db->query("UPDATE nilaipts SET id_us='$id' WHERE Namaaaa='$username'");
     }
     function get_data(){
         $mt = $this->input->post('mtpl',TRUE);
