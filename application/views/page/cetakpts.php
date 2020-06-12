@@ -53,6 +53,25 @@
             <?php }?>
             <?php }?>
         </table><br><br>
+        <table style="width: 30%;">
+            <tr>
+                <th colspan="2" style="text-align: center;">Absen Siswa</th>
+            </tr> 
+            <?php foreach($dee as $data){?>
+            <tr>
+                <td>Alfa</td>
+                <td><?= $data->Alpa;?></td>
+            </tr>
+            <tr>
+                <td>Sakit</td>
+                <td><?= $data->Sakit;?></td>
+            </tr>
+            <tr>
+                <td>Izin</td>
+                <td><?= $data->Izin;?></td>
+            </tr>
+            <?php }?>
+         </table><br><br>
         <table style="border: 0px;">
             <tr >
                 <td style="text-align:left; border:0px; padding-left: 35px;">Orang Tua</td>

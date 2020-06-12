@@ -193,7 +193,7 @@ class Data extends CI_Controller {
     }
     public function cetakpts(){
         $this->load->library('dompdf_gen');
-
+        $data['dee'] = $this->product_model->cri4()->result();
         $data['pts'] = $this->product_model->nilaipt()->result();
         $data['siswa'] = $this->product_model->got()->result();
         $this->load->view('page/cetakpts',$data);
@@ -209,7 +209,7 @@ class Data extends CI_Controller {
     }
     public function cetakpts2(){
         $this->load->library('dompdf_gen');
-
+        $data['dee'] = $this->product_model->cri34->result();
         $data['pts'] = $this->product_model->nilaipts()->result();
         $data['siswa'] = $this->product_model->got()->result();
         $this->load->view('page/cetakpts2',$data);

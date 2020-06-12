@@ -265,6 +265,15 @@ class Product_model extends CI_Model{
         $this->db->select('*');
         $this->db->from('absen');
         $this->db->where('usr_id',$this->session->userdata('id_user'));
+        $this->db->where('nilai','pas');
+        $query = $this->db->get();
+        return $query;
+    }
+    function cri4(){
+        $this->db->select('*');
+        $this->db->from('absen');
+        $this->db->where('usr_id',$this->session->userdata('id_user'));
+        $this->db->where('nilai','pts');
         $query = $this->db->get();
         return $query;
     }
