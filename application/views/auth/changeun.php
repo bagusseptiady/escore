@@ -6,9 +6,9 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <h2><p class="login-box-msg">Ubah Password</p></h2>
+      <h2><p class="login-box-msg">Ubah Username</p></h2>
 	  <?php echo $this->session->flashdata('message');?>
-	  <form action="<?= base_url('auth/change')?>" method="post">
+	  <form action="<?= base_url('auth/changeun')?>" method="post">
 	  <?= form_error('email','<small class="text-danger">','</small>');?>
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="email" placeholder="Email" autocomplete="off">
@@ -18,17 +18,17 @@
             </div>
         </div>
 		</div>
-        <?= form_error('pass','<small class="text-danger">','</small>');?>
+        <?= form_error('username','<small class="text-danger">','</small>');?>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="pass" placeholder="Password Baru" autocomplete="off">
+          <input type="text" class="form-control" name="username" placeholder="Username Baru" autocomplete="off">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-key"></span>
+              <span class="fa fa-user-circle"></span>
             </div>
         </div>
 		</div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="pass1" placeholder="Ulangi Password" autocomplete="off">
+          <input type="password" class="form-control" name="password" placeholder="Password" autocomplete="off">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-key"></span>
@@ -44,6 +44,9 @@
         </div>
       </form>
       <!-- /.social-auth-links -->
+      <p class="mb-0">
+      <a href="<?= base_url('auth/')?>change" class="text-center">Lupa Password? Ganti</a>
+      </p>
       <p class="mb-0">
         <a href="<?= base_url('auth')?>" class="text-center">Kembali ke Login</a>
       </p>

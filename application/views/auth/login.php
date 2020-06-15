@@ -36,9 +36,14 @@
         </div>
       </form>
       <!-- /.social-auth-links -->
-      <p class="mb-0">
+      <div class ="row">
+        <div class="col-6">
+        <a href="<?= base_url('auth/')?>changeun" class="text-center">Lupa Username? Ganti</a>
+        </div>
+        <div class="col-6">
         <a href="<?= base_url('auth/')?>change" class="text-center">Lupa Password? Ganti</a>
-      </p>
+        </div>
+      </div>
       <p class="mb-0">
         <a href="<?= base_url('auth/')?>regis" class="text-center">Belum Punya Akun? Daftar</a>
       </p>

@@ -72,7 +72,7 @@ class Auth extends CI_Controller {
         }
         else {
             $email = $this->input->post('email');
-            $cek = $this->db->get_where('user', ['email' => $email])->row_array();
+            $cek = $this->db->get_where('user', ['Email' => $email])->row_array();
             if($cek){
                 $this->form_validation->set_rules('pass','Password','matches[pass1]',['matches' => 'Password Tidak Sama']);
                 $this->form_validation->set_rules('pass1','Password','matches[pass]',['matches' => 'Password Tidak Sama']);
@@ -92,6 +92,47 @@ class Auth extends CI_Controller {
             }else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email Tidak Terdaftar!</div>');
                 redirect('auth/change');
+            }
+        }
+    }
+    public function changeun(){
+        $this->form_validation->set_rules('email','Email','required|trim');
+        $this->form_validation->set_rules('username','Username','required|trim');
+        $this->form_validation->set_rules('password','Password','required|trim');
+        if($this->form_validation->run() == false){
+        $data['title'] = 'E - Score | Lupa Username';
+        $this->load->view('templates/auth_header', $data);
+        $this->load->view('auth/changeun');
+        $this->load->view('templates/auth_footer');
+        }
+        else {
+            $email = $this->input->post('email');
+            $password = $this->input->post('password');
+            $cek = $this->db->get_where('user', ['Email' => $email])->row_array();
+            if($cek){
+                $cek2= $this->db->get_where('user', ['Password' => $password])->row_array();
+                if($cek2){
+                    if($this->form_validation->run() == false){
+                    $data['title'] = 'E - Score | Lupa Username';
+                    $this->load->view('templates/auth_header', $data);
+                    $this->load->view('auth/changeun');
+                    $this->load->view('templates/auth_footer');
+                    } else{
+                    $username = $this->input->post('username');
+                    $this->db->set('Username', $username);
+                    $this->db->where('Email', $email);
+                    $this->db->where('Password', $password);
+                    $this->db->update('user');
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Username Berhasil Diganti!</div>');
+                    redirect('auth');
+                    }
+                }else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Passowrd Anda Salah!</div>');
+                    redirect('auth/changeun');
+                }
+            }else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email Tidak Terdaftar!</div>');
+                redirect('auth/changeun');
             }
         }
     }
