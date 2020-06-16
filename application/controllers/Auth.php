@@ -28,6 +28,7 @@ class Auth extends CI_Controller {
                 $level = $data['Level'];
                 $id = $data['id_user'];
                 $kelas = $data['Kelas'];
+                $email = $data['Email'];
                 $sesdata = array(
                     'id_user'   => $id,
                     'Nama'  => $name,
@@ -47,10 +48,10 @@ class Auth extends CI_Controller {
                 else if($level === 'Adminsiswa'){
                     redirect('page/siswa');
                 }elseif($level === 'Siswa'){
-                    $this->product_model->awal($id,$username);
-                    $this->product_model->awall($id,$username);
-                    $this->product_model->awalll($id,$username);
-                    $this->product_model->awallll($id,$username);
+                    $this->product_model->awal($id,$email);
+                    $this->product_model->awall($id,$email);
+                    $this->product_model->awalll($id,$email);
+                    $this->product_model->awallll($id,$email);
                     redirect('page/siswa');
                 }
             }
@@ -175,10 +176,10 @@ class Auth extends CI_Controller {
                     $foto=$this->upload->data('file_name');
                 }
             }
-            $this->product_model->awal1($username);
-            $this->product_model->awal2($username);
-            $this->product_model->awal3($username);
-            $this->product_model->awal4($username);
+            $this->product_model->awal1($email);
+            $this->product_model->awal2($email);
+            $this->product_model->awal3($email);
+            $this->product_model->awal4($email);
             $this->product_model->regis($name,$notlp,$email,$username,$password,$alamat,$jurusan,$kelas,$foto,$ttl,$tl);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Daftar Berhasil!. Silahkan Login</div>');
             redirect('auth');

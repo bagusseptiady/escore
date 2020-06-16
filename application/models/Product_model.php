@@ -357,47 +357,59 @@ class Product_model extends CI_Model{
         $this->db->query("UPDATE absen SET Alpa = '$alpa',Sakit = '$sakit',Izin = '$izin' ,Alpa2 = '$alpa2',Sakit2 = '$sakit2',Izin2 = '$izin2', usr_id = '$id' WHERE id_absen='$idab'");
         
     }
-    function awal1($username){
+    function awal1($email){
         $data = array(
             'user_id'=> '1',
-            'Namaa' => $username
+            'Namaa' => $email
         );
         $this->db->insert('nilaiharian',$data);
     }
-    function awal($id,$username){
-        $this->db->query("UPDATE nilaiharian SET user_id='$id'WHERE Namaa='$username'");
+    function awal($id,$email){
+        $this->db->query("UPDATE nilaiharian SET user_id='$id'WHERE Namaa='$email'");
     }
-    function awal2($username){
+    function awal2($email){
         $data = array(
             'uid'=> '1',
-            'Namaaa' => $username
+            'Namaaa' => $email
         );
         $this->db->insert('nilairaport',$data);
     }
-    function awall($id,$username){
-        $this->db->query("UPDATE nilairaport SET uid='$id'WHERE Namaaa='$username'");
+    function awall($id,$email){
+        $this->db->query("UPDATE nilairaport SET uid='$id'WHERE Namaaa='$email'");
     }
-    function awal3($username){
+    function awal3($email){
         $data = array(
             'usr_id'=> '1',
             'Semester1'=> 'Semester 1',
             'Semester2'=> 'Semester 2',
-            'usrnm' => $username
+            'usrnm' => $email
         );
         $this->db->insert('absen',$data);
     }
-    function awalll($id,$username){
-        $this->db->query("UPDATE absen SET usr_id='$id' WHERE usrnm='$username'");
+    function awalll($id,$email){
+        $this->db->query("UPDATE absen SET usr_id='$id' WHERE usrnm='$email'");
     }
-    function awal4($username){
+    function awal4($email){
         $data = array(
             'id_us'=> '1',
-            'Namaaaa' => $username
+            'Namaaaa' => $email
         );
         $this->db->insert('nilaipts',$data);
     }
-    function awallll($id,$username){
-        $this->db->query("UPDATE nilaipts SET id_us='$id' WHERE Namaaaa='$username'");
+    function awallll($id,$email){
+        $this->db->query("UPDATE nilaipts SET id_us='$id' WHERE Namaaaa='$email'");
+    }
+    function up1($id,$email){
+        $this->db->query("UPDATE absen SET  usrnm='$email' WHERE usr_id='$id'");
+    }
+    function up2($id,$email){
+        $this->db->query("UPDATE nilairaport SET Namaaa='$email' WHERE uid='$id'");
+    }
+    function up3($id,$email){
+        $this->db->query("UPDATE nilaiharian SET Namaa='$email' WHERE user_id='$id'");
+    }
+    function up($id,$email){
+        $this->db->query("UPDATE nilaipts SET Namaaaa='$email' WHERE id_us='$id'");
     }
     function get_data(){
         $mt = $this->input->post('mtpl',TRUE);

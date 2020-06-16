@@ -26,6 +26,10 @@ class Data extends CI_Controller {
             $config['allowed_types']='jpg|jpeg|png|gif';
             $this->load->library('upload',$config);
             if(!$this->upload->do_upload('foto2')){
+                $this->product_model->up($id,$email);
+                $this->product_model->up1($id,$email);
+                $this->product_model->up2($id,$email);
+                $this->product_model->up3($id,$email);
                 $this->product_model->update2($id,$name,$notlp,$email,$username,$password,$alamat,$jurusan,$kelas,$ttl,$tl);
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Di Edit</div>');
                 redirect('page/profil2');
@@ -34,6 +38,10 @@ class Data extends CI_Controller {
             else{
                 $foto=$this->upload->data('file_name');
             }
+            $this->product_model->up($id,$email);
+            $this->product_model->up1($id,$email);
+            $this->product_model->up2($id,$email);
+            $this->product_model->up3($id,$email);
             $this->product_model->update($id,$name,$notlp,$email,$username,$password,$alamat,$jurusan,$kelas,$foto,$ttl,$tl);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Di Edit</div>');
             redirect('page/profil2');
