@@ -168,25 +168,30 @@
             <div class="card-header">
               <h3 class="card-title">Nilai Harian &nbsp;</h3>
               <form role="form" method="post">
-              
                 <div class="row">
-                <div class="form-group col-2">
-                  <a class="btn btn-primary btn-sm" href="#"data-toggle="modal" data-target="#exampleModalCenter22">
-                  <i class="fas fa-plus"></i>
-                  Tambah
-                  </a>
-                </div>
-                <?php foreach($namkls as $data){?>
-                  <div class="form-group col-3">
+                  <div class="col-2">
+                    <a class="btn btn-primary btn-sm" href="#"data-toggle="modal" data-target="#exampleModalCenter22">
+                    <i class="fas fa-plus"></i>
+                    Tambah
+                    </a>
+                  </div>
+                  <?php foreach($namkls as $data){?>
+                  <div class="col-3">
                     <input type="text" name="id_nh" value="<?= $data->Nama;?>" disabled>
                   </div>
-                  <div class="form-group col-3">
+                  <div class="col-3">
                     <input type="text" name="id_nh" value="<?= $data->Nama_Kelas;?>" disabled>
                   </div>
-                <?php }?>
+                  <?php }?>
+                  <div class="col-2">
+                    <a class="btn btn-success btn-sm" href="<?= base_url('data/excelnh')?>">
+                    <i class="fa fa-table"></i>
+                    Export Excel
+                    </a>
                   </div>
-                  </form>
-              </div>
+                </div>
+              </form>
+            </div>
               
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0" style="height: 300px;">
@@ -246,20 +251,26 @@
                 <h3 class="card-title">Nilai Raport PTS &nbsp;</h3>
                 <form role="form" method="post">
                 <div class="row">
-                <div class="form-group col-2">
+                <div class="col-2">
                 <a class="btn btn-primary btn-sm" href="#"data-toggle="modal" data-target="#exampleModalCenter6">
                 <i class="fas fa-plus"></i>
                 Tambah
                 </a>
                 </div>
                 <?php foreach($namkls as $data){?>
-                  <div class="form-group col-3">
+                  <div class="col-3">
                     <input type="text" name="id_nh" value="<?= $data->Nama;?>" disabled>
                   </div>
-                  <div class="form-group col-3">
+                  <div class="col-3">
                     <input type="text" name="id_nh" value="<?= $data->Nama_Kelas;?>" disabled>
                   </div>
                 <?php }?>
+                  <div class="col-2">
+                    <a class="btn btn-success btn-sm" href="<?= base_url('data/excelpts')?>">
+                    <i class="fa fa-table"></i>
+                    Export Excel
+                    </a>
+                  </div>
                   </div>
                 </form>
               </div>
@@ -317,20 +328,26 @@
                 <h3 class="card-title">Nilai Raport PAS &nbsp;</h3>
                 <form role="form" method="post">
                 <div class="row">
-                <div class="form-group col-2">
+                <div class="col-2">
                 <a class="btn btn-primary btn-sm" href="#"data-toggle="modal" data-target="#exampleModalCenter3">
                 <i class="fas fa-plus"></i>
                 Tambah
                 </a>
                 </div>
                 <?php foreach($namkls as $data){?>
-                  <div class="form-group col-3">
+                  <div class="col-3">
                     <input type="text" name="id_nh" value="<?= $data->Nama;?>" disabled>
                   </div>
-                  <div class="form-group col-3">
+                  <div class="col-3">
                     <input type="text" name="id_nh" value="<?= $data->Nama_Kelas;?>" disabled>
                   </div>
                 <?php }?>
+                  <div class="col-2">
+                    <a class="btn btn-success btn-sm" href="<?= base_url('data/excelpas')?>">
+                    <i class="fa fa-table"></i>
+                    Export Excel
+                    </a>
+                  </div>
                   </div>
                 </form>
               </div>
