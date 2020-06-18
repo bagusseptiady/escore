@@ -151,7 +151,23 @@
             </div>
             <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Siswa</h3>
+              <h3 class="card-title">Absen Siswa PTS &nbsp;</h3>
+              <form role="form" method="post" action="<?= base_url('data/excelabsen')?>">
+                <div class="row">
+                  <?php foreach($ded as $data){?>
+                  <div class="col-3">
+                    <input type="text" name="kls" value="<?= $data->Nama_Kelas;?>" disabled>
+                  </div>
+                    <input type="hidden" name="idsub" value="<?= $data->id_sub;?>" disabled>
+                  <div class="col-2">
+                    <button type="submit" class="btn btn-success">
+                    <i class="fa fa-table"></i>
+                    Export Excel
+                    </button>
+                  </div>
+                  <?php }?>
+                </div>
+              </form>
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
@@ -175,7 +191,8 @@
                 </thead>
                 <tbody>
                 <?php $no=1; 
-                foreach($de as $data){?>
+                foreach($de as $data){
+                  if($data->Alpa!=NULL){?>
                 <tr>
                   <td><?=  $no++ ?></td>
                   <td><?= $data->Nama;?></td>
@@ -201,6 +218,82 @@
                           </a>
                       </td>
                   </tr>
+                <?php }?>
+                <?php }?>
+                </tbody>
+                </table>
+            </div>
+            </div>
+            <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Absen Siswa PAS &nbsp;</h3>
+              <form role="form" method="post" action="<?= base_url('data/excelab')?>">
+                <div class="row">
+                  <?php foreach($ded as $data){?>
+                  <div class="col-3">
+                    <input type="text" name="klss" value="<?= $data->Nama_Kelas;?>" disabled>
+                  </div>
+                  <input type="hidden" name="idsub2" value="<?= $data->id_sub;?>" disabled>
+                  <div class="col-2">
+                    <button type="submit" class="btn btn-success">
+                    <i class="fa fa-table"></i>
+                    Export Excel
+                    </button>
+                  </div>
+                  <?php }?>
+                </div>
+              </form>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover table-bordered table-striped text-nowrap">
+                <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Nama</th>
+                  <th>Kelas</th>
+                  <th>Semester</th>
+                  <th>Alpa</th>
+                  <th>Sakit</th>
+                  <th>Izin</th>
+                  <th>Semester</th>
+                  <th>Alpa</th>
+                  <th>Sakit</th>
+                  <th>Izin</th>
+                  <th style="width: 20%">Alat</th>
+                  
+                </tr>
+                </thead>
+                <tbody>
+                <?php $no=1; 
+                foreach($dee as $data){
+                  if($data->Alpa!=NULL){?>
+                <tr>
+                  <td><?=  $no++ ?></td>
+                  <td><?= $data->Nama;?></td>
+                  <td><?= $data->Nama_Kelas;?></td>
+                  <td><?= $data->Semester1;?></td>
+                  <td><?= $data->Alpa;?></td>
+                  <td><?= $data->Sakit;?></td>
+                  <td><?= $data->Izin;?></td>
+                  <td><?= $data->Semester2;?></td>
+                  <td><?= $data->Alpa2;?></td>
+                  <td><?= $data->Sakit2;?></td>
+                  <td><?= $data->Izin2;?></td>
+                  <td class="project-actions text-right">
+                          <a class="btn btn-primary btn-sm" href="#"data-toggle="modal" data-target="#modaledit<?= $data->id_absen;?>">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Edit
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="#"data-toggle="modal" data-target="#modalhapus<?= $data->id_absen;?>">
+                              <i class="fas fa-trash">
+                              </i>
+                              Hapus
+                          </a>
+                      </td>
+                  </tr>
+                <?php }?>
                 <?php }?>
                 </tbody>
                 </table>

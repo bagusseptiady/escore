@@ -167,28 +167,29 @@
             <div class="card">
             <div class="card-header">
               <h3 class="card-title">Nilai Harian &nbsp;</h3>
-              <form role="form" method="post">
+              <form role="form" method="post" action="<?= base_url('data/excelnh')?>">
                 <div class="row">
                   <div class="col-2">
-                    <a class="btn btn-primary btn-sm" href="#"data-toggle="modal" data-target="#exampleModalCenter22">
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalCenter22">
                     <i class="fas fa-plus"></i>
                     Tambah
-                    </a>
+                    </button>
                   </div>
                   <?php foreach($namkls as $data){?>
                   <div class="col-3">
-                    <input type="text" name="id_nh" value="<?= $data->Nama;?>" disabled>
+                    <input type="text" name="nmaa" value="<?= $data->Nama;?>" disabled>
                   </div>
                   <div class="col-3">
-                    <input type="text" name="id_nh" value="<?= $data->Nama_Kelas;?>" disabled>
+                    <input type="text" name="klss" value="<?= $data->Nama_Kelas;?>" disabled>
                   </div>
-                  <?php }?>
+                  <input type="hidden" name="idnma" value="<?= $data->id_user;?>">
                   <div class="col-2">
-                    <a class="btn btn-success btn-sm" href="<?= base_url('data/excelnh')?>">
+                    <button type="submit" class="btn btn-success">
                     <i class="fa fa-table"></i>
                     Export Excel
-                    </a>
+                    </button>
                   </div>
+                  <?php }?>
                 </div>
               </form>
             </div>
@@ -249,28 +250,29 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Nilai Raport PTS &nbsp;</h3>
-                <form role="form" method="post">
+                <form role="form" method="post" action="<?= base_url('data/excelpts')?>">
                 <div class="row">
                 <div class="col-2">
-                <a class="btn btn-primary btn-sm" href="#"data-toggle="modal" data-target="#exampleModalCenter6">
+                <button type="button" class="btn btn-primary btn-sm" href="#"data-toggle="modal" data-target="#exampleModalCenter6">
                 <i class="fas fa-plus"></i>
                 Tambah
-                </a>
+                </button>
                 </div>
                 <?php foreach($namkls as $data){?>
                   <div class="col-3">
-                    <input type="text" name="id_nh" value="<?= $data->Nama;?>" disabled>
+                    <input type="text" name="nmaa" value="<?= $data->Nama;?>" disabled>
                   </div>
                   <div class="col-3">
-                    <input type="text" name="id_nh" value="<?= $data->Nama_Kelas;?>" disabled>
+                    <input type="text" name="klss" value="<?= $data->Nama_Kelas;?>" disabled>
                   </div>
-                <?php }?>
+                  <input type="hidden" name="idnma" value="<?= $data->id_user;?>">
                   <div class="col-2">
-                    <a class="btn btn-success btn-sm" href="<?= base_url('data/excelpts')?>">
+                    <button type="submit" class="btn btn-success">
                     <i class="fa fa-table"></i>
                     Export Excel
-                    </a>
+                    </button>
                   </div>
+                <?php }?>
                   </div>
                 </form>
               </div>
@@ -326,13 +328,13 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Nilai Raport PAS &nbsp;</h3>
-                <form role="form" method="post">
+                <form role="form" method="post" action="<?= base_url('data/excelpas')?>">
                 <div class="row">
                 <div class="col-2">
-                <a class="btn btn-primary btn-sm" href="#"data-toggle="modal" data-target="#exampleModalCenter3">
+                <button type="button" class="btn btn-primary btn-sm" href="#"data-toggle="modal" data-target="#exampleModalCenter3">
                 <i class="fas fa-plus"></i>
                 Tambah
-                </a>
+                </button>
                 </div>
                 <?php foreach($namkls as $data){?>
                   <div class="col-3">
@@ -341,13 +343,14 @@
                   <div class="col-3">
                     <input type="text" name="id_nh" value="<?= $data->Nama_Kelas;?>" disabled>
                   </div>
-                <?php }?>
+                  <input type="hidden" name="idnma" value="<?= $data->id_user;?>">
                   <div class="col-2">
-                    <a class="btn btn-success btn-sm" href="<?= base_url('data/excelpas')?>">
+                    <button type="submit" class="btn btn-success">
                     <i class="fa fa-table"></i>
                     Export Excel
-                    </a>
+                    </button>
                   </div>
+                  <?php }?>
                   </div>
                 </form>
               </div>

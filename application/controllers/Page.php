@@ -247,6 +247,8 @@ class Page extends CI_Controller{
     $data['detail'] = $this->product_model->get()->result();
     $this->load->view('templates/daf_header',$data);
     $data['de'] = $this->product_model->cri2()->result();
+    $data['dee'] = $this->product_model->cri4()->result();
+    $data['ded'] = $this->product_model->namkela()->result();
     $data['sekolah'] = $this->product_model->get_category()->result();
     $this->load->view('page/absen', $data);
     $this->load->view('templates/daf_footer');

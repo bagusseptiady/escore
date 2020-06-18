@@ -115,8 +115,7 @@ class Product_model extends CI_Model{
         $sm = $this->input->post('sm',TRUE);
         $kls = $this->input->post('subsekolah',TRUE);
         $sesdata = array(
-            'Nam'   => $nm,
-            'Kls'  => $kls                
+            'Nam'   => $nm              
         );
         $this->session->set_flashdata($sesdata);
         if($sm=='Semua'){
@@ -140,11 +139,48 @@ class Product_model extends CI_Model{
             return $query;
         }
     }
+    function nilaiharia(){
+        $id = $this->input->post('idnma',TRUE);
+        $this->db->select('*');
+        $this->db->from('nilaiharian');
+        $this->db->where('user_id', $id);
+        $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
+        return $query;
+    }
+    function nilaipetes(){
+        $id = $this->input->post('idnma',TRUE);
+        $this->db->select('*');
+        $this->db->from('nilaipts');
+        $this->db->where('id_us', $id);
+        $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
+        return $query;
+    }
+    function nilaipeakh(){
+        $id = $this->input->post('idnma',TRUE);
+        $this->db->select('*');
+        $this->db->from('nilairaport');
+        $this->db->where('uid', $id);
+        $this->db->join('matapel','id_mt= Matpel','left');
+        $this->db->order_by('Matpel','ASC');
+        $query = $this->db->get();
+        return $query;
+    }
     function namkel(){
-        $this->db->select('Nama,id_sub,Nama_Kelas');
+        $this->db->select('id_user,Nama,id_sub,Nama_Kelas');
         $this->db->from('user');
         $this->db->where('id_user',$this->session->flashdata('Nam') );
         $this->db->join('subsekolah','id_sub = Kelas','left'); 
+        $query = $this->db->get();
+        return $query;
+    }
+    function namkela(){
+        $this->db->select('*');
+        $this->db->from('subsekolah');
+        $this->db->where('id_sub',$this->session->flashdata('Kls') );
         $query = $this->db->get();
         return $query;
     }
@@ -251,9 +287,14 @@ class Product_model extends CI_Model{
     }
     function cri2(){
         $kel = $this->input->post('subsekolah',TRUE);
+        $sesdata = array(
+            'Kls'  => $kel                
+        );
+        $this->session->set_flashdata($sesdata);
         $this->db->select('*');
         $this->db->from('absen');
         $this->db->where('Kelas',$kel);
+        $this->db->where('Nilai','PTS');
         $this->db->join('user','id_user= usr_id','left');
         $this->db->join('sekolah','id_sek= Jurusan','left');
         $this->db->join('subsekolah','id_sub = Kelas','left');
@@ -265,15 +306,46 @@ class Product_model extends CI_Model{
         $this->db->select('*');
         $this->db->from('absen');
         $this->db->where('usr_id',$this->session->userdata('id_user'));
-        $this->db->where('nilai','pas');
+        $this->db->where('Nilai','PAS');
         $query = $this->db->get();
         return $query;
     }
     function cri4(){
+        $kel = $this->input->post('subsekolah',TRUE);
         $this->db->select('*');
         $this->db->from('absen');
-        $this->db->where('usr_id',$this->session->userdata('id_user'));
-        $this->db->where('nilai','pts');
+        $this->db->where('Kelas',$kel);;
+        $this->db->where('Nilai','PAS');
+        $this->db->join('user','id_user= usr_id','left');
+        $this->db->join('sekolah','id_sek= Jurusan','left');
+        $this->db->join('subsekolah','id_sub = Kelas','left');
+        $this->db->order_by('Nama','ASC');
+        $query = $this->db->get();
+        return $query;
+    }
+    function cri5(){
+        $kel = $this->input->post('idsub',TRUE);
+        $this->db->select('*');
+        $this->db->from('absen');
+        $this->db->where('id_Kelas',$kel);
+        $this->db->where('Nilai','PTS');
+        $this->db->join('user','id_user= usr_id','left');
+        $this->db->join('sekolah','id_sek= Jurusan','left');
+        $this->db->join('subsekolah','id_sub = id_Kelas','left');
+        $this->db->order_by('Nama','ASC');
+        $query = $this->db->get();
+        return $query;
+    }
+    function cri6(){
+        $kel = $this->input->post('idsub2',TRUE);
+        $this->db->select('*');
+        $this->db->from('absen');
+        $this->db->where('id_Kelas',$kel);
+        $this->db->where('Nilai','PAS');
+        $this->db->join('user','id_user= usr_id','left');
+        $this->db->join('sekolah','id_sek= Jurusan','left');
+        $this->db->join('subsekolah','id_sub = id_Kelas','left');
+        $this->db->order_by('Nama','ASC');
         $query = $this->db->get();
         return $query;
     }
@@ -382,9 +454,18 @@ class Product_model extends CI_Model{
             'usr_id'=> '1',
             'Semester1'=> 'Semester 1',
             'Semester2'=> 'Semester 2',
+            'Nilai'=> 'PTS',
             'usrnm' => $email
         );
         $this->db->insert('absen',$data);
+        $data2 = array(
+            'usr_id'=> '1',
+            'Semester1'=> 'Semester 1',
+            'Semester2'=> 'Semester 2',
+            'Nilai'=> 'PAS',
+            'usrnm' => $email
+        );
+        $this->db->insert('absen',$data2);
     }
     function awalll($id,$email){
         $this->db->query("UPDATE absen SET usr_id='$id' WHERE usrnm='$email'");
