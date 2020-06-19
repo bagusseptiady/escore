@@ -21,7 +21,7 @@ class Product_model extends CI_Model{
     }
     
     function got(){
-        $this->db->select('id_user,Nama,Notlp,Email,Username,Password,Alamat,Foto,TTL,TL,id_sek,id_sub,Nama_Jurusan,Nama_Kelas');
+        $this->db->select('*');
         $this->db->from('user');
         $this->db->where('id_user',$this->session->userdata('id_user') );
         $this->db->join('sekolah','id_sek= Jurusan','left');
@@ -177,13 +177,7 @@ class Product_model extends CI_Model{
         $query = $this->db->get();
         return $query;
     }
-    function namkela(){
-        $this->db->select('*');
-        $this->db->from('subsekolah');
-        $this->db->where('id_sub',$this->session->flashdata('Kls') );
-        $query = $this->db->get();
-        return $query;
-    }
+    
     function nilair(){
         $this->db->select('*');
         $this->db->from('nilairaport');
@@ -274,6 +268,13 @@ class Product_model extends CI_Model{
         return $query;
         }
     }
+    function namkela(){
+        $this->db->select('*');
+        $this->db->from('subsekolah');
+        $this->db->where('id_sub',$this->session->flashdata('Kls') );
+        $query = $this->db->get();
+        return $query;
+    }
     function cri(){
         $kel = $this->input->post('subsekolah',TRUE);
         $this->db->select('*');
@@ -324,26 +325,24 @@ class Product_model extends CI_Model{
         return $query;
     }
     function cri5(){
-        $kel = $this->input->post('idsub',TRUE);
+        $ids = $this->input->post('idsub',TRUE);
         $this->db->select('*');
         $this->db->from('absen');
-        $this->db->where('id_Kelas',$kel);
+        $this->db->where('id_Kelas', $ids);
         $this->db->where('Nilai','PTS');
         $this->db->join('user','id_user= usr_id','left');
-        $this->db->join('sekolah','id_sek= Jurusan','left');
         $this->db->join('subsekolah','id_sub = id_Kelas','left');
         $this->db->order_by('Nama','ASC');
         $query = $this->db->get();
         return $query;
     }
     function cri6(){
-        $kel = $this->input->post('idsub2',TRUE);
+        $idsb = $this->input->post('idsub2',TRUE);
         $this->db->select('*');
         $this->db->from('absen');
-        $this->db->where('id_Kelas',$kel);
+        $this->db->where('id_Kelas', $idsb);
         $this->db->where('Nilai','PAS');
         $this->db->join('user','id_user= usr_id','left');
-        $this->db->join('sekolah','id_sek= Jurusan','left');
         $this->db->join('subsekolah','id_sub = id_Kelas','left');
         $this->db->order_by('Nama','ASC');
         $query = $this->db->get();
@@ -421,7 +420,7 @@ class Product_model extends CI_Model{
     }
     function edd4($id,$idp,$nh,$pts,$predikat,$matpel,$semester){
         
-        $this->db->query("UPDATE nilaipts SET NH = '$nh', PTS = '$pts',KKMT = '$kkmt', Predikat ='$predikat', id_us = '$id' WHERE id_ptst='$idp'");
+        $this->db->query("UPDATE nilaipts SET NH = '$nh', PTS = '$pts',KKMT = '$kkmt', Predikat ='$predikat', id_us = '$id' WHERE id_pts='$idp' ");
         
     }
     function edd3($id,$idab,$alpa,$sakit,$izin,$alpa2,$sakit2,$izin2){
@@ -449,23 +448,26 @@ class Product_model extends CI_Model{
     function awall($id,$email){
         $this->db->query("UPDATE nilairaport SET uid='$id'WHERE Namaaa='$email'");
     }
-    function awal3($email){
+    function awal3($email,$kelas){
         $data = array(
             'usr_id'=> '1',
+            'id_Kelas'=> $kelas,
             'Semester1'=> 'Semester 1',
             'Semester2'=> 'Semester 2',
             'Nilai'=> 'PTS',
             'usrnm' => $email
         );
-        $this->db->insert('absen',$data);
         $data2 = array(
             'usr_id'=> '1',
+            'id_Kelas'=> $kelas,
             'Semester1'=> 'Semester 1',
             'Semester2'=> 'Semester 2',
             'Nilai'=> 'PAS',
             'usrnm' => $email
         );
+        $this->db->insert('absen',$data);
         $this->db->insert('absen',$data2);
+
     }
     function awalll($id,$email){
         $this->db->query("UPDATE absen SET usr_id='$id' WHERE usrnm='$email'");

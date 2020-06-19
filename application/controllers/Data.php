@@ -461,15 +461,14 @@ class Data extends CI_Controller {
         $sheett3 = $sheet3->getActiveSheet();
         $sheett3->setCellValue('A1','No');
         $sheett3->setCellValue('B1','Nama');
-        $sheett3->setCellValue('C1','Absen');
-        $sheett3->setCellValue('D1','Semester 1');
-        $sheett3->setCellValue('E1','Alpa');
-        $sheett3->setCellValue('F1','Sakit');
-        $sheett3->setCellValue('G1','Izin');
-        $sheett3->setCellValue('H1','Semester 2');
-        $sheett3->setCellValue('I1','Alpa');
-        $sheett3->setCellValue('J1','Sakit');
-        $sheett3->setCellValue('K1','Izin');
+        $sheett3->setCellValue('C1','Semester');
+        $sheett3->setCellValue('D1','Alpa');
+        $sheett3->setCellValue('E1','Sakit');
+        $sheett3->setCellValue('F1','Izin');
+        $sheett3->setCellValue('G1','Semester');
+        $sheett3->setCellValue('H1','Alpa');
+        $sheett3->setCellValue('I1','Sakit');
+        $sheett3->setCellValue('J1','Izin');
 
         $baris=2;
         $no=1;
@@ -477,21 +476,20 @@ class Data extends CI_Controller {
             $sheett3 = $sheet3->getActiveSheet();
             $sheett3->setCellValue('A'.$baris, $no++);
             $sheett3->setCellValue('B'.$baris, $ab->Nama);
-            $sheett3->setCellValue('C'.$baris, $ab->Nilai);
-            $sheett3->setCellValue('D'.$baris, $ab->Semester1);
-            $sheett3->setCellValue('E'.$baris, $ab->Alpa);
-            $sheett3->setCellValue('F'.$baris, $ab->Sakit);
-            $sheett3->setCellValue('G'.$baris, $ab->Izin);
-            $sheett3->setCellValue('H'.$baris, $ab->Semester2);
-            $sheett3->setCellValue('I'.$baris, $ab->Alpa2);
-            $sheett3->setCellValue('J'.$baris, $ab->Sakit2);
-            $sheett3->setCellValue('K'.$baris, $ab->Izin2);
+            $sheett3->setCellValue('C'.$baris, $ab->Semester1);
+            $sheett3->setCellValue('D'.$baris, $ab->Alpa);
+            $sheett3->setCellValue('E'.$baris, $ab->Sakit);
+            $sheett3->setCellValue('F'.$baris, $ab->Izin);
+            $sheett3->setCellValue('G'.$baris, $ab->Semester2);
+            $sheett3->setCellValue('H'.$baris, $ab->Alpa2);
+            $sheett3->setCellValue('I'.$baris, $ab->Sakit2);
+            $sheett3->setCellValue('J'.$baris, $ab->Izin2);
             $baris++;
         }
         foreach ($nam as $nma) {
-            $filename = 'Absen Siswa '.$nma->Nama_Kelas.'.xlsx';
+            $filename = 'Absen PTS '.$nma->Nama_Kelas.'.xlsx';
         }
-        $sheet3->getActiveSheet()->setTitle('Absen Siswa ');
+        $sheet3->getActiveSheet()->setTitle('Absen PTS');
         $sheet3->setActiveSheetIndex(0);
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         header('Content-Disposition: attachment;filename="'.$filename.'"');
@@ -523,36 +521,34 @@ class Data extends CI_Controller {
         $sheett4 = $sheet4->getActiveSheet();
         $sheett4->setCellValue('A1','No');
         $sheett4->setCellValue('B1','Nama');
-        $sheett4->setCellValue('C1','Absen');
-        $sheett4->setCellValue('D1','Semester 1');
-        $sheett4->setCellValue('E1','Alpa');
-        $sheett4->setCellValue('F1','Sakit');
-        $sheett4->setCellValue('G1','Izin');
-        $sheett4->setCellValue('H1','Semester 2');
-        $sheett4->setCellValue('I1','Alpa');
-        $sheett4->setCellValue('J1','Sakit');
-        $sheett4->setCellValue('K1','Izin');
+        $sheett4->setCellValue('C1','Semester');
+        $sheett4->setCellValue('D1','Alpa');
+        $sheett4->setCellValue('E1','Sakit');
+        $sheett4->setCellValue('F1','Izin');
+        $sheett4->setCellValue('G1','Semester');
+        $sheett4->setCellValue('H1','Alpa');
+        $sheett4->setCellValue('I1','Sakit');
+        $sheett4->setCellValue('J1','Izin');
         $baris=2;
         $no=1;
         foreach ($abse as $abs) {
             $sheett4 = $sheet4->getActiveSheet();
             $sheett4->setCellValue('A'.$baris, $no++);
             $sheett4->setCellValue('B'.$baris, $abs->Nama);
-            $sheett4->setCellValue('C'.$baris, $abs->Nilai);
-            $sheett4->setCellValue('D'.$baris, $abs->Semester1);
-            $sheett4->setCellValue('E'.$baris, $abs->Alpa);
-            $sheett4->setCellValue('F'.$baris, $abs->Sakit);
-            $sheett4->setCellValue('G'.$baris, $abs->Izin);
-            $sheett4->setCellValue('H'.$baris, $abs->Semester2);
-            $sheett4->setCellValue('I'.$baris, $abs->Alpa2);
-            $sheett4->setCellValue('J'.$baris, $abs->Sakit2);
-            $sheett4->setCellValue('K'.$baris, $abs->Izin2);
+            $sheett4->setCellValue('C'.$baris, $abs->Semester1);
+            $sheett4->setCellValue('D'.$baris, $abs->Alpa);
+            $sheett4->setCellValue('E'.$baris, $abs->Sakit);
+            $sheett4->setCellValue('F'.$baris, $abs->Izin);
+            $sheett4->setCellValue('G'.$baris, $abs->Semester2);
+            $sheett4->setCellValue('H'.$baris, $abs->Alpa2);
+            $sheett4->setCellValue('I'.$baris, $abs->Sakit2);
+            $sheett4->setCellValue('J'.$baris, $abs->Izin2);
             $baris++;
         }
         foreach ($na as $nma) {
-            $filename = 'Absen Siswa '.$nma->Nama_Kelas.'.xlsx';
+            $filename = 'Absen PTS '.$nma->Nama_Kelas.'.xlsx';
         }
-        $sheet4->getActiveSheet()->setTitle('Absen Siswa');
+        $sheet4->getActiveSheet()->setTitle('Absen PAS');
         $sheet4->setActiveSheetIndex(0);
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         header('Content-Disposition: attachment;filename="'.$filename.'"');

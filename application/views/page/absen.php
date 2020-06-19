@@ -158,7 +158,7 @@
                   <div class="col-3">
                     <input type="text" name="kls" value="<?= $data->Nama_Kelas;?>" disabled>
                   </div>
-                    <input type="hidden" name="idsub" value="<?= $data->id_sub;?>" disabled>
+                    <input type="hidden" name="idsub" value="<?= $data->id_sub;?>">
                   <div class="col-2">
                     <button type="submit" class="btn btn-success">
                     <i class="fa fa-table"></i>
@@ -233,7 +233,7 @@
                   <div class="col-3">
                     <input type="text" name="klss" value="<?= $data->Nama_Kelas;?>" disabled>
                   </div>
-                  <input type="hidden" name="idsub2" value="<?= $data->id_sub;?>" disabled>
+                  <input type="hidden" name="idsub2" value="<?= $data->id_sub;?>">
                   <div class="col-2">
                     <button type="submit" class="btn btn-success">
                     <i class="fa fa-table"></i>

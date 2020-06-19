@@ -47,10 +47,11 @@
       <div class="image">
         <img src="<?= base_url();?>assets/foto/<?= $data->Foto;?>" class="img-circle elevation-2" alt="User Image">
       </div>
-      <?php }?>
+      
       <div class="info">
-        <a href="<?= base_url('page/profil2')?>" class="d-block"><?php echo $this->session->userdata('Nama'); ?></a>
+        <a href="<?= base_url('page/profil2')?>" class="d-block"><?= $data->Nama;?></a>
       </div>
+      <?php }?>
     </div>
 
     <!-- Sidebar Menu -->
@@ -131,12 +132,13 @@
                 <img src="<?= base_url();?>assets/foto/<?= $data->Foto;?>" class="profile-user-img img-circle " alt="User Image" height="100px">
                 <?php }?>
                 </div>
-                <h3 class="profile-username text-center"><?php echo $this->session->userdata('Nama'); ?></h3>
+                <?php foreach($deta as $data){?>
+                <h3 class="profile-username text-center"><?= $data->Nama;?></h3>
 
-                <p class="text-muted text-center"><?php echo $this->session->userdata('Level'); ?></p>
+                <p class="text-muted text-center"><?= $data->Level;?></p>
                 
                 <ul class="list-group list-group-unbordered mb-3">
-                <?php foreach($deta as $data){?>
+                
                   <li class="list-group-item">
                     <b>Jurusan</b> <a class="float-right"><?= $data->Nama_Jurusan;?></a>
                   </li>
