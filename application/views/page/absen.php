@@ -32,7 +32,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="<?= base_url('page')?>" class="brand-link">
-    <img src="<?= base_url('assets/')?>dist/img/escore.png" alt="E - Score Logo" class="brand-image img-circle elevation-3"
+    <img src="<?= base_url('assets/')?>dist/img/escores.png" alt="E - Score Logo" class="brand-image img-circle elevation-3"
          style="opacity: .8">
     <span class="brand-text font-weight-light"><b>E - Score</b></span>
   </a>
@@ -43,12 +43,12 @@
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     <?php foreach($detail as $data){?>
       <div class="image">
-        <img src="<?= base_url();?>assets/foto/<?= $data->Foto;?>" class="img-circle elevation-2" alt="User Image">
+        <img src="<?= base_url();?>assets/foto/<?= $data->Foto;?>" class="img-circle elevation-2" alt="User Image" >
+      </div>
+      <div class="info">
+        <a href="<?= base_url('page/profil')?>" class="d-block"><?= $data->Nama;?></a>
       </div>
       <?php }?>
-      <div class="info">
-        <a href="<?= base_url('page/profil')?>" class="d-block"><?php echo $this->session->userdata('Nama'); ?></a>
-      </div>
     </div>
 
     <!-- Sidebar Menu -->
@@ -185,14 +185,13 @@
                   <th>Alpa</th>
                   <th>Sakit</th>
                   <th>Izin</th>
-                  <th style="width: 20%">Alat</th>
+                  <th style="width: 10%">Alat</th>
                   
                 </tr>
                 </thead>
                 <tbody>
                 <?php $no=1; 
-                foreach($de as $data){
-                  if($data->Alpa!=NULL){?>
+                foreach($de as $data){?>
                 <tr>
                   <td><?=  $no++ ?></td>
                   <td><?= $data->Nama;?></td>
@@ -211,14 +210,9 @@
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="#"data-toggle="modal" data-target="#modalhapus<?= $data->id_absen;?>">
-                              <i class="fas fa-trash">
-                              </i>
-                              Hapus
-                          </a>
+                        
                       </td>
                   </tr>
-                <?php }?>
                 <?php }?>
                 </tbody>
                 </table>
@@ -260,14 +254,13 @@
                   <th>Alpa</th>
                   <th>Sakit</th>
                   <th>Izin</th>
-                  <th style="width: 20%">Alat</th>
+                  <th style="width: 10%">Alat</th>
                   
                 </tr>
                 </thead>
                 <tbody>
                 <?php $no=1; 
-                foreach($dee as $data){
-                  if($data->Alpa!=NULL){?>
+                foreach($dee as $data){?>
                 <tr>
                   <td><?=  $no++ ?></td>
                   <td><?= $data->Nama;?></td>
@@ -286,14 +279,9 @@
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="#"data-toggle="modal" data-target="#modalhapus<?= $data->id_absen;?>">
-                              <i class="fas fa-trash">
-                              </i>
-                              Hapus
-                          </a>
+                          
                       </td>
                   </tr>
-                <?php }?>
                 <?php }?>
                 </tbody>
                 </table>
@@ -317,30 +305,7 @@
 <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-<?php foreach($de as $data){?>
-<div class="modal fade" id="modalhapus<?= $data->id_absen;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle" >Hapus Data</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <h5 class="text-center"> Apakah Anda Yakin?<h5>
-      <div class="text-center">
-      <form role="form" method="post" action="<?= base_url('data/hapus3')?>">
-      <input type="hidden" name="id_absen" value="<?= $data->id_absen;?>">
-      <a href=<?= base_url('data/hapus3')?>><button type="submit" class="btn btn-danger col-5" >Ya</button></a>
-      <button type="button" class="btn btn-secondary col-5" data-dismiss="modal">Tidak</button>
-      </div>
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
-<?php }?>
+
 <?php foreach($de as $data){?>
 <div class="modal fade" id="modaledit<?= $data->id_absen;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered " role="document">
@@ -417,6 +382,81 @@
   </div>
 </div>
 <?php }?>
-
+<?php foreach($dee as $data){?>
+<div class="modal fade" id="modaledit<?= $data->id_absen;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle" >Edit Rekap Absen</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <?= form_open_multipart('data/ed5');?>
+          <div class="form-group row">
+            <label for="semester1" class="col-sm-4 col-form-label">Semester 1</label>
+            <div class="col-sm-8">
+            <input type="text" class="form-control" id="semester1" name="semester1" placeholder="Semester 1" value="<?= $data->Semester1;?>" autocomplete="off" disabled>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="alpa" class="col-sm-4 col-form-label">Alpa</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="alpa" name="alpa" placeholder="Absen Alpa" value="<?= $data->Alpa;?>" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="sakit" class="col-sm-4 col-form-label">Sakit</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="sakit" name="sakit" placeholder="Absen Sakit" value="<?= $data->Sakit;?>" autocomplete="off">
+              </div>
+          </div>
+          <div class="form-group row">
+            <label for="izin" class="col-sm-4 col-form-label">Izin</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="izin" name="izin" placeholder="Absen Izin" value="<?= $data->Izin;?>" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="semester2" class="col-sm-4 col-form-label">Semester 2</label>
+            <div class="col-sm-8">
+            <input type="text" class="form-control" id="semester2" name="semester2" placeholder="Semester 2" value="<?= $data->Semester2;?>" autocomplete="off" disabled>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="alpa2" class="col-sm-4 col-form-label">Alpa</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="alpa2" name="alpa2" placeholder="Absen Alpa" value="<?= $data->Alpa2;?>" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="sakit2" class="col-sm-4 col-form-label">Sakit</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="sakit2" name="sakit2" placeholder="Absen Sakit" value="<?= $data->Sakit2;?>" autocomplete="off">
+              </div>
+          </div>
+          <div class="form-group row">
+            <label for="izin2" class="col-sm-4 col-form-label">Izin</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="izin2" name="izin2" placeholder="Absen Izin2" value="<?= $data->Izin2;?>" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-sm-0 col-sm-10">
+              <button type="submit" class="btn btn-danger">Simpan</button>
+            </div>
+          </div>
+          <input type="hidden" name="usr_id" value="<?= $data->usr_id;?>">
+          <input type="hidden" name="id_absen" value="<?= $data->id_absen;?>">
+      <?= form_close();?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php }?>
             
            

@@ -32,7 +32,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="<?= base_url('page')?>" class="brand-link">
-    <img src="<?= base_url('assets/')?>dist/img/escore.png" alt="E - Score Logo" class="brand-image img-circle elevation-3"
+    <img src="<?= base_url('assets/')?>dist/img/escores.png" alt="E - Score Logo" class="brand-image img-circle elevation-3"
          style="opacity: .8">
     <span class="brand-text font-weight-light"><b>E - Score</b></span>
   </a>
@@ -43,12 +43,12 @@
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     <?php foreach($detail as $data){?>
       <div class="image">
-        <img src="<?= base_url();?>assets/foto/<?= $data->Foto;?>" class="img-circle elevation-2" alt="User Image">
+        <img src="<?= base_url();?>assets/foto/<?= $data->Foto;?>" class="img-circle elevation-2" alt="User Image" >
+      </div>
+      <div class="info">
+        <a href="<?= base_url('page/profil')?>" class="d-block"><?= $data->Nama;?></a>
       </div>
       <?php }?>
-      <div class="info">
-        <a href="<?= base_url('page/profil')?>" class="d-block"><?php echo $this->session->userdata('Nama'); ?></a>
-      </div>
     </div>
 
     <!-- Sidebar Menu -->
@@ -207,7 +207,7 @@
                 <h5 class="widget-user-desc"><?= $data->Nama_Jurusan;?></h5>
               </div>
               <div class="widget-user-image">
-                <img class="img-circle elevation-2" src="<?= base_url();?>assets/foto/<?= $data->Foto;?>" alt="User Avatar" style="height: 100px">
+                <img class="img-circle elevation-2" src="<?= base_url();?>assets/foto/<?= $data->Foto;?>" alt="User Avatar" style="height: 90px">
               </div>
               <div class="card-footer box-profile">
                 <ul class="list-group list-group-unbordered mb-3">

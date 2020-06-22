@@ -354,10 +354,7 @@ class Product_model extends CI_Model{
     function hapusnr($idr){
         $this->db->query("DELETE FROM nilairaport WHERE id_raport='$idr'");
     }
-    function hapusab($idab){
-        $this->db->query("DELETE FROM absen WHERE id_absen='$idab'");
-    }
-    function hapusnp($idab){
+    function hapusnp($idpt){
         $this->db->query("DELETE FROM nilaipts WHERE id_pts='$idpt'");
     }
     function tambahh($id,$nh1,$nh2,$nh3,$nh4,$nh5,$kkmnh,$matpel,$semester){
@@ -377,13 +374,10 @@ class Product_model extends CI_Model{
         );
         $this->db->insert('nilaiharian',$data);
     }
-    function tambahh2($id,$nh,$pts,$kkmt,$pas,$kkma,$np,$kkm,$nk,$kkm2,$predikat,$matpel,$semester){
+    function tambahh2($id,$pas,$kkma,$np,$kkm,$nk,$kkm2,$predikat,$matpel,$semester){
         $data = array(
             'Semester' => $semester,
             'Matpel' => $matpel,
-            'NH' => $nh,
-            'PTS' => $pts,
-            'KKMT' => $kkmt,
             'PAS' => $pas,
             'KKMA' => $kkma,
             'NP' => $np,
@@ -409,23 +403,28 @@ class Product_model extends CI_Model{
         );
         $this->db->insert('nilaipts',$data);
     }
-    function edd($id,$idnh,$nh1,$nh2,$nh3,$nh4,$nh5,$kkmnh,$matpel,$semester){
+    function edd($id,$idnh,$nh1,$nh2,$nh3,$nh4,$nh5,$kkmnh){
         $rata = ($nh1+$nh2+$nh3+$nh4+$nh5)/5;
-        $this->db->query("UPDATE nilaiharian SET Semester='$semester',Matpel='$matpel',NH1 = '$nh1',NH2 = '$nh2',NH3 = $nh3,NH4 = '$nh4',NH5 = '$nh5',KKMNH => '$kkmnh' ,Rata = '$rata', user_id = '$id' WHERE id_nh='$idnh'");
+        $this->db->query("UPDATE nilaiharian SET NH1 = '$nh1',NH2 = '$nh2',NH3 = $nh3,NH4 = '$nh4',NH5 = '$nh5',KKMNH = '$kkmnh' ,Rata = '$rata', user_id = '$id' WHERE id_nh='$idnh'");
     }
-    function edd2($id,$idr,$pas,$np,$nk,$kkmt,$kkma,$kkm,$kkm2,$predikat,$matpel,$semester){
+    function edd2($id,$idr,$pas,$kkma,$np,$kkm,$nk,$kkm2,$predikat,$matpel,$semester){
         
         $this->db->query("UPDATE nilairaport SET PAS = '$pas',KKMA = '$kkma',NP = '$np',KKM = '$kkm',NK = '$nk',KKM2 = '$kkm2', Predikat= '$predikat', uid = '$id' WHERE id_raport='$idr'");
         
     }
-    function edd4($id,$idp,$nh,$pts,$predikat,$matpel,$semester){
+    function edd4($id,$idp,$nh,$pts,$kkmt,$predikat,$matpel,$semester){
         
         $this->db->query("UPDATE nilaipts SET NH = '$nh', PTS = '$pts',KKMT = '$kkmt', Predikat ='$predikat', id_us = '$id' WHERE id_pts='$idp' ");
         
     }
     function edd3($id,$idab,$alpa,$sakit,$izin,$alpa2,$sakit2,$izin2){
         
-        $this->db->query("UPDATE absen SET Alpa = '$alpa',Sakit = '$sakit',Izin = '$izin' ,Alpa2 = '$alpa2',Sakit2 = '$sakit2',Izin2 = '$izin2', usr_id = '$id' WHERE id_absen='$idab'");
+        $this->db->query("UPDATE absen SET Alpa = '$alpa',Sakit = '$sakit',Izin = '$izin' ,Alpa2 = '$alpa2',Sakit2 = '$sakit2',Izin2 = '$izin2', usr_id = '$id' WHERE id_absen='$idab' AND Nilai='PTS'");
+        
+    }
+    function edd5($id,$idab,$alpa,$sakit,$izin,$alpa2,$sakit2,$izin2){
+        
+        $this->db->query("UPDATE absen SET Alpa = '$alpa',Sakit = '$sakit',Izin = '$izin' ,Alpa2 = '$alpa2',Sakit2 = '$sakit2',Izin2 = '$izin2', usr_id = '$id' WHERE id_absen='$idab'AND Nilai='PAS'");
         
     }
     function awal1($email){

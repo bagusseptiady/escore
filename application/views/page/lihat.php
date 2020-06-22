@@ -32,7 +32,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="<?= base_url('page')?>" class="brand-link">
-    <img src="<?= base_url('assets/')?>dist/img/escore.png" alt="E - Score Logo" class="brand-image img-circle elevation-3"
+    <img src="<?= base_url('assets/')?>dist/img/escores.png" alt="E - Score Logo" class="brand-image img-circle elevation-3"
          style="opacity: .8">
     <span class="brand-text font-weight-light"><b>E - Score</b></span>
   </a>
@@ -45,10 +45,10 @@
       <div class="image">
         <img src="<?= base_url();?>assets/foto/<?= $data->Foto;?>" class="img-circle elevation-2" alt="User Image">
       </div>
-      <?php }?>
       <div class="info">
-        <a href="<?= base_url('page/profil')?>" class="d-block"><?php echo $this->session->userdata('Nama'); ?></a>
+        <a href="<?= base_url('page/profil')?>" class="d-block"><?= $data->Nama;?></a>
       </div>
+      <?php }?>
     </div>
 
     <!-- Sidebar Menu -->
@@ -311,7 +311,7 @@
                       
                       Edit
                     </a>
-                    <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#exampleModalCenterrr<?= $data->id_pts;?>">
+                    <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#exampleModalCenterrrr<?= $data->id_pts;?>">
                       <i class="fas fa-trash">
                       </i>
                       Delete
@@ -479,7 +479,7 @@
 </div>
 <?php }?>
 <?php foreach($pt as $data){?>
-<div class="modal fade" id="exampleModalCenterrr<?= $data->id_pts;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModalCenterrrr<?= $data->id_pts;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -491,9 +491,9 @@
       <div class="modal-body">
       <h5 class="text-center"> Apakah Anda Yakin?<h5>
       <div class="text-center">
-      <form role="form" method="post" action="<?= base_url('data/hapus2')?>">
+      <form role="form" method="post" action="<?= base_url('data/hapus3')?>">
       <input type="hidden" name="id_pts" value="<?= $data->id_pts;?>">
-      <a href=<?= base_url('data/hapus4')?>><button type="submit" class="btn btn-danger col-5" >Ya</button></a>
+      <a href=<?= base_url('data/hapus3')?>><button type="submit" class="btn btn-danger col-5" >Ya</button></a>
       <button type="button" class="btn btn-secondary col-5" data-dismiss="modal">Tidak</button>
       </div>
       </div>
@@ -782,18 +782,13 @@
           <div class="form-group row">
             <label for="semester" class="col-sm-4 col-form-label">Semester</label>
             <div class="col-sm-8">
-            <input type="text" class="form-control" id="semester" name="semester" placeholder="Semester" value="<?= $data->Semester;?>" autocomplete="off" >
+            <input type="text" class="form-control" id="semester" name="semester" placeholder="Semester" value="<?= $data->Semester;?>" autocomplete="off" disabled>
             </div>
           </div>
           <div class="form-group row">
             <label for="matpel" class="col-sm-4 col-form-label">Mata Pelajaran</label>
             <div class="col-sm-8">
-              <select class="custom-select" name="matpel" id="matpel" required>
-                <option value="<?= $data->Nama_Matpel;?>"><?= $data->Nama_Matpel;?></option>
-                <?php foreach($mt as $row):?>
-                <option value="<?php echo $row->id_mt;?>"><?php echo $row->Nama_Matpel;?></option>
-                <?php endforeach;?>
-              </select>
+            <input type="text" class="form-control" id="matpel" name="matpel" placeholder="Mata Pelajaran" value="<?= $data->Nama_Matpel;?>" autocomplete="off" disabled>
             </div>
           </div>
           <div class="form-group row">

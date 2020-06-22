@@ -45,10 +45,10 @@
       <div class="image">
         <img src="<?= base_url();?>assets/foto/<?= $data->Foto;?>" class="img-circle elevation-2" alt="User Image">
       </div>
-      <?php }?>
       <div class="info">
-        <a href="<?= base_url('page/profil2')?>" class="d-block"><?php echo $this->session->userdata('Nama'); ?></a>
+        <a href="<?= base_url('page/profil2')?>" class="d-block"><?= $data->Nama;?></a>
       </div>
+      <?php }?>
     </div>
 
     <!-- Sidebar Menu -->
